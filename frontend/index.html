@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Test</title>
+        <link rel="stylesheet" href="styles/screen.css">
+        <script src="frameworks/jquery-3.3.1.min.js"></script>
+        <script src="frameworks/__.js"></script>
+        <script src="scripts/app.js"></script>
+    </head>
+    
+    <body onload="App.go()">
+        <div id="background-fader"></div>
+        <div id="opening">
+            <svg id="logo" viewBox="0 0 980 400">
+                <symbol id="s-text">
+                    <text text-anchor="middle"
+                          x="50%" y="25%" dy=".35em" font-weight="bold" linearGradient="#gradient-horizontal">
+                        Concrete
+                    </text>
+                </symbol>
+                <symbol id="x-text">
+                    <text text-anchor="middle"
+                          x="50%" y="75%" dy=".35em">
+                        Street
+                    </text>
+                </symbol>  
+                
+                <use xlink:href="#s-text" class="text stroke-1"></use>
+                <use xlink:href="#s-text" class="text stroke-2"></use>
+                <use xlink:href="#s-text" class="text stroke-3"></use>
+                <use xlink:href="#s-text" class="text stroke-4"></use>
+                
+                <use xlink:href="#x-text" class="text stroke-1"></use>
+                <use xlink:href="#x-text" class="text stroke-2"></use>
+                <use xlink:href="#x-text" class="text stroke-3"></use>
+                <use xlink:href="#x-text" class="text stroke-4"></use>
+            </svg>
+        </div> 
+        
+    </body>
+</html>

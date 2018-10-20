@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit:900');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    background-image: url(../images/akira_city_bw.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    transition: 20s;
+}
+#opening{
+    margin: 0px;
+    height: 100vh;
+    font: 12em 'Kanit', Impact;
+    text-transform: uppercase;
+    animation: fadeout 15s 1 linear;
+    z-index: 100;
+}
+svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+    fill: rgb(150,0,0);
+    stroke-linejoin: round;
+    animation: stroke 8s 1 cubic-bezier(.41, .01, .99, .51);
+    stroke-linecap: round;
+    opacity: 0;
+}
+.stroke-1 {
+    stroke: #fff6c2;
+}
+.stroke-2 {
+    stroke: #ff9f30;
+    stroke-dashoffset: 20;
+    stroke-width: 2;
+}
+.stroke-3 {
+    stroke: rgb(229, 88, 0);
+    stroke-dashoffset: 50;
+    stroke-width: 3;
+}
+.stroke-4 {
+    stroke: #dc1414;
+    stroke-dashoffset: 100;
+    stroke-width: 4;
+}
+
+@keyframes stroke {
+    0% {
+        stroke-dasharray: 0 1000;
+        fill: rgba(0,0,0,0);
+    }
+    45%{
+        stroke-dasharray: 1100 1000;
+        fill: rgba(0,0,0,0);
+        opacity: 1;
+        stroke-width: 1;
+    }
+    70% {
+        fill: rgb(150, 0, 0);
+        opacity: 0.4;
+        stroke-width: 0;
+    }
+    90%{
+        opacity: 0.2;
+    }
+    100% {
+        stroke-width: 0;
+        opacity: 0;
+    }
+}
+@keyframes fadeout {
+    0%{
+        background-color: white;
+    }
+    50%{
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    80%{
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+    100%{
+        background-color: rgba(255,255,255,0);
+    }
+}
