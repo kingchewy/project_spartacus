@@ -10,20 +10,22 @@
         <script src="scripts/app.js"></script>
     </head>
     
-    <body onload="App.go()">
+    <body onload="App.opener()">
         <div id="background-fader"></div>
+        
+
         <div id="opening">
-            <svg id="logo" viewBox="0 0 980 400">
+            <svg id="logo" viewBox="0 0 750 400">
                 <symbol id="s-text">
                     <text text-anchor="middle"
                           x="50%" y="25%" dy=".35em" font-weight="bold" linearGradient="#gradient-horizontal">
-                        Concrete
+                        Night
                     </text>
                 </symbol>
                 <symbol id="x-text">
                     <text text-anchor="middle"
                           x="50%" y="75%" dy=".35em">
-                        Street
+                        Fight
                     </text>
                 </symbol>  
                 
@@ -37,7 +39,51 @@
                 <use xlink:href="#x-text" class="text stroke-3"></use>
                 <use xlink:href="#x-text" class="text stroke-4"></use>
             </svg>
-        </div> 
+        </div>
+
+        
+        <div id="create_new_char">
+            <div class="narrator-bubble">
+                <h1>Who the hell are YOU?</h1>
+                <div>Don't try to play me, I can tell, you are not from around "Concrete Street". No scars, no bruises, no smeares, no limping … just beauty at ease, and a child's naivity. You stick out like a glass of milk in the bar. So what's your name, darling?</div>
+            </div>
+            <div class="you-bubble">
+                <label>Name your Fighter!</label><input><button>Tell him!</button>
+            </div>
+            <div class="narrator-bubble">
+                <h1>*Name*? Well I've heard more frightening names.</h1>
+                <div>And what is it, that led you to this nasty place? You do know, where you are, right? You are in "Concrete Street". A bad place. An unsafe place. Especially for someone as pretty as you. You should turn on your toes, and sneak away, my little mouse, before someone not quite as friendly as me spots you.</div>
+            </div>
+            <div class="you-bubble">
+                <div>I can look after myself, don’t worry. And you’ll feel it firsthand if you make fun of my name one more time.</div>
+            </div>
+            <div class="narrator-bubble">
+                Ah yeah, you are a clone, right? I thought as much. I heard, that your people are quite touchy with names and stuff like that.
+            </div>
+            <div class="you-bubble">
+                So why do you play with fire then?
+            </div>
+            <div class="narrator-bubble">
+                Alright sorry! You’ve got quite the temper … Can you tell me now, what you are here for? I thought clones are created for military uses?
+            </div>
+            <div class="you-bubble">
+                Pha! You don’t honestly think I would accept someone else’s control of myself? I left with a bang, and am an outlaw now. So what better place to go than this?
+            </div>
+            <div class="narrator-bubble">
+                That’s true. Well, now that you’re here, what’s next?
+            </div>
+            <div class="you-bubble">
+                Well what do you think? I was born to kill. I came to fight in the night. I came to rock the block. I’ll enter the ring, and leave with gold and fame, and I won’t leave before everyone knows my name: „The one and only! The green queen! *Name*.“
+            </div>
+            <div class="narrator-bubble">
+                Oh really? Well what’s so spezial about you? There are other clones as well in „Concrete Street“, that fight for fame.
+            </div>
+            <div class="you-bubble">
+                Never compare me to anyone, especially to a sibling. Ever. Don’t you dare. I’m unique, never question it.
+                <br>
+                I’ll tell you what I can cause! *Charakter fields setting*
+            </div>
+        </div>
         
     </body>
 </html>
