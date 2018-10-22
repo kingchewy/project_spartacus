@@ -6,13 +6,26 @@ OpeningAnimation = {
         setTimeout(function(){
             document.getElementById("background-fader").addEventListener("animationend", function(){
                 this.remove()
-                document.getElementById("char-picker").style.display = "block"
-                document.getElementsByClassName("char-choice")[0].addEventListener("click", function(){
-                    document.getElementById("char-picker").remove()
-                    document.getElementById("create_new_char").style.display = "block"                    
-                })
+                OpeningAnimation.chooseChar()
             })
             document.body.style.backgroundPosition = "bottom"
         }, 1500)
+    },
+    
+    chooseChar: function () {
+        var charPick = document.getElementById("char-picker").style
+        charPick.willChange = "margin-top"
+        charPick.display = "block"
+        charPick.willChange = "auto"
+        
+        $(".char-choice").click(function(){
+            var chosen = $(this).children("h1")[0].innerHTML
+            var confirmed = confirm("Are you sure " + chosen + " is your character of choice? You won't be able to undo this descicion!")
+            if (confirmed == true){
+                document.getElementById("char-picker").remove()
+                document.getElementById("create_new_char").style.display = "block"
+                Dialog.fillDialog("create_new_char", chosen)   
+            }            
+        })
     }
 }
