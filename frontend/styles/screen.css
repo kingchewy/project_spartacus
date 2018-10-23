@@ -12,8 +12,8 @@ body{
     background-position: top;
     background-attachment: fixed;
     transition: 20s;
-    height: 100vh;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 #opening{
     margin: 0px;
@@ -22,8 +22,20 @@ body{
     text-transform: uppercase;
     z-index: 100;
 }
+#opening-text{
+    position: fixed;
+    display: none;
+    opacity: 0;
+    color: white;
+    text-align: center;
+    top: 25vh;
+    left: 20%;
+    font-size: 0.5em;
+    animation: quickStoryTxt 4s 1 ease;
+    text-shadow: 0px 0px 80px black;
+}
 #background-fader{
-    animation: fadeout 12s 1 linear;
+    animation: fadeout 14s 1 linear;
     height: 100vh;
     width: 100vw;
     position: fixed;
@@ -67,35 +79,60 @@ svg {
     width: 70vw;
     margin-top: 5vh;
     background-color: rgba(255, 255, 255, 0.9);
-    animation: appear 2s 1 ease-out;
+    animation: appear 3s 1 ease-out;
+    text-align: center;
+    transition: 1s;
+    opacity: 1;
 }
 .char-choice{
     background-color: black;
     color: white;
-    height: 90%;
-    width: 30%;
-    margin-left: 20px;
+    height: 88%;
+    width: 31%;
+    margin: 0px 5px 0px 5px;
     display: inline-grid;
-    transition: 1s;
+    transition: 0.6s;
     cursor: pointer;
     background-size: cover;
+    background-position: center;
+    filter: brightness(50%);
+    box-shadow: 0px 0px 0px black;
+    text-shadow: 0px 0px 30px black;
 }
 .char-choice:hover{
+    filter: brightness(100%);
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.8);
 }
-#green-queen{
+#greenqueen{
     background-image: url(../images/green-queen-placeholder.jpg);
-    background-position: center;
 }
+#greenqueen:hover{
+    color: rgb(200,255,0);
+}
+#distroyerx{
+    background-image: url(../images/long_ouyang_02.jpg);
+}
+#distroyerx:hover{
+    color: rgb(0,200,255);
+}
+#rot{
+    background-image: url(../images/monster_art2_by_ang_angg-d84jjva.jpg);
+}
+#rot:hover{
+    color: rgb(255,200,0);
+}
+
+
 #create_new_char{
     display: none;
-    animation: appear 2s 1 ease-out;
+    animation: appear 3s 1 ease-out;
 }
 .dialog{
     padding-top: 40px;
     padding-bottom: 40px;
     font-family: sans-serif;
     font-size: 1.3em;
-    }
+}
 h1{
     font-family: 'Kanit';
     margin-bottom: 20px;
@@ -105,6 +142,9 @@ h1{
     padding: 20px 60px 40px 60px;
     width: 60vw;
     margin-bottom: 50px;
+    transition: 0.5s;
+    transition-timing-function: ease-out;
+    position: sticky;
 }
 .narrator-bubble{
     left: 0px;
@@ -156,5 +196,10 @@ h1{
 @keyframes appear {
     0%{
         margin-top: 100vh;
+    }
+}
+@keyframes quickStoryTxt {
+    50%{
+        opacity: 1;
     }
 }

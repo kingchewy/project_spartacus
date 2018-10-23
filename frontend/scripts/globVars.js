@@ -1,6 +1,6 @@
 GlobVars = {
     Dialog: {
-        thegreenqueen: [
+        greenqueen: [
             ["N", "<h1>Who the hell are YOU?</h1> Don't try to play me, I can tell, you are not from around 'Concrete Street'. No scars, no bruises, no smeares, no limping … just beauty at ease, and a child's naivity. You stick out like a glass of milk in the bar. So what's your name, darling?"],
             ["Y", "*Name fighter input*"],
             ["N", "*Name*? Well I've heard more frightening names. And what is it, that led you to this nasty place? You do know, where you are, right? You are in 'Concrete Street'. A bad place. An unsafe place. Especially for someone as pretty as you. You should turn on your toes, and sneak away, my little mouse, before someone not quite as friendly as me spots you."],
@@ -13,9 +13,9 @@ GlobVars = {
             ["Y", "Well what do you think? I was born to kill. I came to fight in the night. I came to rock the block. I’ll enter the ring, and leave with gold and fame, and I won’t leave before everyone knows my name: „The one and only! The green queen! *Name*.“"],
             ["N", "Oh really? Well what’s so spezial about you? There are other clones as well in „Concrete Street“, that fight for fame."],
             ["Y", "Never compare me to anyone, especially to a sibling. Don’t you dare. I’m unique, never question it. I’ll tell you what I can cause! *Charakter fields setting*"]],
-        robot:[
+        distroyerx:[
             ["N", "Turn back NOW! The Robot is not jet implementet!"]],
-        monster:[
+        rot:[
             ["N", "Turn back NOW! The Monster is not jet implementet!"]]
     }
 }
