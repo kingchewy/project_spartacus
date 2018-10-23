@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Test</title>
         <link rel="stylesheet" href="styles/screen.css">
+        <link rel="stylesheet" href="styles/opening.css">
         <script src="frameworks/jquery-3.3.1.min.js"></script>
 <!--    <script src="frameworks/__.js"></script>-->
         <script src="scripts/openingAnimation.js"></script>
@@ -14,6 +15,7 @@
     </head>
     
     <body onload="OpeningAnimation.opener()">
+        <audio></audio>
         <div id="background-fader"></div>
         
 
@@ -47,9 +49,9 @@
 
         <div id="char-picker">
             <h1>Which hero enteres the dark city?</h1>
-            <span id="greenqueen" class="char-choice"><h1>THE GREEN QUEEN</h1></span>
-            <span id="distroyerx" class="char-choice"><h1>D!STROYER-X</h1></span>
-            <span id="rot" class="char-choice"><h1>ROT</h1></span>
+            <span id="greenqueen" class="char-choice" race="human"><h1>THE GREEN QUEEN</h1></span>
+            <span id="distroyerx" class="char-choice" race="robot"><h1>D!STROYER-X</h1></span>
+            <span id="rot" class="char-choice" race="monster"><h1>ROT</h1></span>
         </div>
         
         <div id="create_new_char" class="dialog">

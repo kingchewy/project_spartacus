@@ -1,6 +1,6 @@
 OpeningAnimation = {
     opener: function () {
-                //OpeningAnimation.chooseChar()
+//                OpeningAnimation.chooseChar()
 
         document.getElementsByTagName("use")[0].addEventListener("animationend", function () {
             document.getElementById("logo").remove()
@@ -30,6 +30,7 @@ OpeningAnimation = {
             confirmed = confirm("Are you sure " + chosen + " is your character of choice? You won't be able to undo this descicion!")
             
             if (confirmed == true){
+                GlobVars.Character.race = that.getAttribute("race")
                 document.getElementById("char-picker").style.opacity= "0"
                 setTimeout(function () {
                     document.getElementById("char-picker").remove()

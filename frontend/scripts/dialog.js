@@ -31,5 +31,15 @@ Dialog = {
                 }  
             })
         })
+    },
+    
+    setCharData: function (clicked, setWhat) {
+        var fieldsArr = setWhat.split(" ")
+        $("[for=" + clicked.getAttribute("name") + "]").each(function(key, val){
+            GlobVars.Character[val.getAttribute("stat")] = $(val).val()
+        })
+        
+        
+        console.log(GlobVars.Character)
     }
 }
