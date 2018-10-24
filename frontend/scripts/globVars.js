@@ -1,5 +1,7 @@
 GlobVars = {
     Dialog: {
+        
+        //greenqueen auf human ändern usw…
         greenqueen: [
             ["N", "<h1>Who the hell are YOU?</h1> Don't try to play me, I can tell, you are not from around 'Concrete Street'. No scars, no bruises, no smeares, no limping … just beauty at ease, and a child's naivity. You stick out like a glass of milk in the bar. So what's your name, darling?"],
             ["Y", "<input class='dialog-input' placeholder='Name your fighter!' for='enter-name' stat='name'>"
