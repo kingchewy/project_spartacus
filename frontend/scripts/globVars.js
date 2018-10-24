@@ -15,12 +15,18 @@ GlobVars = {
             ["N", "Oh really? Well what’s so spezial about you? There are other clones as well in „Concrete Street“, that fight for fame."],
             ["Y", "Never compare me to anyone, especially to a sibling. Don’t you dare. I’m unique, never question it."],
             ["Y", " I’ll tell you what I can cause!<br>"
-            + "<input class='dialog-input' placeholder='HP' for='enter-stats' stat='hp'><br>"
-            + "<input class='dialog-input' placeholder='Armor' for='enter-stats' stat='armor'><br>"
-            + "<input class='dialog-input' placeholder='Strength' for='enter-stats' stat='strength'><br>"
-            + "<input class='dialog-input' placeholder='Accuracy' for='enter-stats' stat='accuracy'><br>"
-            + "<input class='dialog-input' placeholder='Crit. Chance' for='enter-stats' stat='critChance'><br>"
-            + "<input class='dialog-input' placeholder='Agility' for='enter-stats' stat='agility'><br>"
+             + "<input class='dialog-input' type='number' min='100' max='9000' step='50' value='100' for='enter-stats' stat='hp' placeholder='HP'>"
+             + "<label>HP: </label><br>"
+             + "<input class='dialog-input' type='number' min='1' max='9' step='0.2' value='1' for='enter-stats' stat='armor' placeholder='Armor'>"
+             + "<label>Armor: </label><br>"
+             + "<input class='dialog-input' type='number' min='1' max='9' step='0.2' value='1' for='enter-stats' stat='strength' placeholder='Strength'>"
+             + "<label>Strength: </label><br>"
+             + "<input class='dialog-input' type='number' min='1' max='10' step='0.2' value='1' for='enter-stats' stat='accuracy' placeholder='Accuracy'>"
+             + "<label>Accuracy: </label><br>"
+             + "<input class='dialog-input' type='number' min='0' max='10' step='0.2' value='0' for='enter-stats' stat='critChance' placeholder='Crit. Chance'>"
+             + "<label>Critical Hit Chance: </label><br>"
+             + "<input class='dialog-input' type='number' min='0' max='10' step='0.2' value='0' for='enter-stats' stat='agility' placeholder='Agility'>"
+             + "<label>Agility: </label><br>"
             + "<button class='dialog-btn' onclick= \"Dialog.setCharData(this, 'hp armor strength accuracy critChance agility')\" name='enter-stats'>Done</button>"]],
         distroyerx:[
             ["N", "Turn back NOW! The Robot is not jet implementet!"]],
@@ -35,5 +41,19 @@ GlobVars = {
         ]
     },
     Character: {
+    },
+    RaceColors: {
+        human: {
+            primary: "200,255,0",
+            secondary: "0,80,0"
+        },
+        robot: {
+            primary: "0,200,255",
+            secondary: "0,20,80"
+        },
+        monster: {
+            primary: "255,200,0",
+            secondary: "80,20,0"
+        }
     }
 }

@@ -1,7 +1,7 @@
 OpeningAnimation = {
     opener: function () {
-//                OpeningAnimation.chooseChar()
-
+        //OpeningAnimation.chooseChar()
+        
         document.getElementsByTagName("use")[0].addEventListener("animationend", function () {
             document.getElementById("logo").remove()
             document.getElementById("opening-text").style.display = "block"
@@ -32,6 +32,8 @@ OpeningAnimation = {
             if (confirmed == true){
                 GlobVars.Character.race = that.getAttribute("race")
                 document.getElementById("char-picker").style.opacity= "0"
+                OpeningAnimation.setDialogCss()
+                
                 setTimeout(function () {
                     document.getElementById("char-picker").remove()
                     document.getElementById("create_new_char").style.display = "block"
@@ -39,5 +41,15 @@ OpeningAnimation = {
                 },1000)
             }            
         })
+    },
+    setDialogCss: function (){
+        var sheet = document.styleSheets[0]['cssRules']
+        for (ix = 0; ix < sheet.length; ix++){
+            if(sheet[ix].selectorText == ".you-bubble"){
+                sheet[ix].style.borderColor = "rgb(" + GlobVars.RaceColors[GlobVars.Character.race].primary + ")"
+                sheet[ix].style.backgroundColor = "rgba(" + GlobVars.RaceColors[GlobVars.Character.race].secondary + ",0.7)"
+                sheet[ix].style.color = "rgb(" + GlobVars.RaceColors[GlobVars.Character.race].primary + ")"
+            }
+        }
     }
 }
