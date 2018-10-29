@@ -8,6 +8,7 @@
     text-align: center;
     transition: 1s;
     opacity: 1;
+    overflow: hidden;
     color: white;
 }
 .char-choice{
@@ -20,31 +21,61 @@
     cursor: pointer;
     background-size: cover;
     background-position: center;
-    will-change: filter, margin-top;
+    will-change: filter;
     filter: brightness(50%);
     box-shadow: 0px 0px 0px black;
     text-shadow: 0px 0px 30px black;
 }
 .char-choice:hover{
     filter: none;
-    box-shadow: 0px 0px 40px rgba(0,0,0,0.8);
+    z-index: 1;
+}
+.char-description{
+    background-color: black;
+    width: 50vw;
+    height: 100%;
+    transition: 2s;
+    position: absolute;
+    bottom: 0px;
+    will-change: bottom;
+    padding: 20px 10vh 0px 50px;
+    left: 100%;
+    text-align: left;
+    display: none;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+    border-color: inherit;
+}
+.char-focus{
+    filter: none;
+    float: left;
+    margin-top: 20px;
+    height: 95%;
+    cursor: auto;
+}
+.char-description h2{
+    font-family: 'Kanit', Impact;
+    margin-bottom: 20px;
 }
 #greenqueen{
     background-image: url(../images/vengeance_mc.jpg);
+    border-color: rgb(200,255,0);
 }
-#greenqueen:hover h1{
+#greenqueen:hover h1, #greenqueen h2{
     color: rgb(200,255,0);
 }
 #distroyerx{
     background-image: url(../images/long_ouyang_02.jpg);
+    border-color: rgb(0,200,255);
 }
-#distroyerx:hover h1{
+#distroyerx:hover h1, #distroyerx h2{
     color: rgb(0,200,255);
 }
 #rot{
     background-image: url(../images/monster_art2_by_ang_angg-d84jjva.jpg);
+    border-color: rgb(255,200,0);
 }
-#rot:hover h1{
+#rot:hover h1, #rot h2{
     color: rgb(255,200,0);
 }
 
@@ -55,7 +86,6 @@
 .dialog{
     padding-top: 50px;
     padding-bottom: 40px;
-    font-family: sans-serif;
     font-size: 1.3em;
 }
 .show-dialog{
@@ -68,34 +98,11 @@
     margin-bottom: 50px;
     transition: 0.5s;
     transition-timing-function: ease-out;
-    position: sticky;
     line-height: 1.3em;
+    position: sticky;
 }
 .hide-dialog{
     display: none;
-}
-#dialog-story-btn{
-    border: 2px solid rgb(180,0,0);
-    background-color: rgba(50,0,0,0.4);
-    position: fixed;
-    top: 92vh;
-    left: 45vw;
-    width: 10vw;
-    font-size: 1em;
-    color: rgb(180,0,0);
-    padding: 5px;
-    transition: 0.3s;
-    animation: appear 4s 1 ease-out;
-}
-#dialog-story-btn:hover{
-    background-color: rgba(100,0,0,0.5);
-    color: rgb(200,50,50);
-    border-radius: 5px;
-}
-#dialog-story-btn:active{
-    background-color: rgba(150,0,0,0.8);
-    color: rgb(255,100,100);
-    border-radius: 10px;
 }
 h1{
     font-family: 'Kanit';
@@ -124,24 +131,51 @@ h1{
     border: none;
     margin-bottom: 5px;
 }
-.dialog-btn{
+button{
+    transition: 0.2s;
     font-size: 1em;
-    border: 2px solid black;
-    box-shadow: none;
-    background-color: white;
-    cursor: pointer;
-    margin-left: 10px;
+    border: 2px solid white;
+    margin: 5px;
     padding: 5px;
-    transition: 0.3s;
-    border-radius: 0px;
+    color: white;
+    cursor: pointer;
 }
-.dialog-btn:hover{
-    background-color: rgb(200,200,200);
+button:hover{
     border-radius: 5px;
 }
-.dialog-btn:active{
-    background-color: rgb(150,150,150);
+button:active{
     border-radius: 10px;
+}
+.char-description button{
+    background-color: rgba(255,255,255,0.5);
+}
+.dialog-btn{
+    background-color: transparent;
+    margin-left: 10px;
+}
+.dialog-btn:hover{
+    background-color: rgba(200,200,200,0.4);
+}
+.dialog-btn:active{
+    background-color: rgba(250,250,250,0.6);
+}
+#dialog-story-btn{
+    border-color: rgb(180,0,0);
+    background-color: rgba(50,0,0,0.5);
+    position: fixed;
+    top: 92vh;
+    left: 45vw;
+    width: 10vw;
+    color: rgb(180,0,0);
+    animation: appear 4s 1 ease-out;
+}
+#dialog-story-btn:hover{
+    background-color: rgba(100,0,0,0.6);
+    color: rgb(200,50,50);
+}
+#dialog-story-btn:active{
+    background-color: rgba(150,0,0,0.8);
+    color: rgb(255,100,100);
 }
 
 @keyframes stroke {

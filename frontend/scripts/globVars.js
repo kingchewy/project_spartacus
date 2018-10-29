@@ -1,8 +1,6 @@
 GlobVars = {
     Dialog: {
-        
-        //greenqueen auf human ändern usw…
-        greenqueen: [
+        human: [
             ["N", "<h1>Who the hell are YOU?</h1> Don't try to play me, I can tell, you are not from around 'Concrete Street'. No scars, no bruises, no smeares, no limping … just beauty at ease, and a child's naivity. You stick out like a glass of milk in the bar. So what's your name, darling?"],
             ["Y", "<input class='dialog-input' placeholder='Name your fighter!' for='enter-name' stat='name'>"
              + "<button class='dialog-btn' onclick= \"Dialog.setCharData(this, 'name')\" name='enter-name'>That's my name!</button>"],
@@ -29,10 +27,17 @@ GlobVars = {
              + "<label>Critical Hit Chance: </label><br>"
              + "<input class='dialog-input' type='number' min='0' max='10' step='0.2' value='0' for='enter-stats' stat='agility' placeholder='Agility'>"
              + "<label>Agility: </label><br>"
-            + "<button class='dialog-btn' onclick= \"Dialog.setCharData(this, 'hp armor strength accuracy critChance agility')\" name='enter-stats'>Done</button>"]],
-        distroyerx:[
-            ["N", "Turn back NOW! The Robot is not jet implementet!"]],
-        rot:[
+             + "<button class='dialog-btn' onclick= \"Dialog.setCharData(this, 'hp armor strength accuracy critChance agility')\" name='enter-stats'>Done</button>"]],
+        robot:[
+            ["N", "Turn back NOW! The Robot is not jet implementet!"],
+            ["N", "<h1>Who the hell are YOU?</h1> Don't try to play me, I can tell, you are not from around 'Concrete Street'. No scars, no bruises, no smeares, no limping … just beauty at ease, and a child's naivity. You stick out like a glass of milk in the bar. So what's your name, darling?"],
+            ["Y", "<input class='dialog-input' placeholder='Name your fighter!' for='enter-name' stat='name'>"
+             + "<button class='dialog-btn' onclick= \"Dialog.setCharData(this, 'name')\" name='enter-name'>That's my name!</button>"],
+            ["Y", "Pha! You don’t honestly think I would accept someone else’s control of myself? I left with a bang, and am an outlaw now. So what better place to go than this?"],
+            ["N", "That’s true. Well, now that you’re here, what’s next?"],
+            ["Y", "Well what do you think? I was born to kill. I came to fight in the night. I came to rock the block. I’ll enter the ring, and leave with gold and fame, and I won’t leave before everyone knows my name: „The one and only! The green queen! *Name*.“"]
+        ],
+        monster:[
             ["N", "<h1>What the hell are YOU?</h1> My gosh, I've seen my share of ugly beasts here in 'Concrete Street', but I have to say, you do still stick out! What are you?"],
             ["Y", "HUNGRY…!"],
             ["N", "Ugh … I meant, what kind of a being you are. Are you really as dumb as you look?"],
@@ -43,6 +48,7 @@ GlobVars = {
         ]
     },
     Character: {
+        //Hier kommen Charakter stats rein
     },
     RaceColors: {
         human: {

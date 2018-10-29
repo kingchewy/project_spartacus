@@ -6,7 +6,7 @@
     text-decoration: none;
 }
 body{
-    background-image: url(../images/akira_city_bw.jpeg);
+    background-image: url(../images/akira_city.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
@@ -14,6 +14,7 @@ body{
     transition: 20s;
     overflow-x: hidden;
     overflow-y: scroll;
+    font-family: sans-serif;
 }
 #opening{
     margin: 0px;
@@ -39,7 +40,7 @@ body{
     height: 100vh;
     width: 100vw;
     position: fixed;
-    display: block;          /*Nur Zum Testen!!!*/
+    display: none;          /*Nur Zum Testen!!!*/
 }
 svg {
   position: absolute;
