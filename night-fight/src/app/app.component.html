@@ -1,0 +1,59 @@
+<!--The content below is only a placeholder and can be replaced.-->
+        <div id="background-fader"></div>
+        
+
+        <div id="opening">
+            <svg id="logo" viewBox="0 0 750 400">
+                <symbol id="s-text">
+                    <text text-anchor="middle"
+                          x="50%" y="25%" dy=".35em" font-weight="bold">
+                        Night
+                    </text>
+                </symbol>
+                <symbol id="x-text">
+                    <text text-anchor="middle"
+                          x="50%" y="75%" dy=".35em">
+                        Fight
+                    </text>
+                </symbol>  
+                
+                <use xlink:href="#s-text" class="text stroke-1"></use>
+                <use xlink:href="#s-text" class="text stroke-2"></use>
+                <use xlink:href="#s-text" class="text stroke-3"></use>
+                <use xlink:href="#s-text" class="text stroke-4"></use>
+                
+                <use xlink:href="#x-text" class="text stroke-1"></use>
+                <use xlink:href="#x-text" class="text stroke-2"></use>
+                <use xlink:href="#x-text" class="text stroke-3"></use>
+                <use xlink:href="#x-text" class="text stroke-4"></use>
+            </svg>
+            <div id="opening-text">A hero<br>enters the city …</div>
+        </div>
+
+        <div id="char-picker">
+            <h1>Which hero enteres the dark city?</h1>
+            <span id="greenqueen" class="char-choice" race="human" onclick="OpeningAnimation.showCharDetails(this)">
+                <h1>THE GREEN QUEEN</h1>
+                <span class="char-description"><h2>"I'm the one and only!"</h2>
+                    <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
+                    <button onclick="OpeningAnimation.returnToOverview()">Back</button><button onclick="OpeningAnimation.pinChoice(this)">The Green Queen enters the city!</button>
+                </span></span>
+            <span id="distroyerx" class="char-choice" race="robot" onclick="OpeningAnimation.showCharDetails(this)">
+                <h1>D!STROYER-X</h1>
+                <span class="char-description"><h2>"I'm the one and only!"</h2>
+                    <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
+                    <button onclick="OpeningAnimation.returnToOverview()">Back</button><button onclick="OpeningAnimation.pinChoice(this)">D!stroyer-x enters the city!</button>
+                </span>
+            </span>
+            <span id="rot" class="char-choice" race="monster" onclick="OpeningAnimation.showCharDetails(this)">
+                <h1>ROT</h1>
+                <span class="char-description"><h2>"Hey, do you know how I can end my life?"</h2>
+                    <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
+                    <button onclick="OpeningAnimation.returnToOverview()">Back</button><button onclick="OpeningAnimation.pinChoice(this)">Rot enters the city!</button>
+                </span>
+            </span>
+        </div>
+        
+        <div id="create_new_char" class="dialog">
+        </div>
+        

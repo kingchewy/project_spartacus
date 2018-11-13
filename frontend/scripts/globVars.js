@@ -48,7 +48,7 @@ GlobVars = {
         ]
     },
     Character: {
-        //Hier kommen Charakter stats rein
+        //Hier kommen alle Charakter stats rein
     },
     RaceColors: {
         human: {
