@@ -1,0 +1,31 @@
+<div id="char-picker">
+    <h1>Which hero enteres the dark city?</h1>
+    
+    <span id="human" class="char-choice" race="human" (click)="showCharDetails($event.target)">
+        <h1>Human</h1>
+        <span class="char-description"><h2>"I'm the one and only!"</h2>
+            <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
+            <button (click)="returnToOverview()">Back</button>
+            <button (click)="pinChoice()"><a routerLink="/create-char">A human enters the city!</a></button>
+        </span>
+    </span>
+    
+    <span id="robot" class="char-choice" race="robot" (click)="showCharDetails($event.target)">
+        <h1>Robot</h1>
+        <span class="char-description"><h2>"I'm the one and only!"</h2>
+            <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
+            <button (click)="returnToOverview()">Back</button>
+            <button (click)="pinChoice()"><a routerLink="/create-char">A robot enters the city!</a></button>
+        </span>
+    </span>
+    
+    <span id="monster" class="char-choice" race="monster" (click)="showCharDetails($event.target)">
+        <h1>Monster</h1>
+        <span class="char-description"><h2>"Hey, do you know how I can end my life?"</h2>
+            <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
+            <button (click)="returnToOverview()">Back</button>
+            <button (click)="pinChoice()"><a routerLink="/create-char">A monster enters the city!</a></button>
+        </span>
+    </span>
+    
+</div>
