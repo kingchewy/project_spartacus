@@ -2,29 +2,29 @@
     <h1 *ngIf="!showDetails">Which hero enteres the dark city?</h1>
     
     <span *ngIf="!(showDetails && clickedChar != 'human')" id="human" class="char-choice" [class.char-focus]="showDetails" (click)="showCharDetails($event.target)">
-        <h1>Human</h1>
+        <h1>HUMAN</h1>
         <span *ngIf="showDetails && this.clickedChar == 'human'" class="char-description"><h2>"I'm the one and only!"</h2>
             <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
             <button (click)="returnToOverview()">Back</button>
-            <button (click)="pinChoice()"><a routerLink="/create-char">A human enters the city!</a></button>
+            <button (click)="pinChoice()" routerLink="/create-char/{{character.race}}">A human enters the city!</button>
         </span>
     </span>
     
     <span *ngIf="!(showDetails && clickedChar != 'robot')" id="robot" class="char-choice" [class.char-focus]="showDetails" (click)="showCharDetails($event.target)">
-        <h1>Robot</h1>
+        <h1>ROBOT</h1>
         <span *ngIf="showDetails && clickedChar == 'robot'" class="char-description"><h2>"This world is in need of me!"</h2>
             <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
             <button (click)="returnToOverview()">Back</button>
-            <button (click)="pinChoice()"><a routerLink="/create-char">A robot enters the city!</a></button>
+            <button (click)="pinChoice()" routerLink="/create-char/{{character.race}}">A robot enters the city!</button>
         </span>
     </span>
     
     <span *ngIf="!(showDetails && clickedChar != 'monster')" id="monster" class="char-choice" [class.char-focus]="showDetails" (click)="showCharDetails($event.target)">
-        <h1>Monster</h1>
+        <h1>MONSTER</h1>
         <span *ngIf="showDetails && clickedChar == 'monster'" class="char-description"><h2>"You should see the skeletons in my closet!"</h2>
             <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
             <button (click)="returnToOverview()">Back</button>
-            <button (click)="pinChoice()"><a routerLink="/create-char">A monster enters the city!</a></button>
+            <button (click)="pinChoice()" routerLink="/create-char/{{character.race}}">A monster enters the city!</button>
         </span>
     </span>
     

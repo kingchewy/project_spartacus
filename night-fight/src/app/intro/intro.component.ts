@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./intro.component.css']
 })
 
-export class IntroComponent implements OnInit {
-
+export class IntroComponent implements OnInit {  
   constructor() { }
 
   ngOnInit() {
+      document.body.style.backgroundPosition = "bottom"
       document.getElementsByTagName("use")[0].addEventListener("animationend", () => {
           document.getElementById("logo").remove()
           document.getElementById("opening-text").style.display = "block"
@@ -18,7 +18,6 @@ export class IntroComponent implements OnInit {
               document.getElementById("opening").remove()
           })
           document.getElementById("background-fader").addEventListener("animationend", dn => {
-              // dn.target.remove()
               document.getElementById("char-picker").style.display = "block"
           })
       })

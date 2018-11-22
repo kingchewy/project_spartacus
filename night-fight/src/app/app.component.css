@@ -4,28 +4,12 @@
     box-sizing: border-box;
     text-decoration: none;
 }
-#background{
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
+#bckgrnd-edge{
     top: 0px;
+    position: fixed;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    box-shadow: 0px 0px 150px black inset;
     left: 0px;
-    
-    background-image: url(../images/akira_city.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-attachment: fixed;
-    
-    overflow-x: hidden;
-    overflow-y: scroll;
-    font-family: sans-serif;
-    
-    animation: backgroundSlide 25s 1 ease-out 1.5s;
-}
-
-@keyframes backgroundSlide{
-    100%{
-        background-position: bottom;
-    }
 }

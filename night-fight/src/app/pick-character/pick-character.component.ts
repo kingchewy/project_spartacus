@@ -35,14 +35,8 @@ export class PickCharacterComponent implements OnInit {
         let confirmed = confirm(`Are you sure that you are a ${this.clickedChar}? You won't be able to undo this descicion!`)
         if (confirmed){
             document.getElementById("char-picker").style.opacity = "0"
+            document.getElementById("picked-flash").style.display = "block"
             this.character.race = this.clickedChar
-    
-//            OpeningAnimation.setDialogCss()
-//            setTimeout(() => {
-//                document.getElementById("char-picker").remove()
-//                document.getElementById("create_new_char").style.display = "block"
-//                Dialog.fillDialog("create_new_char", char.getAttribute("race"))
-//            },1000)
         }
     }
     
