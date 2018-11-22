@@ -36,7 +36,7 @@ a{
 }
 .char-description{
     background-color: black;
-    width: 50vw;
+    width: 40vw;
     height: 95%;
     transition: 2s;
     position: absolute;
@@ -45,10 +45,10 @@ a{
     padding: 20px 10vh 0px 50px;
     left: 100%;
     text-align: left;
-    display: none;
     border-top: 3px solid;
     border-bottom: 3px solid;
     border-color: inherit;
+    line-height: 1.5em;
 }
 .char-focus{
     filter: none;
@@ -56,6 +56,7 @@ a{
     margin-top: 20px;
     height: 95%;
     cursor: auto;
+    transition: none;
 }
 .char-description h2{
     font-family: 'Kanit', Impact;
@@ -107,8 +108,34 @@ button:hover{
 button:active{
     border-radius: 10px;
 }
+#human button:last-child:hover{
+    background-color: rgba(200,255,0,0.5);
+    border-color: rgb(200,255,0);
+}
+#human button:hover a{
+    color: rgb(200,255,0);
+}
+#robot button:last-child:hover{
+    background-color: rgba(0,200,255,0.5);
+    border-color: rgb(0,200,255);
+}
+#robot button:hover a{
+    color: rgb(0,200,255);
+}
+#monster button:last-child:hover{
+    background-color: rgba(255,200,0,0.5);
+    border-color: rgb(255,200,0);
+}
+#monster button:hover a{
+    color: rgb(255,200,0);
+}
 .char-description button{
     background-color: rgba(255,255,255,0.5);
+    margin-top: 20px;
+}
+.char-description div{
+    max-height: 70%;
+    overflow: scroll;
 }
 @keyframes appear {
     0%{

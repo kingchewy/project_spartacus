@@ -8,8 +8,9 @@ import { Character } from '../character'
 })
 
 export class PickCharacterComponent implements OnInit {
-    private hiddenNodes = []
     private clickedChar : string
+    private showDetails = false
+    private returnOv = false
     
     character : Character = {
         equipped: [],
@@ -25,17 +26,18 @@ export class PickCharacterComponent implements OnInit {
     ngOnInit () { }
     
     returnToOverview (): void {
-        this.hiddenNodes.forEach(val => val.style.display = "block")
+        this.showDetails = false
+        this.clickedChar = undefined
+        this.returnOv = true
     }
     
     pinChoice (): void {
-        var confirmed = confirm(`Are you sure that you are a ${this.clickedChar}? You won't be able to undo this descicion!`)
+        let confirmed = confirm(`Are you sure that you are a ${this.clickedChar}? You won't be able to undo this descicion!`)
         if (confirmed){
             document.getElementById("char-picker").style.opacity = "0"
             this.character.race = this.clickedChar
     
 //            OpeningAnimation.setDialogCss()
-//            
 //            setTimeout(() => {
 //                document.getElementById("char-picker").remove()
 //                document.getElementById("create_new_char").style.display = "block"
@@ -45,19 +47,11 @@ export class PickCharacterComponent implements OnInit {
     }
     
     showCharDetails (that): void {
-        this.clickedChar = that.id
-        that.children[1].style.display = "block"
-        that.classList.add("char-focus")
-        
-        let chars = document.getElementById("char-picker").children        
-        this.hiddenNodes = []
-        
-        for (let val in chars){
-            if (chars[val].nodeType == 1 && chars[val] != that){
-                this.hiddenNodes.push(chars[val])
-                chars[val].style.display = "none"
-            }
+        if (!this.returnOv && !this.showDetails){
+            this.clickedChar = that.id
+            this.showDetails = true
+        } else {
+            this.returnOv = false
         }
     }
 }
-//export clickedChar

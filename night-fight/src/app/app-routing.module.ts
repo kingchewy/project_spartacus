@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DialogCreateComponent } from './dialog-create/dialog-create.component'
 
 const routes: Routes = [
-    { path: 'create-char', component: DialogCreateComponent }
+    { path: 'create-char/:race', component: DialogCreateComponent }
 ];
 
 @NgModule({
