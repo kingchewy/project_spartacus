@@ -20,7 +20,7 @@ export class IntroComponent implements OnInit {
               document.getElementById("opening").remove()
           })
           document.getElementById("background-fader").addEventListener("animationend", dn => {
-              this.router.navigateByUrl("/char-picker")
+              this.router.navigateByUrl("/pick-char")
           })
       })
 

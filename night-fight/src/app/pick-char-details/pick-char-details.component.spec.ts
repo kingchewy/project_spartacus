@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CharPickerDetailsComponent } from './char-picker-details.component';
+import { PickCharDetailsComponent } from './pick-char-details.component';
 
-describe('CharPickerDetailsComponent', () => {
-  let component: CharPickerDetailsComponent;
-  let fixture: ComponentFixture<CharPickerDetailsComponent>;
+describe('PickCharDetailsComponent', () => {
+  let component: PickCharDetailsComponent;
+  let fixture: ComponentFixture<PickCharDetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CharPickerDetailsComponent ]
+      declarations: [ PickCharDetailsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CharPickerDetailsComponent);
+    fixture = TestBed.createComponent(PickCharDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -51,6 +51,7 @@ export class PickCharacterComponent {
     }
     
     showCharDetails (that) {
+        this.router.navigateByUrl("char-picker/" + this.clickedRace)
         if (!this.returnOv && !this.showDetails){
             this.clickedRace = that.id
             this.showDetails = true

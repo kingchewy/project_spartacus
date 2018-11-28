@@ -37,8 +37,6 @@ export class DialogComponent {
 //            console.log(FirstHideDialog.offsetTop + FirstHideDialog.offsetHeight + 50, window.innerHeight)
             //if (FirstHideDialog.offsetTop + FirstHideDialog.offsetHeight + 50 > window.innerHeight){
             //    window.scrollTo({top: scrollY + FirstHideDialog.offsetHeight + 50, behavior: "smooth"})   
-            //} else {
-            //    document.getElementById("dialog-story-btn").remove()
             //}
         } else {
             confirm(`Have you finished reading the story\nfand do you want to continue?`)

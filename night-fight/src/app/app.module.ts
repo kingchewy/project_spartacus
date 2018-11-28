@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
 import { PickCharacterComponent } from './pick-character/pick-character.component';
 import { DialogComponent } from './dialog/dialog.component';
-import { CharPickerDetailsComponent } from './char-picker-details/char-picker-details.component';
+import { PickCharDetailsComponent } from './pick-char-details/pick-char-details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { CharPickerDetailsComponent } from './char-picker-details/char-picker-de
     IntroComponent,
     PickCharacterComponent,
     DialogComponent,
-    CharPickerDetailsComponent
+    PickCharDetailsComponent
   ],
   imports: [
     BrowserModule,
