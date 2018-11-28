@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Character } from '../character'
+import { Stats } from '../stats'
 
 @Component({
   selector: 'pick-character',
@@ -7,42 +9,50 @@ import { Character } from '../character'
   styleUrls: ['./pick-character.component.css']
 })
 
-export class PickCharacterComponent implements OnInit {
-    private clickedChar : string
+export class PickCharacterComponent {
+    private clickedRace : string
     private showDetails = false
     private returnOv = false
-    
-    character : Character = {
-        equipped: [],
-        id: 1,
-        lvl: 1,
+    private charName = "Your Fighter"
+    private char: Character = {
+        id: 0,
+        playerID: 0,
         name: "",
+        race: "",
+        lvl: 0,
+        stats: {hp: 1,
+                armor: 1,
+                strength: 1,
+                accuracy: 1,
+                criticalhitchance: 1,
+                agility: 1},
         ownedGear: [],
-        playerID: 1,
-        race: ""
+        equipped: []
     }
     
-    constructor () { }
-    ngOnInit () { }
+    constructor (private router: Router) { }
     
-    returnToOverview (): void {
+    returnToOverview () {
         this.showDetails = false
-        this.clickedChar = undefined
+        this.clickedRace = undefined
         this.returnOv = true
     }
     
-    pinChoice (): void {
-        let confirmed = confirm(`Are you sure that you are a ${this.clickedChar}? You won't be able to undo this descicion!`)
+    pinChoice () {
+        let confirmed = confirm(`Are you sure that you are a ${this.clickedRace} called\n\n${this.charName}?\n\nYou won't be able to undo this descicion!`)
         if (confirmed){
+            this.char.name = this.charName
+            this.char.race = this.clickedRace
+            console.log(this.char)
+            
             document.getElementById("char-picker").style.opacity = "0"
-            document.getElementById("picked-flash").style.display = "block"
-            this.character.race = this.clickedChar
+            this.router.navigateByUrl("/dialog/" + this.clickedRace)
         }
     }
     
-    showCharDetails (that): void {
+    showCharDetails (that) {
         if (!this.returnOv && !this.showDetails){
-            this.clickedChar = that.id
+            this.clickedRace = that.id
             this.showDetails = true
         } else {
             this.returnOv = false

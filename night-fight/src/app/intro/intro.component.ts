@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'intro',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core'
 })
 
 export class IntroComponent implements OnInit {  
-  constructor() { }
+  
+    constructor(private router: Router) { }
 
   ngOnInit() {
       document.body.style.backgroundPosition = "bottom"
@@ -18,7 +20,7 @@ export class IntroComponent implements OnInit {
               document.getElementById("opening").remove()
           })
           document.getElementById("background-fader").addEventListener("animationend", dn => {
-              document.getElementById("char-picker").style.display = "block"
+              this.router.navigateByUrl("/char-picker")
           })
       })
 

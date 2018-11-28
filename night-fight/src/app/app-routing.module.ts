@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DialogCreateComponent } from './dialog-create/dialog-create.component'
+import { DialogComponent } from './dialog/dialog.component'
 import { IntroComponent } from './intro/intro.component'
+import { PickCharacterComponent } from './pick-character/pick-character.component'
 
 const routes: Routes = [
     { path: '', redirectTo: '/intro', pathMatch: 'full' },
     { path: 'intro', component: IntroComponent },
-    { path: 'create-char/:race', component: DialogCreateComponent }
+    { path: 'char-picker', component: PickCharacterComponent },
+    { path: 'char-picker/:race', component: PickCharacterComponent },
+    { path: 'dialog/:race', component: DialogComponent }
 ];
 
 @NgModule({

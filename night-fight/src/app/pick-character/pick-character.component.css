@@ -1,5 +1,4 @@
 #char-picker{
-    display: none;
     height: 90vh;
     width: 70vw;
     margin-top: 5vh;
@@ -45,6 +44,7 @@
     border-bottom: 3px solid;
     border-color: inherit;
     line-height: 1.5em;
+    overflow: scroll;
 }
 .char-focus{
     filter: none;
@@ -63,70 +63,103 @@ h1{
 }
 #human{
     background-image: url(../../images/vengeance_mc.jpg);
-    border-color: rgb(200,255,0);
+    border-color: var(--human-color);
 }
 #human:hover h1, #human h2{
-    color: rgb(200,255,0);
+    color: var(--human-color);
 }
 #robot{
     background-image: url(../../images/long_ouyang_02.jpg);
-    border-color: rgb(0,200,255);
+    border-color: var(--robot-color);
 }
 #robot:hover h1, #robot h2{
-    color: rgb(0,200,255);
+    color: var(--robot-color);
 }
 #monster{
     background-image: url(../../images/monster_art2_by_ang_angg-d84jjva.jpg);
-    border-color: rgb(255,200,0);
+    border-color: var(--monster-color);
 }
 #monster:hover h1, #monster h2{
-    color: rgb(255,200,0);
+    color: var(--monster-color);
 }
 button{
     margin-top: 20px;
 }
 #human button:last-child{
-    background-color: rgba(200,255,0,0.2);
-    border-color: rgb(200,255,0);
-    color: rgb(200,255,0);
+    background-color: rgba(var(--human-color-t),0.2);
+    border-color: var(--human-color);
+    color: var(--human-color);
 }
 #human button:last-child:hover{
-    background-color: rgba(200,255,0,0.4);
-    box-shadow: 0px 0px 30px rgba(200,255,0,0.6);
+    background-color: rgba(var(--human-color-t),0.4);
+    box-shadow: 0px 0px 30px rgba(var(--human-color-t),0.6);
 }
 #human button:last-child:active{
-    background-color: rgba(200,255,0,0.5);
-    box-shadow: 0px 0px 40px rgba(200,255,0,0.8);
+    background-color: rgba(var(--human-color-t),0.5);
+    box-shadow: 0px 0px 40px rgba(var(--human-color-t),0.8);
 }
 #robot button:last-child{
-    background-color: rgba(0,200,255,0.2);
-    border-color: rgb(0,200,255);
-    color: rgb(0,200,255);
+    background-color: rgba(var(--robot-color-t),0.2);
+    border-color: var(--robot-color);
+    color: var(--robot-color);
 }
 #robot button:last-child:hover{
-    background-color: rgba(0,200,255,0.4);
-    box-shadow: 0px 0px 30px rgba(0,200,255,0.6);
+    background-color: rgba(var(--robot-color-t),0.4);
+    box-shadow: 0px 0px 30px rgba(var(--robot-color-t),0.6);
 }
 #robot button:last-child:active{
-    background-color: rgba(0,200,255,0.5);
-    box-shadow: 0px 0px 40px rgba(0,200,255,0.8);
+    background-color: rgba(var(--robot-color-t),0.5);
+    box-shadow: 0px 0px 40px rgba(var(--robot-color-t),0.8);
 }
 #monster button:last-child{
-    background-color: rgba(255,200,0,0.2);
-    border-color: rgb(255,200,0);
-    color: rgb(255,200,0);
+    background-color: rgba(var(--monster-color-t),0.2);
+    border-color: var(--monster-color);
+    color: var(--monster-color);
 }
 #monster button:last-child:hover{
-    background-color: rgba(255,200,0,0.4);
-    box-shadow: 0px 0px 30px rgba(255,200,0,0.6);
+    background-color: rgba(var(--monster-color-t),0.4);
+    box-shadow: 0px 0px 30px rgba(var(--monster-color-t),0.6);
 }
 #monster button:last-child:active{
-    background-color: rgba(255,200,0,0.5);
-    box-shadow: 0px 0px 40px rgba(255,200,0,0.8);
+    background-color: rgba(var(--monster-color-t),0.5);
+    box-shadow: 0px 0px 40px rgba(var(--monster-color-t),0.8);
 }
 .char-description div{
-    max-height: 70%;
+    max-height: 45%;
     overflow: scroll;
+}
+
+.strength-weakness{
+    margin-top: 20px;
+    text-align: center;
+}
+ul{
+    font-size: 1.6em;
+    text-align: right;
+    display: inline-block;
+    line-height: 1.2em;
+    padding: 0px 10px 0px 10px;
+    font-weight: bold;
+    border-right: solid 2px white;
+}
+ul:last-of-type{
+    text-align: left;
+    border-right: none;
+    border-left: solid 2px white;
+}
+li {
+    font-size: 0.8em;
+    font-weight: normal;
+}
+li:first-child{
+    margin-top: 10px;
+}
+#fill-in{
+    text-align: right;
+    margin: 8vh 30% 10vh 0px;
+}
+#char-pick-narrator{
+    color: var(--narr-color);
 }
 @keyframes appear {
     0%{

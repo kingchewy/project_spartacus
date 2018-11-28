@@ -23,7 +23,7 @@ Dialog = {
         container.firstChild.classList.remove("hide-dialog")
         
         document.getElementById("dialog-story-btn").addEventListener("click", () => {
-            var FirstHideDialog = document.getElementsByClassName("hide-dialog")[0]        
+            var FirstHideDialog = document.getElementsByClassName("hide-dialog")[0]
             
             if (FirstHideDialog){
                 FirstHideDialog.classList.add("show-dialog")
