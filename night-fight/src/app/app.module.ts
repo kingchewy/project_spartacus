@@ -5,17 +5,17 @@ import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
-import { PickCharacterComponent } from './pick-character/pick-character.component';
+//import { PickCharacterComponent } from './pick-character/pick-character.component';
 import { DialogComponent } from './dialog/dialog.component';
-import { PickCharDetailsComponent } from './pick-char-details/pick-char-details.component';
+//import { PickCharDetailsComponent } from './pick-char-details/pick-char-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IntroComponent,
-    PickCharacterComponent,
+//    PickCharacterComponent,
     DialogComponent,
-    PickCharDetailsComponent
+//    PickCharDetailsComponent
   ],
   imports: [
     BrowserModule,

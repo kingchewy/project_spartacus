@@ -1,0 +1,123 @@
+#human, #robot, #monster{
+    display: grid;
+    background-image: linear-gradient(to right, black, transparent);
+    transition: 2s;
+    will-change: bottom;
+    padding: 20px 10vh 0px 50px;
+    height: 100%;
+    text-align: left;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+    border-color: inherit;
+    line-height: 1.5em;
+    align-content: start;
+}
+.char-focus{
+    filter: none;
+    float: left;
+    margin: 20px 0px 0px 0px;
+    height: 95%;
+    cursor: auto;
+    transition: none;
+}
+h1{
+    margin-bottom: 20px;
+    pointer-events: none;
+}
+h2{
+    margin-bottom: 30px;
+}
+#human{
+    border-color: var(--human-color);
+}
+#human:hover h1, #human h2{
+    color: var(--human-color);
+}
+#robot{
+    border-color: var(--robot-color);
+}
+#robot:hover h1, #robot h2{
+    color: var(--robot-color);
+}
+#monster{
+    border-color: var(--monster-color);
+}
+#monster:hover h1, #monster h2{
+    color: var(--monster-color);
+}
+button{
+    margin-top: 20px;
+}
+#human button:last-child{
+    background-color: rgba(var(--human-color-t),0.2);
+    border-color: var(--human-color);
+    color: var(--human-color);
+}
+#human button:last-child:hover{
+    background-color: rgba(var(--human-color-t),0.4);
+    box-shadow: 0px 0px 30px rgba(var(--human-color-t),0.6);
+}
+#human button:last-child:active{
+    background-color: rgba(var(--human-color-t),0.5);
+    box-shadow: 0px 0px 40px rgba(var(--human-color-t),0.8);
+}
+#robot button:last-child{
+    background-color: rgba(var(--robot-color-t),0.2);
+    border-color: var(--robot-color);
+    color: var(--robot-color);
+}
+#robot button:last-child:hover{
+    background-color: rgba(var(--robot-color-t),0.4);
+    box-shadow: 0px 0px 30px rgba(var(--robot-color-t),0.6);
+}
+#robot button:last-child:active{
+    background-color: rgba(var(--robot-color-t),0.5);
+    box-shadow: 0px 0px 40px rgba(var(--robot-color-t),0.8);
+}
+#monster button:last-child{
+    background-color: rgba(var(--monster-color-t),0.2);
+    border-color: var(--monster-color);
+    color: var(--monster-color);
+}
+#monster button:last-child:hover{
+    background-color: rgba(var(--monster-color-t),0.4);
+    box-shadow: 0px 0px 30px rgba(var(--monster-color-t),0.6);
+}
+#monster button:last-child:active{
+    background-color: rgba(var(--monster-color-t),0.5);
+    box-shadow: 0px 0px 40px rgba(var(--monster-color-t),0.8);
+}
+.char-descr-txt{
+    max-height: 15vh;
+    overflow: scroll;
+}
+
+.strength-weakness{
+    margin: 20px 0px 40px 0px;
+    text-align: center;
+}
+ul{
+    font-size: 1.6em;
+    text-align: right;
+    display: inline-block;
+    line-height: 1.2em;
+    padding: 0px 10px 0px 10px;
+    font-weight: bold;
+    border-right: solid 2px white;
+}
+ul:last-of-type{
+    text-align: left;
+    border-right: none;
+    border-left: solid 2px white;
+}
+li {
+    font-size: 0.8em;
+    font-weight: normal;
+}
+li:first-child{
+    margin-top: 10px;
+}
+/*#fill-in{*/
+/*    text-align: right;*/
+/*    margin: 8vh 30% 10vh 0px;*/
+/*}*/

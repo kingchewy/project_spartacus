@@ -2,6 +2,7 @@
     height: 90vh;
     width: 70vw;
     margin-top: 5vh;
+    padding: 20px 0px 20px 0px;
     background-color: rgba(0, 0, 0,0.8);
     animation: appear 1s 1 ease-out;
     text-align: center;
@@ -12,7 +13,7 @@
 }
 .char-choice{
     background-color: black;
-    height: 88%;
+    height: 94%;
     width: 31%;
     margin: 0px 5px 0px 5px;
     display: inline-grid;
@@ -22,12 +23,12 @@
     background-position: center;
     will-change: filter;
     filter: brightness(50%);
-    box-shadow: 0px 0px 0px black;
-    text-shadow: 0px 0px 30px black;
+}
+.race-titel{
+    text-shadow: 0px 0px 30px black, 10px 10px 0px black;    
 }
 .char-choice:hover{
     filter: none;
-    z-index: 1;
 }
 .char-description{
     background-color: black;
@@ -49,8 +50,10 @@
 .char-focus{
     filter: none;
     float: left;
-    margin: 20px 0px 0px 0px;
-    height: 95%;
+/*    margin: 20px 0px 0px 0px;*/
+    margin: 0px;
+/*    height: 95%;*/
+    height: 100%;
     cursor: auto;
     transition: none;
 }
@@ -65,21 +68,21 @@ h1{
     background-image: url(../../images/vengeance_mc.jpg);
     border-color: var(--human-color);
 }
-#human:hover h1, #human h2{
+#human:hover h1, #human.char-focus{
     color: var(--human-color);
 }
 #robot{
     background-image: url(../../images/long_ouyang_02.jpg);
     border-color: var(--robot-color);
 }
-#robot:hover h1, #robot h2{
+#robot:hover h1, #robot.char-focus{
     color: var(--robot-color);
 }
 #monster{
     background-image: url(../../images/monster_art2_by_ang_angg-d84jjva.jpg);
     border-color: var(--monster-color);
 }
-#monster:hover h1, #monster h2{
+#monster:hover h1, #monster.char-focus{
     color: var(--monster-color);
 }
 button{
@@ -124,13 +127,13 @@ button{
     background-color: rgba(var(--monster-color-t),0.5);
     box-shadow: 0px 0px 40px rgba(var(--monster-color-t),0.8);
 }
-.char-description div{
-    max-height: 45%;
+.char-description-txt{
+    max-height: 20%;
     overflow: scroll;
 }
 
 .strength-weakness{
-    margin-top: 20px;
+    margin: 20px 0px 40px 0px;
     text-align: center;
 }
 ul{
@@ -154,11 +157,12 @@ li {
 li:first-child{
     margin-top: 10px;
 }
-#fill-in{
-    text-align: right;
-    margin: 8vh 30% 10vh 0px;
-}
+/*#fill-in{*/
+/*    text-align: right;*/
+/*    margin: 8vh 30% 10vh 0px;*/
+/*}*/
 #char-pick-narrator{
+    margin-top: -20px;
     color: var(--narr-color);
 }
 @keyframes appear {

@@ -1,17 +1,21 @@
-<div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
-<div class="strength-weakness">
-    <ul>Strengths:
-        <li>Damage Resistance</li>
-        <li>Critical-Hit-Chance</li>
-        <li>Critical-Hit-Damage</li>
-        <li>Recovery</li>
-    </ul>
-    <ul>Weaknesses:
-        <li>Agility</li>
-        <li>Critical-Hit-Chance</li>
-        <li>Critical-Hit-Damage</li>
-        <li>Recovery</li>
-    </ul>
+<div [id]='race'>
+    <h2>"I'm the one and only!"</h2>
+    <div class="char-descr-txt">You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire. You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
+    <div class="strength-weakness">
+        <ul>Strengths:
+            <li>Agility ({{attrRange.minAgility}})</li>
+            <li>Critical-Hit-Chance ({{attrRange.minAgility}})</li>
+            <li>Critical-Hit-Damage ({{attrRange.minAgility}})</li>
+        </ul>
+        <ul>Weaknesses:
+            <li>Health ({{attrRange.minHp}})</li>
+            <li>Armor ({{attrRange.minArmor}})</li>
+            <li>Strength ({{attrRange.minStrength}})</li>
+        </ul>
+    </div>
+    <label>The fighter's name: <input [(ngModel)]="charName" class="dialog-input" placeholder="Name your fighter!" for="enter-name" stat="name" [(ngModel)]="charName" maxlength="18"></label><br><br>
+    <span>
+        <button (click)="returnToOverview()">Back</button>
+        <button (click)="pinChoice()" style="cursor: not-allowed">{{charName}} enters the city!</button>
+    </span>
 </div>
-<button (click)="returnToOverview()">Back</button>
-<button (click)="pinChoice()" routerLink="/dialog/{{clickedRace}}">A robot enters the city!</button>

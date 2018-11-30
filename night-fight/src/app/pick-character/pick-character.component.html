@@ -1,44 +1,35 @@
+<!--
+<div style="color: white">Hallo
+    <router-outlet></router-outlet>
+</div>
+-->
+
+
+<!--
 <div id="char-picker">
     <h1 *ngIf="!showDetails" id="char-pick-narrator">Which hero enteres the dark city?</h1>
     
-    
-<!--    routerLink="/dialog/{{clickedRace}}"-->
     <span *ngIf="!(showDetails && clickedRace != 'human')" id="human" class="char-choice" [class.char-focus]="showDetails" (click)="showCharDetails($event.target)">
-        <h1>HUMAN</h1>
+        <h1 class="race-titel">HUMAN</h1>
         <span *ngIf="showDetails && this.clickedRace == 'human'" class="char-description">
-<!--            <h2>"I'm the one and only!"</h2>-->
-<!--            <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>-->
-<!--            <div class="strength-weakness">-->
-<!--                <ul>Strengths:-->
-<!--                    <li>Agility</li>-->
-<!--                    <li>Critical-Hit-Chance</li>-->
-<!--                    <li>Critical-Hit-Damage</li>-->
-<!--                    <li>Recovery</li>-->
-<!--                </ul>-->
-<!--                <ul>Weaknesses:-->
-<!--                    <li>Agility</li>-->
-<!--                    <li>Critical-Hit-Chance</li>-->
-<!--                    <li>Critical-Hit-Damage</li>-->
-<!--                    <li>Recovery</li>-->
-<!--                </ul>-->
-<!--            </div>-->
-            <router-outlet></router-outlet>
-            <h2>What are {{charName}}'s Skills?</h2>
-            <div id="fill-in">
-                <label>The fighter's name: <input [(ngModel)]="charName" class="dialog-input" placeholder="Name your fighter!" for="enter-name" stat="name" [(ngModel)]="charName" maxlength="18"></label><br><br>
-                <label>HP: 
-                <input [(ngModel)]="char.stats.hp"  class='dialog-input' type='number' min='100' max='9000' step='50' value='100' for='enter-stats' stat='hp' placeholder='HP'></label><br>
-                <label>Armor: 
-                <input [(ngModel)]="char.stats.armor" class='dialog-input' type='number' min='1' max='9' step='0.2' value='1' for='enter-stats' stat='armor' placeholder='Armor'></label><br>
-                <label>Strength: 
-                <input [(ngModel)]="char.stats.strength" class='dialog-input' type='number' min='1' max='9' step='0.2' value='1' for='enter-stats' stat='strength' placeholder='Strength'></label><br>
-                <label>Accuracy: 
-                <input [(ngModel)]="char.stats.accuracy" class='dialog-input' type='number' min='1' max='10' step='0.2' value='1' for='enter-stats' stat='accuracy' placeholder='Accuracy'></label><br>
-                <label>Critical Hit Chance: 
-                <input [(ngModel)]="char.stats.criticalhitchance" class='dialog-input' type='number' min='0' max='10' step='0.2' value='0' for='enter-stats' stat='critChance' placeholder='Crit. Chance'></label><br>
-                <label>Agility: 
-                <input [(ngModel)]="char.stats.agility" class='dialog-input' type='number' min='0' max='10' step='0.2' value='0' for='enter-stats' stat='agility' placeholder='Agility'></label><br>
+            <h2>"I'm the one and only!"</h2>
+            <div class="char-description-txt">You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
+            <div class="strength-weakness">
+                <ul>Strengths:
+                    <li>Agility ({{attrRange.minAgility}})</li>
+                    <li>Critical-Hit-Chance ({{attrRange.minAgility}})</li>
+                    <li>Critical-Hit-Damage ({{attrRange.minAgility}})</li>
+                </ul>
+                <ul>Weaknesses:
+                    <li>Health ({{attrRange.minHp}})</li>
+                    <li>Armor ({{attrRange.minArmor}})</li>
+                    <li>Strength ({{attrRange.minStrength}})</li>
+                </ul>
             </div>
+            <label>The fighter's name: <input [(ngModel)]="charName" class="dialog-input" placeholder="Name your fighter!" for="enter-name" stat="name" [(ngModel)]="charName" maxlength="18"></label><br><br>
+
+                        <router-outlet></router-outlet>
+
             
             <button (click)="returnToOverview()">Back</button>
             <button (click)="pinChoice()" style="cursor: not-allowed">{{charName}} enters the city!</button>
@@ -51,20 +42,21 @@
             <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
             <div class="strength-weakness">
                 <ul>Strengths:
-                    <li>Damage Resistance</li>
-                    <li>Critical-Hit-Chance</li>
-                    <li>Critical-Hit-Damage</li>
-                    <li>Recovery</li>
+                    <li>Agility ({{attrRange.minAgility}})</li>
+                    <li>Critical-Hit-Chance ({{attrRange.minAgility}})</li>
+                    <li>Critical-Hit-Damage ({{attrRange.minAgility}})</li>
                 </ul>
                 <ul>Weaknesses:
-                    <li>Agility</li>
-                    <li>Critical-Hit-Chance</li>
-                    <li>Critical-Hit-Damage</li>
-                    <li>Recovery</li>
+                    <li>Health ({{attrRange.minHp}})</li>
+                    <li>Armor ({{attrRange.minArmor}})</li>
+                    <li>Strength ({{attrRange.minStrength}})</li>
                 </ul>
             </div>
+            <label>The fighter's name: <input [(ngModel)]="charName" class="dialog-input" placeholder="Name your fighter!" for="enter-name" stat="name" [(ngModel)]="charName" maxlength="18"></label><br><br>
+            <router-outlet></router-outlet>
+
             <button (click)="returnToOverview()">Back</button>
-            <button (click)="pinChoice()" routerLink="/dialog/{{clickedRace}}">A robot enters the city!</button>
+            <button (click)="pinChoice()" routerLink="/dialog/{{clickedRace}}">{{charName}} enters the city!</button>
         </span>
     </span>
     
@@ -74,23 +66,43 @@
             <div>You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
             <div class="strength-weakness">
                 <ul>Strengths:
-                    <li>Damage</li>
-                    <li>Critical-Hit-Chance</li>
-                    <li>Critical-Hit-Damage</li>
-                    <li>Recovery</li>
+                    <li>Agility ({{attrRange.minAgility}})</li>
+                    <li>Critical-Hit-Chance ({{attrRange.minAgility}})</li>
+                    <li>Critical-Hit-Damage ({{attrRange.minAgility}})</li>
                 </ul>
                 <ul>Weaknesses:
-                    <li>Agility</li>
-                    <li>Critical-Hit-Chance</li>
-                    <li>Critical-Hit-Damage</li>
-                    <li>Recovery</li>
+                    <li>Health ({{attrRange.minHp}})</li>
+                    <li>Armor ({{attrRange.minArmor}})</li>
+                    <li>Strength ({{attrRange.minStrength}})</li>
                 </ul>
             </div>
+            <label>The fighter's name: <input [(ngModel)]="charName" class="dialog-input" placeholder="Name your fighter!" for="enter-name" stat="name" [(ngModel)]="charName" maxlength="18"></label><br><br>
+            <router-outlet></router-outlet>
+
             <button (click)="returnToOverview()">Back</button>
-            <button (click)="pinChoice()" routerLink="/dialog/{{clickedRace}}">A monster enters the city!</button>
+            <button (click)="pinChoice()" routerLink="/dialog/{{clickedRace}}">{{charName}} enters the city!</button>
         </span>
     </span>
     
-</div>
+</div>-->
 
-<!--<router-outlet name='detail'></router-outlet>-->
+
+
+
+<div id="char-picker">
+    <h1 *ngIf="!showDetails" id="char-pick-narrator">Which hero enteres the dark city?</h1>
+    
+    <span *ngIf="!(showDetails && clickedRace != 'human')" id="human" class="char-choice" [class.char-focus]="showDetails" (click)="showCharDetails($event.target)">
+        <h1 class="race-titel">HUMAN</h1>
+    </span>
+    
+    <span *ngIf="!(showDetails && clickedRace != 'robot')" id="robot" class="char-choice" [class.char-focus]="showDetails" (click)="showCharDetails($event.target)">
+        <h1 class="race-titel">ROBOT</h1>
+    </span>
+    
+    <span *ngIf="!(showDetails && clickedRace != 'monster')" id="monster" class="char-choice" [class.char-focus]="showDetails" (click)="showCharDetails($event.target)">
+        <h1 class="race-titel">MONSTER</h1>
+    </span>
+    
+    <router-outlet></router-outlet>    
+</div>

@@ -6,6 +6,10 @@
     text-decoration: none;
     list-style-type: none;
 }
+*::selection{
+    background-color: rgb(var(--narr-color-t));
+    color: var(--narr-color);
+}
 :root{
     --human-color: rgb(150,255,100);
     --robot-color: rgb(100,150,255);
@@ -106,7 +110,6 @@ button:active{
     transition-timing-function: ease-out;
     line-height: 1.3em;
     font-size: 1.3em;
-    animation: appear 2s 1 ease-out;
 /*    position: sticky;*/
     position: relative;
 }
@@ -163,6 +166,10 @@ input{
     text-align: center;
     padding: 5px;
     border: none;
+    transition: 0.5s;
+}
+input:focus{
+    background-color: rgb(60,60,60);
 }
 @keyframes appear {
     0%{
