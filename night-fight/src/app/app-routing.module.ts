@@ -4,6 +4,7 @@ import { DialogComponent } from './dialog/dialog.component'
 import { IntroComponent } from './intro/intro.component'
 //import { PickCharacterComponent } from './pick-character/pick-character.component'
 import { PickCharDetailsComponent } from './pick-char-details/pick-char-details.component'
+import { DashboardComponent } from './dashboard/dashboard.component'
 
 const routes: Routes = [
     { path: '', redirectTo: '/intro', pathMatch: 'full' },
@@ -11,7 +12,8 @@ const routes: Routes = [
 //    { path: 'pick-char', component: PickCharacterComponent },
     { path: 'pick-char', loadChildren: './pick-character/pick-character.module#PickCharacterModule'},
     //    { path: 'pick-char/:race', component: PickCharDetailsComponent },
-    { path: 'dialog/:race', component: DialogComponent }
+    { path: 'dialog/:race', component: DialogComponent },
+    { path: 'dashboard', component: DashboardComponent }
 
 //  { path: '', redirectTo: '/dashboard'}
 

@@ -17,7 +17,9 @@
     
 [class.show-dialog]="showBubbles() < showBubbleUntil"
 </div>-->
-<div *ngFor="let bubble of dialog[race]">
-    <div [class]="bubble[0] + ' ' + race + '-bubble hide-dialog'"><div>{{bubble[1]}}</div></div>
+<div id="dialog-container">
+    <div *ngFor="let bubble of dialog[race]">
+        <div [class]="bubble[0] + ' ' + race + '-bubble hide-dialog'"><div>{{bubble[1]}}</div></div>
+    </div>
+    <button id='dialog-story-btn' (click)="tellStory()">Onward</button>
 </div>
-<button id='dialog-story-btn' (click)="tellStory()">Onward</button>

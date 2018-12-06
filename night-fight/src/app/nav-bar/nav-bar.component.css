@@ -1,0 +1,7 @@
+div{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: rgba(var(--narr-color-t),0.5);
+}

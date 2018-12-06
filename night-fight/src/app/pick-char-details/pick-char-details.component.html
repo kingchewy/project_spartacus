@@ -1,21 +1,60 @@
 <div [id]='race'>
-    <h2>"I'm the one and only!"</h2>
-    <div class="char-descr-txt">You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire. You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
-    <div class="strength-weakness">
-        <ul>Strengths:
-            <li>Agility ({{attrRange.minAgility}})</li>
-            <li>Critical-Hit-Chance ({{attrRange.minAgility}})</li>
-            <li>Critical-Hit-Damage ({{attrRange.minAgility}})</li>
-        </ul>
-        <ul>Weaknesses:
-            <li>Health ({{attrRange.minHp}})</li>
-            <li>Armor ({{attrRange.minArmor}})</li>
-            <li>Strength ({{attrRange.minStrength}})</li>
-        </ul>
-    </div>
-    <label>The fighter's name: <input [(ngModel)]="charName" class="dialog-input" placeholder="Name your fighter!" for="enter-name" stat="name" [(ngModel)]="charName" maxlength="18"></label><br><br>
+    <span *ngIf='race == "human"'>
+        <h2>"I'm the one and only!"</h2>
+        <div class="char-descr-txt">You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire. You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
+        <div class="strength-weakness">
+            <ul>Strengths:
+                <li>Agility ({{char.agility}})</li>
+                <li>Critical-Hit-Chance ({{char.criticalhitchance}})</li>
+                <li>Critical-Hit-Damage</li>
+            </ul>
+            <ul>Weaknesses:
+                <li>Health ({{char.hp}})</li>
+                <li>Armor ({{char.armor}})</li>
+                <li>Strength ({{char.strength}})</li>
+            </ul>
+        </div>
+    </span>
+    
+    <span *ngIf='race == "robot"'>
+        <h2>"This world needs me!"</h2>
+        <div class="char-descr-txt">This very special Robot was, like all the others of it's type, built and programmed as a war-machine, to destroy and kill enemies. Beeing a very advanced model, it was designed to be self-operating, and had a potent AI installed. This AI's calculations though, resulted in unexpected Outcomes. This single robot is now set and determined to save mankind, to restore peace, not through violence, as it was originally programmed, but through the many other uses a robot can have: construction work, calculations, and so on. With it's 'minde' made up, it abandoned it's military station, and in secret left for one of the most degenerated cities it could find, which, accourding to it's claculatinos, was truly in need of a saviour …</div>
+        <div class="strength-weakness">
+            <ul>Strengths:
+                <li>Agility ({{char.agility}})</li>
+                <li>Critical-Hit-Chance ({{char.criticalhitchance}})</li>
+                <li>Critical-Hit-Damage</li>
+            </ul>
+            <ul>Weaknesses:
+                <li>Health ({{char.hp}})</li>
+                <li>Armor ({{char.armor}})</li>
+                <li>Strength ({{char.strength}})</li>
+            </ul>
+        </div>
+    </span>
+    
+    <span *ngIf='race == "monster"'>
+        <h2>"You should see the skeletons in my closet!"</h2>
+        <div class="char-descr-txt">You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire. You better do not mess with this superhuman killingmachine! Bred to dominate fights in close quaters, and also often favored for assassination-missions, she is one fighter that should not be taken lightly. As a clone she is naturaly touchy about being mistaken for others … espescially for one of her sisters … never try that fire.</div>
+        <div class="strength-weakness">
+            <ul>Strengths:
+                <li>Agility ({{char.agility}})</li>
+                <li>Critical-Hit-Chance ({{char.criticalhitchance}})</li>
+                <li>Critical-Hit-Damage</li>
+            </ul>
+            <ul>Weaknesses:
+                <li>Health ({{char.hp}})</li>
+                <li>Armor ({{char.armor}})</li>
+                <li>Strength ({{char.strength}})</li>
+            </ul>
+        </div>
+    </span>
+    
+    <label>Enter the fighter's name: 
+        <input [(ngModel)]="charName" class="dialog-input" placeholder="Name your fighter!" for="enter-name" stat="name" [(ngModel)]="charName" maxlength="18">
+    </label><br><br>
     <span>
         <button (click)="returnToOverview()">Back</button>
-        <button (click)="pinChoice()" style="cursor: not-allowed">{{charName}} enters the city!</button>
+        <button (click)="pinChoice()" [class.disabled-btn]='charName == "Your Fighter" || charName.split("").length <= 1'>{{charName}} enters the city!</button>
     </span>
 </div>

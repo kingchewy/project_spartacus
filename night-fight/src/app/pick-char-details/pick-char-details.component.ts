@@ -41,7 +41,7 @@ export class PickCharDetailsComponent {
     }
 
     pinChoice () {
-        let confirmed = confirm(`Are you sure that you are a ${this.race} called\n\n${this.charName}?\n\nYou won't be able to undo this descicion!`)
+        let confirmed = confirm(`Are you sure that you are a ${this.race.toUpperCase()} called\n\n${this.charName.toUpperCase()}?\n\nYou won't be able to undo this descicion!`)
         if (confirmed){
             this.parent.showDetails = false
             this.parent.clickedRace = undefined

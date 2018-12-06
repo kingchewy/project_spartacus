@@ -17,7 +17,7 @@ export class PickCharacterComponent {
         if (!this.showDetails){
             this.clickedRace = that.id
             this.showDetails = true
+            this.router.navigateByUrl("/pick-char/" + this.clickedRace)
         }
-        this.router.navigateByUrl("/pick-char/" + this.clickedRace)
     }
 }

@@ -1,0 +1,19 @@
+#container{
+    display: grid;
+    height: 100vh;
+    grid-row-gap: 20px;
+    grid-template-rows: 50px auto auto auto auto auto;
+    background-image: url(../../images/Akira-bg-1.jpg);
+    animation: bckgrndslide 15s 1 linear;
+}
+#container div {
+    background-color: rgba(var(--narr-color-t),0.5);
+}
+@keyframes bckgrndslide {
+    0%{
+        background-position: top left;
+    }
+    100%{
+        background-position: bottom left;
+    }
+}

@@ -25,34 +25,17 @@
     filter: brightness(50%);
 }
 .race-titel{
-    text-shadow: 0px 0px 30px black, 10px 10px 0px black;    
+    text-shadow: 0px 0px 30px black,
+                0px 0px 20px black,    
+                0px 0px 10px black;    
 }
 .char-choice:hover{
     filter: none;
 }
-.char-description{
-    background-color: black;
-    width: 50vw;
-    transition: 2s;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    will-change: bottom;
-    padding: 20px 10vh 0px 50px;
-    left: 100%;
-    text-align: left;
-    border-top: 3px solid;
-    border-bottom: 3px solid;
-    border-color: inherit;
-    line-height: 1.5em;
-    overflow: scroll;
-}
 .char-focus{
     filter: none;
     float: left;
-/*    margin: 20px 0px 0px 0px;*/
     margin: 0px;
-/*    height: 95%;*/
     height: 100%;
     cursor: auto;
     transition: none;
@@ -61,112 +44,25 @@ h1{
     margin-bottom: 20px;
     pointer-events: none;
 }
-.char-description h2{
-    margin-bottom: 30px;
-}
 #human{
     background-image: url(../../images/vengeance_mc.jpg);
-    border-color: var(--human-color);
 }
 #human:hover h1, #human.char-focus{
     color: var(--human-color);
 }
 #robot{
     background-image: url(../../images/long_ouyang_02.jpg);
-    border-color: var(--robot-color);
 }
 #robot:hover h1, #robot.char-focus{
     color: var(--robot-color);
 }
 #monster{
     background-image: url(../../images/monster_art2_by_ang_angg-d84jjva.jpg);
-    border-color: var(--monster-color);
 }
 #monster:hover h1, #monster.char-focus{
     color: var(--monster-color);
 }
-button{
-    margin-top: 20px;
-}
-#human button:last-child{
-    background-color: rgba(var(--human-color-t),0.2);
-    border-color: var(--human-color);
-    color: var(--human-color);
-}
-#human button:last-child:hover{
-    background-color: rgba(var(--human-color-t),0.4);
-    box-shadow: 0px 0px 30px rgba(var(--human-color-t),0.6);
-}
-#human button:last-child:active{
-    background-color: rgba(var(--human-color-t),0.5);
-    box-shadow: 0px 0px 40px rgba(var(--human-color-t),0.8);
-}
-#robot button:last-child{
-    background-color: rgba(var(--robot-color-t),0.2);
-    border-color: var(--robot-color);
-    color: var(--robot-color);
-}
-#robot button:last-child:hover{
-    background-color: rgba(var(--robot-color-t),0.4);
-    box-shadow: 0px 0px 30px rgba(var(--robot-color-t),0.6);
-}
-#robot button:last-child:active{
-    background-color: rgba(var(--robot-color-t),0.5);
-    box-shadow: 0px 0px 40px rgba(var(--robot-color-t),0.8);
-}
-#monster button:last-child{
-    background-color: rgba(var(--monster-color-t),0.2);
-    border-color: var(--monster-color);
-    color: var(--monster-color);
-}
-#monster button:last-child:hover{
-    background-color: rgba(var(--monster-color-t),0.4);
-    box-shadow: 0px 0px 30px rgba(var(--monster-color-t),0.6);
-}
-#monster button:last-child:active{
-    background-color: rgba(var(--monster-color-t),0.5);
-    box-shadow: 0px 0px 40px rgba(var(--monster-color-t),0.8);
-}
-.char-description-txt{
-    max-height: 20%;
-    overflow: scroll;
-}
-
-.strength-weakness{
-    margin: 20px 0px 40px 0px;
-    text-align: center;
-}
-ul{
-    font-size: 1.6em;
-    text-align: right;
-    display: inline-block;
-    line-height: 1.2em;
-    padding: 0px 10px 0px 10px;
-    font-weight: bold;
-    border-right: solid 2px white;
-}
-ul:last-of-type{
-    text-align: left;
-    border-right: none;
-    border-left: solid 2px white;
-}
-li {
-    font-size: 0.8em;
-    font-weight: normal;
-}
-li:first-child{
-    margin-top: 10px;
-}
-/*#fill-in{*/
-/*    text-align: right;*/
-/*    margin: 8vh 30% 10vh 0px;*/
-/*}*/
 #char-pick-narrator{
     margin-top: -20px;
     color: var(--narr-color);
-}
-@keyframes appear {
-    0%{
-        margin-top: 100vh;
-    }
 }

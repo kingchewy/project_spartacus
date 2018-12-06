@@ -1,1 +1,140 @@
 /*siehe styles.css*/
+
+#dialog-container{
+    padding: 50px 0px 50px 0px;
+    min-height: 100%;
+    width: 100vw;
+}
+#dialog-story-btn{
+    border-color: var(--narr-color);
+    background-color: rgba(var(--narr-color-t),0.5);
+    position: fixed;
+    top: 92vh;
+    left: 45vw;
+    width: 10vw;
+    color: var(--narr-color);
+    box-shadow: 0px 0px 20px black;
+    animation: btn-appear 1s 1 ease-out;
+}
+#dialog-story-btn:hover{
+    background-color: rgba(var(--narr-color-t),0.7);
+}
+#dialog-story-btn:active{
+    background-color: rgba(var(--narr-color-t),0.9);
+}
+.show-dialog{
+    animation: appear 0.8s 1 linear;
+    background-color: rgba(0, 0, 0,0.85);
+    color: white;
+    padding: 35px 70px 40px 70px;
+    width: 50vw;
+    margin-bottom: 50px;
+    transition: 0.5s;
+    transition-timing-function: ease-out;
+    line-height: 1.3em;
+    font-size: 1.3em;
+    position: relative;
+}
+.hide-dialog{
+    display: none;
+}
+.hide-dialog.show-dialog{
+    display: block;
+}
+.narrator-bubble,
+.narrator-bubble.human-bubble,
+.narrator-bubble.robot-bubble,
+.narrator-bubble.monster-bubble{
+    border: 3px solid var(--narr-color);
+    background-color: rgba(var(--narr-color-t),0.6);
+    border-left: none;
+    color: var(--narr-color);
+    box-shadow: 0px 0px 20px var(--narr-color) inset;
+    margin-left: -10px; /* wegen Boxshadow (damit man am Rand keinen sieht) */
+}
+.you-bubble{
+    left: 50vw;
+    border: 3px solid;
+    border-right: none;
+    margin-left: 10px; /* wegen Boxshadow (damit man am Rand keinen sieht) */
+}
+.sound-bubble,
+.sound-bubble.human-bubble,
+.sound-bubble.robot-bubble,
+.sound-bubble.monster-bubble{
+    box-shadow: none;
+    background-image: linear-gradient(to Left, transparent, rgba(80,80,80,0.9), transparent);
+    background-color: transparent;
+    padding: 0px 80px 30px 80px;
+    text-align: center;
+    margin: auto;
+    font-size: 3em;
+    font-weight: bold;
+    font-family: 'Kanit';
+    letter-spacing: 4px;
+    text-shadow: 15px 15px 0px black;
+    margin-bottom: 50px;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+    animation: sound-pop 1s 1 ease-out;
+    will-change: transform;
+}
+.human-bubble{
+    border-color: var(--human-color);
+    background-color: rgba(var(--human-color-d),0.75);
+    color: var(--human-color);
+    box-shadow: 0px 0px 20px var(--human-color) inset;
+}
+.robot-bubble{
+    border-color: var(--robot-color);
+    background-color: rgba(var(--robot-color-d),0.75);
+    color: var(--robot-color);
+    box-shadow: 0px 0px 20px var(--robot-color) inset;
+}
+.monster-bubble{
+    border-color: var(--monster-color);
+    background-color: rgba(var(--monster-color-d),0.75);
+    color: var(--monster-color);
+    box-shadow: 0px 0px 20px var(--monster-color) inset;
+}
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+}
+@keyframes btn-appear {
+    0%{
+        opacity: 0;
+        color: white;
+        font-size: 1.3em;
+        box-shadow: 0px 0px 200px white,
+                    0px 0px 150px white,
+                    0px 0px 100px white,
+                    0px 0px 50px white;
+        border-color: white;
+    }
+    10%{
+        opacity: 1;
+    }
+    50%{
+        color: white;
+        border-color: white;
+    }
+}
+@keyframes sound-pop{
+    0%{
+        opacity: 0;
+        transform: scale(0,0);
+        
+        padding: 5px 0px 10px 0px;
+        text-shadow: 0px 0px 0px black;
+    }
+    30%{
+        opacity: 1;
+        transform: scale(1.1,1.1);
+    }
+    40%{
+        padding: 5px 0px 10px 0px;
+        text-shadow: 0px 0px 0px black;
+    }
+}

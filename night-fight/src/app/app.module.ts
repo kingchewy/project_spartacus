@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
 //import { PickCharacterComponent } from './pick-character/pick-character.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 //import { PickCharDetailsComponent } from './pick-char-details/pick-char-details.component';
 
 @NgModule({
@@ -15,6 +17,8 @@ import { DialogComponent } from './dialog/dialog.component';
     IntroComponent,
 //    PickCharacterComponent,
     DialogComponent,
+DashboardComponent,
+NavBarComponent,
 //    PickCharDetailsComponent
   ],
   imports: [

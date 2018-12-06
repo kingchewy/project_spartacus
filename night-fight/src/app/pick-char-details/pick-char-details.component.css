@@ -12,37 +12,16 @@
     line-height: 1.5em;
     align-content: start;
 }
-.char-focus{
-    filter: none;
-    float: left;
-    margin: 20px 0px 0px 0px;
-    height: 95%;
-    cursor: auto;
-    transition: none;
-}
-h1{
-    margin-bottom: 20px;
-    pointer-events: none;
-}
 h2{
     margin-bottom: 30px;
 }
-#human{
-    border-color: var(--human-color);
-}
-#human:hover h1, #human h2{
+#human:hover h1, #human h2, #human button:last-child, #human ul{
     color: var(--human-color);
 }
-#robot{
-    border-color: var(--robot-color);
-}
-#robot:hover h1, #robot h2{
+#robot:hover h1, #robot h2, #robot button:last-child, #robot ul{
     color: var(--robot-color);
 }
-#monster{
-    border-color: var(--monster-color);
-}
-#monster:hover h1, #monster h2{
+#monster:hover h1, #monster h2, #monster button:last-child, #monster ul{
     color: var(--monster-color);
 }
 button{
@@ -50,8 +29,6 @@ button{
 }
 #human button:last-child{
     background-color: rgba(var(--human-color-t),0.2);
-    border-color: var(--human-color);
-    color: var(--human-color);
 }
 #human button:last-child:hover{
     background-color: rgba(var(--human-color-t),0.4);
@@ -63,8 +40,6 @@ button{
 }
 #robot button:last-child{
     background-color: rgba(var(--robot-color-t),0.2);
-    border-color: var(--robot-color);
-    color: var(--robot-color);
 }
 #robot button:last-child:hover{
     background-color: rgba(var(--robot-color-t),0.4);
@@ -76,8 +51,6 @@ button{
 }
 #monster button:last-child{
     background-color: rgba(var(--monster-color-t),0.2);
-    border-color: var(--monster-color);
-    color: var(--monster-color);
 }
 #monster button:last-child:hover{
     background-color: rgba(var(--monster-color-t),0.4);
@@ -91,7 +64,6 @@ button{
     max-height: 15vh;
     overflow: scroll;
 }
-
 .strength-weakness{
     margin: 20px 0px 40px 0px;
     text-align: center;
@@ -110,14 +82,31 @@ ul:last-of-type{
     border-right: none;
     border-left: solid 2px white;
 }
+#human,
+#human ul,
+#human button:last-child{
+    border-color: var(--human-color);
+}
+#robot,
+#robot ul,
+#robot button:last-child{
+    border-color: var(--robot-color);
+}
+#monster,
+#monster ul,
+#monster button:last-child{
+    border-color: var(--monster-color);
+}
 li {
     font-size: 0.8em;
     font-weight: normal;
+    color: white;
 }
 li:first-child{
     margin-top: 10px;
 }
-/*#fill-in{*/
-/*    text-align: right;*/
-/*    margin: 8vh 30% 10vh 0px;*/
-/*}*/
+.disabled-btn{
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+}
