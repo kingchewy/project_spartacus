@@ -20,11 +20,12 @@
     --human-color-d: 0,80,0;
     --robot-color-d: 0,0,80;
     --monster-color-d: 80,0,0;
+    --narr-color-d: 150, 0, 0;
     
     --human-color-t: 150,255,100;
     --robot-color-t: 100,150,255;
     --monster-color-t: 255,150,100;
-    --narr-color-t: 150, 0, 0;
+    --narr-color-t: 255, 200, 200;
 }
 body{
     background-image: url(./images/akira_city.jpg);
@@ -43,6 +44,7 @@ body{
 h1{
     font-family: 'Kanit', impact;
     margin-bottom: 20px;
+    letter-spacing: 1.5px;
 /*    font-size: 2.4em;*/
 }
 h2{
@@ -54,7 +56,7 @@ button{
     font-size: 1em;
     border: 2.5px solid white;
     margin: 5px;
-    padding: 5px;
+    padding: 5px 10px 5px 10px;
     color: white;
     cursor: pointer;
     background-color: rgba(255,255,255,0.5);
@@ -70,6 +72,64 @@ button:active{
     border-radius: 8px;
     background-color: rgba(255,255,255,0.8);
 }
+.narr-btn{
+
+}
+.human-btn{
+    color: var(--human-color);
+    background-color: rgba(var(--human-color-t),0.2);
+    border-color: var(--human-color);
+}
+.human-btn:hover{
+    background-color: rgba(var(--human-color-t),0.4);
+    box-shadow: 0px 0px 40px rgba(var(--human-color-t),0.6);
+}
+.human-btn:active{
+    background-color: rgba(var(--human-color-t),0.5);
+    box-shadow: 0px 0px 40px rgba(var(--human-color-t),0.8);
+}
+.robot-btn{
+    color: var(--robot-color);
+    background-color: rgba(var(--robot-color-t),0.2);
+    border-color: var(--robot-color);
+}
+.robot-btn:hover{
+    background-color: rgba(var(--robot-color-t),0.4);
+    box-shadow: 0px 0px 40px rgba(var(--robot-color-t),0.6);
+}
+.robot-btn:active{
+    background-color: rgba(var(--robot-color-t),0.5);
+    box-shadow: 0px 0px 40px rgba(var(--robot-color-t),0.8);
+}
+.monster-btn{
+    color: var(--monster-color);
+    background-color: rgba(var(--monster-color-t),0.2);
+    border-color: var(--monster-color);
+}
+.monster-btn:hover{
+    background-color: rgba(var(--monster-color-t),0.4);
+    box-shadow: 0px 0px 40px rgba(var(--monster-color-t),0.6);
+}
+.monster-btn:active{
+    background-color: rgba(var(--monster-color-t),0.5);
+    box-shadow: 0px 0px 40px rgba(var(--monster-color-t),0.8);
+}
+.narr-btn{
+    color: var(--narr-color);
+    background-color: rgba(var(--narr-color-t),0.2);
+    border-color: var(--narr-color);
+}
+.narr-btn:hover{
+    background-color: rgba(var(--narr-color-t),0.4);
+    box-shadow: 0px 0px 40px rgba(var(--narr-color-t),0.6);
+}
+.narr-btn:active{
+    background-color: rgba(var(--narr-color-t),0.5);
+    box-shadow: 0px 0px 40px rgba(var(--narr-color-t),0.8);
+}
+
+
+
 label{
     font-size: 1.3em;
 }

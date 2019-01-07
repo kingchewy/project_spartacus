@@ -1,0 +1,13 @@
+================================================================================
+ AUFGABE 2
+--------------------------------------------------------------------------------
+ *) Implementiere zwei Calculator-Klassen, die jeweils die Methode
+    sum(int... numbers) anbieten.
+ *) Die einfache Implementierung kann nur genau zwei Zahlen addieren, die
+    erweiterte Implementierung kann N Zahlen addieren.
+ *) Wird der Java-Prozess mit dem VM-Argument extended=true aufgerufen, soll
+    die erweiterte, ansonsten die einfache Implementierung verwendet werden.
+ *) Innerhalb des Programms muss stets vollkommen transparent bleiben, welche
+    Implementierung gerade verwendet wird.
+ *) Sichere deine Implementierung durch Unit-Tests ab.
+================================================================================

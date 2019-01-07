@@ -1,0 +1,9 @@
+================================================================================
+ AUFGABE 3
+--------------------------------------------------------------------------------
+ *) Implementiere einen Newsletter (kein Mailversand!), bei dem sich
+    Interessierte anmelden und auch wieder abmelden können.
+ *) Wird eine neue News über den Newsletter veröffentlicht, soll diese an alle
+    aktuellen Interessenten geschickt werden.
+ *) Sichere deine Implementierung durch Unit-Tests ab.
+================================================================================

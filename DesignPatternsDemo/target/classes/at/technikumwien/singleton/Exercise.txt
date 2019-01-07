@@ -1,0 +1,9 @@
+================================================================================
+ AUFGABE 1
+--------------------------------------------------------------------------------
+ *) Implementiere eine Klasse IdGenerator, die bei jedem Aufruf von getNextId()
+    eine eindeutige Nummer (1, 2, ..., n - 1, n) zurückliefert.
+ *) Von dieser Klasse darf pro JVM maximal eine Instanz erzeugt werden können
+    (egal wie geschickt sich der Aufrufer auch anstellt).
+ *) Sichere deine Implementierung durch Unit-Tests ab.
+================================================================================

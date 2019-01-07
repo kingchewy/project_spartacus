@@ -1,0 +1,10 @@
+================================================================================
+ AUFGABE 4
+--------------------------------------------------------------------------------
+ *) Implementiere eine Klasse CalculatorService, die die Methode
+    sum(int... numbers) anbietet. Die Berechnung soll aber nicht direkt durch
+    diese Methode erfolgen, sondern dazu soll unter Verwendung des im JDK
+    integrierten SPI-Mechanismus eine der Calculator-Implementierungen aus der
+    Aufgabe 2 verwendet werden.
+ *) Sichere deine Implementierung durch Unit-Tests ab.
+================================================================================
