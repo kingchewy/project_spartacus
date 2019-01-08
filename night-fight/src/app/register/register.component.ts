@@ -19,11 +19,11 @@ export class RegisterComponent implements OnInit{
         this.newAccount.eMail = ""
         this.newAccount.password = ""
         this.newAccount.blocked = 0
-        this.newAccount.date = null
+        this.newAccount.date = "2018-09-11"
     }
     
     checkInput () {
-        if (( this.name != "" && this.eMail != "" && this.password != "" && this.passwordConf != "" )
+        if (( this.newAccount.name != "" && this.newAccount.eMail != "" && this.password != "" && this.passwordConf != "" )
             && ( this.password == this.passwordConf )){
             return true
         }
