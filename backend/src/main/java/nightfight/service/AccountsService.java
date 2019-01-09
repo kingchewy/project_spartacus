@@ -1,10 +1,12 @@
-package nightfight.accounts;
+package nightfight.service;
 
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import nightfight.model.Accounts;
 
 @Stateless
 public class AccountsService {
