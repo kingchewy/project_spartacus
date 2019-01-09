@@ -38,11 +38,13 @@ public class Accounts {
 	@XmlAttribute
 	private int blocked;
 	
-	@Column(nullable=false)
+	@Column(nullable=true)
 	@XmlAttribute
 	private String created;
 	
-	public Accounts() {}
+	public Accounts() {
+		System.out.println("craete constructor");
+	}
 
 	public Accounts(String name, String text) {
 		this.name = name;
@@ -84,12 +86,37 @@ public class Accounts {
 		this.name = name;
 	}
 
-	public String getEmail() {
+
+	public String geteMail() {
 		return eMail;
 	}
 
-	public void setEmail(String text) {
-		this.eMail = text;
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public int getBlocked() {
+		return blocked;
+	}
+
+	public void setBlocked(int blocked) {
+		this.blocked = blocked;
+	}
+
+	public String getCreated() {
+		return created;
+	}
+
+	public void setCreated(String created) {
+		this.created = created;
 	}
 
 	@Override
