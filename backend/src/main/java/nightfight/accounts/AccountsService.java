@@ -10,9 +10,14 @@ import javax.persistence.PersistenceContext;
 public class AccountsService {
 	@PersistenceContext
 	private EntityManager em;
-	
-	public List<Accounts> getAllAccounts() {
+		
+	public List<Accounts> getAllClients() {
 		return em.createNamedQuery("Accounts.selectAll", Accounts.class)
+			.getResultList();
+	}
+	public List<Accounts> getAllSearched(String searchTerm) {
+		return em.createNamedQuery("Accounts.selectSearched", Accounts.class)
+				.setParameter("name", "%" + searchTerm + "%")
 				.getResultList();
 	}
 }

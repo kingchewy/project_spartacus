@@ -8,9 +8,9 @@ import javax.jws.WebService;
 @WebService
 public class AccountsWebService {
 	@Inject
-	private AccountsService accountsService;
+	private AccountsService clientsService;
 	
-	public List<Accounts> getAllAccounts() {
-		return accountsService.getAllAccounts();
+	public List<Accounts> getAllNews() {
+		return clientsService.getAllClients();
 	}
 }

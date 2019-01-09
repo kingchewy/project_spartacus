@@ -1,4 +1,4 @@
-activeProfiles=
+activeProfiles=deploy-webapp-to-wildfly
 eclipse.preferences.version=1
 resolveWorkspaceProjects=true
 version=1
