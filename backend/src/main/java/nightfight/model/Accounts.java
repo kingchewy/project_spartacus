@@ -1,4 +1,4 @@
-package nightfight.accounts;
+package nightfight.model;
 
 
 import javax.persistence.Column;
