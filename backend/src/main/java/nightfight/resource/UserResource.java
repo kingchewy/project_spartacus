@@ -9,55 +9,57 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.core.Response.Status;
 
-import nightfight.model.Accounts;
-import nightfight.service.AccountsService;
+import nightfight.model.User;
+import nightfight.service.UserService;
 
-@Path("/accounts")
+@Path("/users")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class AccountsResource {
-	private static final Logger LOGGER = Logger.getLogger(AccountsResource.class.getName());
+public class UserResource {
+	private static final Logger LOGGER = Logger.getLogger(UserResource.class.getName());
 
 	@PersistenceContext
 	private EntityManager em;
 	@Inject
-	private AccountsService accountsService;
+	private UserService userService;
 	@Context
 	private UriInfo uriInfo;
 
 	@POST
 	@Transactional
-	public Response create(Accounts accounts) {
-		LOGGER.info("create >> client=" + accounts);
+	public Response create(User user) {
+		LOGGER.info("create >> client=" + user);
 
-		em.persist(accounts);
-		URI uri = uriInfo.getAbsolutePathBuilder().path(accounts.getId().toString()).build();
+		em.persist(user);
+		URI uri = uriInfo.getAbsolutePathBuilder().path(user.getId().toString()).build();
 		return Response.created(uri).build();
 	}
-//
-//	@GET
-//	@Path("/{id}")
-//	public Clients retrieve(@PathParam("id") long id) {
-//		LOGGER.info("retrieve >> id=" + id);
-//
-//		return em.find(Clients.class, id);
-//	}
-//
+
+	@GET
+	@Path("/{id}")
+	public User retrieve(@PathParam("id") long id) {
+		LOGGER.info("retrieve >> id=" + id);
+
+		return em.find(User.class, id);
+	}
+
+	@GET
+	public List<User> getAllUsers(){
+		LOGGER.info("retrieveAll Users");
+		return userService.getAllUsers();
+	}
+	
 //	@PUT
 //	@Path("/{id}")
 //	@Transactional
@@ -87,14 +89,14 @@ public class AccountsResource {
 //		}
 //	}
 
-	@GET
-	public List<Accounts> retrieveAll ( @QueryParam("searchterm") String searchTerm ) {
-		LOGGER.info("retrieveAll");
-		
-		if (searchTerm == null) {
-			return accountsService.getAllClients();
-		} else {
-			return accountsService.getAllSearched(searchTerm);
-		}
-	}
+//	@GET
+//	public List<User> retrieveAll ( @QueryParam("searchterm") String searchTerm ) {
+//		LOGGER.info("retrieveAll");
+//		
+//		if (searchTerm == null) {
+//			return userService.getAllClients();
+//		} else {
+//			return userService.getAllSearched(searchTerm);
+//		}
+//	}
 }
