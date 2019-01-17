@@ -21,8 +21,7 @@ export const Dialog = {
           ["you-bubble", "Bye."],
           ["sound-bubble", "… ratter-ratter, RRUUUUMMMMMM!!!"],
           ["sound-bubble", "!!!NNNIIIiiiuuuummmm…"],
-          ["narrator-bubble", "Well I’d like to see the trashcan she’ll sleep in now … what an idiot!"],
-          ["narrator-bubble", "Still hot though …"]
+          ["narrator-bubble", "Well I’d like to see the trashcan she’ll sleep in now … what an idiot!"]
       ],
       robot: [
             ["narrator-bubble", "Oh hello there … what the hell have we here? A lonely robot, arriving from outside the town? Come here! What do you want here? I’ve never heard of a robot that was sent here alone by someone on purpose!"],

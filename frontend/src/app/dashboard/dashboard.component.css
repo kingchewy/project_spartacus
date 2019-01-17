@@ -1,19 +1,16 @@
 #container{
     display: grid;
     height: 100vh;
-    grid-row-gap: 20px;
-    grid-template-rows: 50px auto auto auto auto auto;
-    background-image: url(../../images/Akira-bg-1.jpg);
-    animation: bckgrndslide 15s 1 linear;
+    width: 90vw;
+    margin-left: 10vw;
+    grid-gap: 20px;
+    grid-template-rows: 50px auto auto;
+    grid-template-columns: auto auto;
+    padding: 20px;
 }
 #container div {
-    background-color: rgba(var(--narr-color-t),0.5);
+    background-color: rgba(var(--narr-color-d),0.5);
 }
-@keyframes bckgrndslide {
-    0%{
-        background-position: top left;
-    }
-    100%{
-        background-position: bottom left;
-    }
+#container > h1 {
+    grid-column: 1 / 3;
 }

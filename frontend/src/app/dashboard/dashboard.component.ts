@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-    private charName = "Green Queen"
+    private userName = "Green Queen"
     
   constructor() { }
 
   ngOnInit() {
+      document.body.style.backgroundPosition = "bottom"
+      document.body.style.backgroundImage="url(Akira-bg-1.jpg)"
   }
 
 }

@@ -1,7 +1,53 @@
-div{
+div {
     position: fixed;
     left: 0px;
     top: 0px;
     bottom: 0px;
+    
+    background-color: rgba(var(--narr-color-d),0.5);
+    
+    font-size: 2em;
+    font-family: 'Kanit', impact;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    
+    padding: 20px 10px 0px 0px;
+    width: 60px;
+    transition: 0.5s;
+    transition-timing-function: ease;
+    overflow-x: hidden;
+}
+div:hover {
+    width: 240px;
+    background-color: rgba(var(--narr-color-d),0.7);
+    border-right: solid 5px var(--narr-color);
+    padding-right: 0px;
+}
+span {
+    opacity: 0;
+    transition: 1s;
+    transition-timing-function: ease-out;
+}
+div:hover > ul li span {
+    opacity: 1;
+}
+ul li{
+    padding: 5px 0px 5px 20px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+div:hover > ul li {
+    background-color: rgba(var(--narr-color-t),0.3);
+    padding-left: 35px;
+}
+div:hover > ul li:hover {
     background-color: rgba(var(--narr-color-t),0.5);
+    padding-left: 40px;
+}
+div:hover > ul li:active {
+    background-color: rgba(var(--narr-color-t),0.6);
+}
+
+#account {
+    margin-bottom: 20vh;
 }

@@ -15,11 +15,20 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
 @Table(name="t_user")
 @NamedQuery(name="User.selectAll", query="SELECT n FROM User n")
 @XmlAccessorType(XmlAccessType.FIELD)
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@XmlAttribute
@@ -45,88 +54,6 @@ public class User {
 	@Column(nullable=true)
 	@XmlAttribute
 	private String created;
-	
-	
-	public User() {
-		System.out.println("create constructor");
-	}
-	
-	public User(String name) {
-		this.name = name;
-	}
-
-	public User(String name, String eMail) {
-		this.name = name;
-		this.eMail = eMail;
-	}	
-	
-	public User(Long id, String name, String eMail) {
-		this.id = id;
-		this.name = name;
-		this.eMail = eMail;
-	}
-	public User(Long id, String name, String eMail, int blocked) {
-		this.id = id;
-		this.name = name;
-		this.eMail = eMail;
-		this.blocked = blocked;
-	}	
-	public User(Long id, String name, String eMail, int blocked, String created) {
-		this.id = id;
-		this.name = name;
-		this.eMail = eMail;
-		this.blocked = blocked;
-		this.created = created;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public String geteMail() {
-		return eMail;
-	}
-
-	public void seteMail(String eMail) {
-		this.eMail = eMail;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public int getBlocked() {
-		return blocked;
-	}
-
-	public void setBlocked(int blocked) {
-		this.blocked = blocked;
-	}
-
-	public String getCreated() {
-		return created;
-	}
-
-	public void setCreated(String created) {
-		this.created = created;
-	}
 
 	@Override
 	public String toString() {

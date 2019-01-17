@@ -13,6 +13,7 @@ export class IntroComponent implements OnInit {
 
   ngOnInit() {
       document.body.style.backgroundPosition = "bottom"
+
       document.getElementsByTagName("use")[0].addEventListener("animationend", () => {
           document.getElementById("logo").remove()
           document.getElementById("opening-text").style.display = "block"

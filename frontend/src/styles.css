@@ -6,6 +6,7 @@
     text-decoration: none;
     list-style-type: none;
     color: white;
+    transition: none;
 }
 *::selection{
     background-color: rgb(var(--narr-color-t));
@@ -34,7 +35,7 @@ body{
     background-position: top;
     background-attachment: fixed;
     
-    transition: 20s;
+    transition: background-position 20s;
     
     overflow-x: hidden;
     overflow-y: scroll;

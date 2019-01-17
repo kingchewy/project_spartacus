@@ -7,7 +7,7 @@
 }
 #dialog-story-btn{
     border-color: var(--narr-color);
-    background-color: rgba(var(--narr-color-t),0.5);
+    background-color: rgba(var(--narr-color-d),0.5);
     position: fixed;
     top: 92vh;
     left: 45vw;
@@ -17,10 +17,10 @@
     animation: btn-appear 1s 1 ease-out;
 }
 #dialog-story-btn:hover{
-    background-color: rgba(var(--narr-color-t),0.7);
+    background-color: rgba(var(--narr-color-d),0.7);
 }
 #dialog-story-btn:active{
-    background-color: rgba(var(--narr-color-t),0.9);
+    background-color: rgba(var(--narr-color-d),0.9);
 }
 .show-dialog{
     animation: appear 0.8s 1 linear;
@@ -46,7 +46,7 @@
 .narrator-bubble.robot-bubble,
 .narrator-bubble.monster-bubble{
     border: 3px solid var(--narr-color);
-    background-color: rgba(var(--narr-color-t),0.6);
+    background-color: rgba(var(--narr-color-d),0.6);
     border-left: none;
     color: var(--narr-color);
     box-shadow: 0px 0px 20px var(--narr-color) inset;
