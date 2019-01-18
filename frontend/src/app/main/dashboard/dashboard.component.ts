@@ -11,8 +11,8 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      document.body.style.backgroundPosition = "bottom"
-      document.body.style.backgroundImage="url(Akira-bg-1.jpg)"
+//      document.body.style.backgroundPosition = "bottom"
+//      document.body.style.backgroundImage="url(Akira-bg-1.jpg)"
   }
 
 }

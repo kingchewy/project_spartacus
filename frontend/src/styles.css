@@ -9,8 +9,8 @@
     transition: none;
 }
 *::selection{
-    background-color: rgb(var(--narr-color-t));
-    color: var(--narr-color);
+    background-color: var(--narr-color);
+    color: rgb(var(--narr-color-d));
 }
 :root{
     --human-color: rgb(150,255,100);

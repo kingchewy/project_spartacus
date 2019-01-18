@@ -1,8 +1,8 @@
 import { Component } from '@angular/core'
-import { PickCharacterComponent } from '../pick-character/pick-character.component'
-import { Character } from '../character'
+import { PickCharacterComponent } from '../../character-create/pick-character/pick-character.component'
+import { Character } from '../../character'
 import { ActivatedRoute, Router } from '@angular/router'
-import { Dialog } from '../mock-dialog'
+import { Dialog } from '../../mock-dialog'
 
 @Component({
   selector: 'story-dialog',
@@ -40,7 +40,7 @@ export class DialogComponent {
         } else {
             let confirmation = confirm(`Have you finished reading the story\nfand do you want to continue?`)
             if (confirmation){
-                this.router.navigateByUrl("/dashboard")
+                this.router.navigateByUrl("/base/dashboard")
             }
         }
     }

@@ -5,7 +5,6 @@ import { PickCharDetailsComponent } from '../pick-char-details/pick-char-details
 
 const routes: Routes = [
     { path: '', component: PickCharacterComponent,
-//        children: [{ path: ':race', loadChildren: '../pick-char-details/pick-char-details.module#PickCharDetailsModule' }]
         children: [{ path: ':race', component: PickCharDetailsComponent}]
     },
 ];
