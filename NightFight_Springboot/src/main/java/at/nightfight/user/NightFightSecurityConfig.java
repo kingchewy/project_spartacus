@@ -3,6 +3,8 @@ package at.nightfight.user;
 import java.util.ArrayList;
 import java.util.List;
 
+import at.nightfight.model.User;
+import at.nightfight.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -55,7 +57,7 @@ public class NightFightSecurityConfig extends WebSecurityConfigurerAdapter imple
 		String username = authentication.getName();
 		String password = authentication.getCredentials().toString();
 		
-		User user = userRepository.findByName(username);		
+		User user = userRepository.findByName(username);
 		
 		if (user == null || !passwordEncoder.matches(password, user.getPassword())) {
 			throw new AuthenticationException("access denied: invalid username or password \n eingegebenes Passwort encrypted == "+ passwordEncoder.encode(password)) {};
