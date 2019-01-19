@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
-export class Account {
+export class User {
     id: number
     name: string
     eMail: string
     password: string
     blocked: number
-    date: string
+    date: String
 }
 
-const ACCOUNTS_RESOURCE_URL = 'http://localhost:8080/news/resources/accounts'
+const RESOURCE_URL = 'http://localhost:8080/night_fight'
 
 @Injectable({
   providedIn: 'root',
@@ -19,11 +19,11 @@ export class NightFightService {
 
   constructor( private httpClient: HttpClient ) { }
     
-    createAccount (account: Account): Promise<any> {
-        return this.httpClient.post( ACCOUNTS_RESOURCE_URL, account ).toPromise()
+    createAccount (account: User): Promise<any> {
+        return this.httpClient.post( RESOURCE_URL + "/users", account ).toPromise()
     }
     
     retrieveAllAccounts (): Promise<any> {
-        return this.httpClient.get<Account[]>(ACCOUNTS_RESOURCE_URL).toPromise()
+        return this.httpClient.get<User[]>( RESOURCE_URL + "/users" ).toPromise()
     }
 }

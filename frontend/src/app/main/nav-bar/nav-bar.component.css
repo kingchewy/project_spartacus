@@ -45,7 +45,29 @@ div:hover > ul li:hover {
     padding-left: 40px;
 }
 div:hover > ul li:active {
-    background-color: rgba(var(--narr-color-t),0.6);
+    background-color: rgba(var(--narr-color-t),0.7);
+}
+
+ul li > ul li {
+    opacity: 0;
+    height: 0px;
+    overflow: hidden;
+    pointer-events: none;
+    margin-left: -40px;
+    padding: 0px 0px 0px 40px;
+}
+#fights:hover {
+    padding-bottom: 0px;
+}
+div:hover > ul li:hover > ul li{
+    opacity: 1;
+    height: 65px;
+    pointer-events: all;
+    background-color: none;
+    padding: 5px 0px 5px 45px;
+}
+div:hover > ul li:hover > ul li:hover{
+    padding-left: 50px;
 }
 
 #account {

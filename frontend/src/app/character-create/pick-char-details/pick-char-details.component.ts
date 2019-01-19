@@ -2,8 +2,8 @@ import { Component, Inject } from '@angular/core'
 import { Router } from '@angular/router'
 import { PickCharacterComponent } from '../pick-character/pick-character.component'
 import { ActivatedRoute } from '@angular/router'
-import { Character } from '../character'
-import { AttributeRange } from '../mock-attribute-range'
+import { Character } from './character'
+import { AttributeRange } from './mock-attribute-range'
 
 @Component({
   selector: 'pick-char-details',
@@ -50,7 +50,7 @@ export class PickCharDetailsComponent {
             this.char.race = this.race
             console.log(this.char)
             
-            this.router.navigateByUrl("/dialog/" + this.race)
+            this.router.navigateByUrl("/base/dialog/" + this.race)
         }
     }
     

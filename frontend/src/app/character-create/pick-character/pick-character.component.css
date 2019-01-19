@@ -45,19 +45,19 @@ h1{
     pointer-events: none;
 }
 #human{
-    background-image: url(../../images/vengeance_mc.jpg);
+    background-image: url(../../../images/vengeance_mc.jpg);
 }
 #human:hover h1, #human.char-focus{
     color: var(--human-color);
 }
 #robot{
-    background-image: url(../../images/long_ouyang_02.jpg);
+    background-image: url(../../../images/long_ouyang_02.jpg);
 }
 #robot:hover h1, #robot.char-focus{
     color: var(--robot-color);
 }
 #monster{
-    background-image: url(../../images/monster_art2_by_ang_angg-d84jjva.jpg);
+    background-image: url(../../../images/monster_art2_by_ang_angg-d84jjva.jpg);
 }
 #monster:hover h1, #monster.char-focus{
     color: var(--monster-color);

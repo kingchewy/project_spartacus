@@ -7,6 +7,7 @@
     grid-template-rows: 50px auto auto;
     grid-template-columns: auto auto;
     padding: 20px;
+/*    background-image: url(../../images/Akira-bg-1.jpg);*/
 }
 #container div {
     background-color: rgba(var(--narr-color-d),0.5);
