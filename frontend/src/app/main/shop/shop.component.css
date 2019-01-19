@@ -8,5 +8,5 @@
     padding: 20px;
 }
 #container div {
-    background-color: rgba(var(--narr-color-d),0.5);
+    background-color: rgba(var(--race-color-d),0.5);
 }

@@ -10,7 +10,7 @@
 /*    background-image: url(../../images/Akira-bg-1.jpg);*/
 }
 #container div {
-    background-color: rgba(var(--narr-color-d),0.5);
+    background-color: rgba(var(--race-color-d),0.5);
 }
 #container > h1 {
     grid-column: 1 / 3;

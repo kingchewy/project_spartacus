@@ -1,8 +1,7 @@
 import { Component } from '@angular/core'
-import { PickCharacterComponent } from '../../character-create/pick-character/pick-character.component'
-import { Character } from '../../character'
+import { Character } from '../../../character'
 import { ActivatedRoute, Router } from '@angular/router'
-import { Dialog } from '../../mock-dialog'
+import { Dialog } from '../../../mock-dialog'
 
 @Component({
   selector: 'story-dialog',

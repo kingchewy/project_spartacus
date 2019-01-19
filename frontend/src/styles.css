@@ -27,6 +27,10 @@
     --robot-color-t: 100,150,255;
     --monster-color-t: 255,150,100;
     --narr-color-t: 255, 200, 200;
+    
+    --race-color: white;
+    --race-color-t: white;
+    --race-color-d: white;
 }
 body{
     background-image: url(./images/akira_city.jpg);
@@ -46,7 +50,7 @@ h1{
     font-family: 'Kanit', impact;
     margin-bottom: 20px;
     letter-spacing: 1.5px;
-/*    font-size: 2.4em;*/
+    color: var(--race-color);
 }
 h2{
     font-family: 'Kanit', impact;
@@ -128,8 +132,6 @@ button:active{
     background-color: rgba(var(--narr-color-t),0.5);
     box-shadow: 0px 0px 40px rgba(var(--narr-color-t),0.8);
 }
-
-
 
 label{
     font-size: 1.3em;

@@ -8,8 +8,17 @@
     padding: 20px 0px 20px 20px;
 }
 #container div {
-    background-color: rgba(var(--narr-color-d),0.5);
+    background-color: rgba(var(--race-color-d),0.5);
 }
 #overview {
     grid-column: 3/span 1;
+}
+#your-equipment {
+    display: grid;
+    grid-template-columns: 400px 200px;
+    grid-template-rows: auto auto;
+    grid-gap: 20px;
+}
+gear-list-basic {
+    grid-row: 1 / span 2;
 }

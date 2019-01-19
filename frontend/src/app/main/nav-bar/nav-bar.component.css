@@ -1,4 +1,4 @@
-div {
+nav {
     position: fixed;
     left: 0px;
     top: 0px;
@@ -17,7 +17,7 @@ div {
     transition-timing-function: ease;
     overflow-x: hidden;
 }
-div:hover {
+nav:hover {
     width: 240px;
     background-color: rgba(var(--narr-color-d),0.7);
     border-right: solid 5px var(--narr-color);
@@ -28,7 +28,7 @@ span {
     transition: 1s;
     transition-timing-function: ease-out;
 }
-div:hover > ul li span {
+nav:hover > ul li span {
     opacity: 1;
 }
 ul li{
@@ -36,15 +36,15 @@ ul li{
     transition: 0.5s;
     cursor: pointer;
 }
-div:hover > ul li {
+nav:hover > ul li {
     background-color: rgba(var(--narr-color-t),0.3);
     padding-left: 35px;
 }
-div:hover > ul li:hover {
+nav:hover > ul li:hover {
     background-color: rgba(var(--narr-color-t),0.5);
     padding-left: 40px;
 }
-div:hover > ul li:active {
+nav:hover > ul li:active {
     background-color: rgba(var(--narr-color-t),0.7);
 }
 
@@ -59,14 +59,14 @@ ul li > ul li {
 #fights:hover {
     padding-bottom: 0px;
 }
-div:hover > ul li:hover > ul li{
+nav:hover > ul li:hover > ul li{
     opacity: 1;
     height: 65px;
     pointer-events: all;
     background-color: none;
     padding: 5px 0px 5px 45px;
 }
-div:hover > ul li:hover > ul li:hover{
+nav:hover > ul li:hover > ul li:hover{
     padding-left: 50px;
 }
 
