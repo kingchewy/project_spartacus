@@ -1,0 +1,23 @@
+fieldset {
+    height: 95vh;
+    width: 100%;
+    border: 3px solid var(--race-color);
+    box-shadow: 0px 0px 30px var(--race-color) inset;
+    overflow: scroll;
+    background-color: rgba(var(--race-color-d),0.5);
+}
+legend {
+    margin: 0px auto -20px auto;
+    padding: 0px 10px 0px 10px;
+}
+fieldset > div {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+    justify-content: space-evenly;
+}
+fieldset > div > div {
+    height: 8vw;
+    width: 8vw;
+    background-color: var(--race-color);
+}

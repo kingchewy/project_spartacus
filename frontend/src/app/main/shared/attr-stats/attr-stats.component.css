@@ -1,0 +1,21 @@
+fieldset {
+    height: 100%;
+    width: 100%;
+    border: 3px solid var(--race-color);
+    box-shadow: 0px 0px 30px var(--race-color) inset;
+    overflow: scroll;
+    background-color: rgba(var(--race-color-d),0.5);
+    padding: 50px 0px 0px 6vw;
+}
+legend {
+    margin: 0px auto -20px -3vw;
+    padding: 0px 10px 0px 10px;
+}
+table {
+    width: 100%;
+    font-size: 1.4em;
+}
+td {
+    width: 35%;
+    height: 2em;
+}

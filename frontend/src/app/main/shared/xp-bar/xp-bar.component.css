@@ -1,0 +1,18 @@
+#lvl-numbers {
+    text-align: center;
+}
+#lvl-numbers h1 {
+    display: inline-block;
+    margin: 0px 20px 0px 20px;
+}
+#lvl-numbers h1:first-child {
+    float: left;
+}
+#lvl-numbers h1:last-child {
+    float: right;
+}
+meter {
+    width: 100%;
+    background: white;
+    background-image: none;
+}

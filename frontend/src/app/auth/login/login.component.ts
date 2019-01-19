@@ -1,44 +1,41 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { NightFightService, User } from '../../night-fight.service'
 import { LoginService } from '../login.service'
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
+export class LoginComponent implements OnInit {
 
-export class RegisterComponent implements OnInit{
-    newUser = new User()
+    user = new User()
     private password = ""
-    private passwordConf = ""
     
     constructor ( private nightFightService: NightFightService, 
                     private loginService: LoginService,
                     private router: Router) {}
 
     ngOnInit () {
-        this.newUser.name = ""
-        this.newUser.eMail = ""
-        this.newUser.password = ""
+        this.user.eMail = ""
+        this.user.password = ""
         console.log(this.loginService.login("Fiese Liese", "asdf"))
 //        this.nightFightService.retrieveAllAccounts()
     }
     
     checkInput () {
-        if (( this.newUser.name != "" && this.newUser.eMail != "" && this.password != "" && this.passwordConf != "" )
-            && ( this.password == this.passwordConf )){
+        if (( this.user.eMail != "" && this.password != "" )){
             return true
         }
         return false
     }
     
     submit () {
-        this.newUser.password = this.password
-        console.log(this.newUser)
+        this.user.password = this.password
+        console.log(this.user)
         //this.nightFightService.createAccount(this.newUser)
         //this.nightFightService.retrieveAllAccounts()
-        this.router.navigateByUrl("/intro/newUser")
+        this.router.navigateByUrl("/intro")
     }
 }

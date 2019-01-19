@@ -41,10 +41,7 @@
 .hide-dialog.show-dialog{
     display: block;
 }
-.narrator-bubble,
-.narrator-bubble.human-bubble,
-.narrator-bubble.robot-bubble,
-.narrator-bubble.monster-bubble{
+.narrator-bubble{
     border: 3px solid var(--narr-color);
     background-color: rgba(var(--narr-color-d),0.6);
     border-left: none;
@@ -57,11 +54,13 @@
     border: 3px solid;
     border-right: none;
     margin-left: 10px; /* wegen Boxshadow (damit man am Rand keinen sieht) */
+    
+    border-color: var(--race-color);
+    background-color: rgba(var(--race-color-d),0.75);
+    color: var(--race-color);
+    box-shadow: 0px 0px 20px var(--race-color) inset;
 }
-.sound-bubble,
-.sound-bubble.human-bubble,
-.sound-bubble.robot-bubble,
-.sound-bubble.monster-bubble{
+.sound-bubble{
     box-shadow: none;
     background-image: linear-gradient(to Left, transparent, rgba(80,80,80,0.9), transparent);
     background-color: transparent;
@@ -78,24 +77,6 @@
     border-bottom: 5px solid white;
     animation: sound-pop 1s 1 ease-out;
     will-change: transform;
-}
-.human-bubble{
-    border-color: var(--human-color);
-    background-color: rgba(var(--human-color-d),0.75);
-    color: var(--human-color);
-    box-shadow: 0px 0px 20px var(--human-color) inset;
-}
-.robot-bubble{
-    border-color: var(--robot-color);
-    background-color: rgba(var(--robot-color-d),0.75);
-    color: var(--robot-color);
-    box-shadow: 0px 0px 20px var(--robot-color) inset;
-}
-.monster-bubble{
-    border-color: var(--monster-color);
-    background-color: rgba(var(--monster-color-d),0.75);
-    color: var(--monster-color);
-    box-shadow: 0px 0px 20px var(--monster-color) inset;
 }
 @keyframes appear {
     0%{

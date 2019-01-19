@@ -1,0 +1,17 @@
+<div id="background"></div>
+
+<div id="container">
+    <h1>Register</h1>
+    
+    <div id="input-container">
+        <label>Email
+            <input [(ngModel)]="user.eMail" type="email" placeholder="e.g.: example@example.com">
+        </label>
+        <label>Password
+            <input [(ngModel)]="password" type="password" placeholder="password">
+        </label>
+    </div>
+    
+    <span *ngIf="!checkInput()">Please fill in all forms</span>
+    <button *ngIf="checkInput()" type="submit" (click)="submit()" class="narr-btn">Submit</button>
+</div>

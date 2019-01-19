@@ -10,12 +10,16 @@ import { IntroComponent } from './auth/intro/intro.component';
 import { RegisterComponent } from './auth/register/register.component';
 
 import { NightFightService } from './night-fight.service';
+import { LoginComponent } from './auth/login/login.component';
+import { LogoutComponent } from './auth/logout/logout.component';
 
 @NgModule({
   declarations: [
       AppComponent,
       IntroComponent,
       RegisterComponent,
+      LoginComponent,
+      LogoutComponent,
   ],
   imports: [
       BrowserModule,
