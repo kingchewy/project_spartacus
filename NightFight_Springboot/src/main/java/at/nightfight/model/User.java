@@ -1,16 +1,14 @@
 package at.nightfight.model;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAttribute;
 
 import lombok.AllArgsConstructor;
@@ -20,6 +18,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.NaturalId;
 
 //==== Lombok ====
 @NoArgsConstructor
@@ -31,7 +30,14 @@ import lombok.ToString;
 
 //==== JPA ====
 @Entity
-@Table(name="t_user")
+@Table(name="t_user", uniqueConstraints = {
+		@UniqueConstraint(columnNames = {
+				"username"
+		}),
+		@UniqueConstraint(columnNames = {
+				"email"
+		})
+})
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -43,20 +49,35 @@ public class User {
 	@XmlAttribute
 	private String name;
 
-	@NonNull
+	@NotBlank
+	@Size(min=3, max = 50)
+	private String username;
+
+	@NaturalId
+	@NotBlank
 	@Column(length=50, nullable=false)
 	@XmlAttribute
+	@Email
 	private String email;
 	
-	@NonNull
+	@NotBlank
 	@Column(length=255, nullable=false)
 	@XmlAttribute
 	private String password;
-	
-	@Column(nullable=false)
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "user_roles",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles = new HashSet<>();
+
+
+
+	@Column(nullable = true)
 	@XmlAttribute
 	private Boolean blocked;
-	
+
+	@NonNull
 	@Column
 	@XmlAttribute
 	private LocalDate created;
@@ -67,4 +88,12 @@ public class User {
 		referencedColumnName=("id")
 	)
 	private List<Character> characters;
+
+
+	public User(String name, String username, String email, String password) {
+		this.name = name;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+	}
 }

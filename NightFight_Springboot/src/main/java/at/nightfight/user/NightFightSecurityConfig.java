@@ -21,10 +21,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
-@EnableGlobalMethodSecurity(prePostEnabled=true)
+//@Configuration
+//@EnableGlobalMethodSecurity(prePostEnabled=true)
 @SuppressWarnings("serial")
-public class NightFightSecurityConfig extends WebSecurityConfigurerAdapter implements ApplicationListener<ApplicationReadyEvent>, AuthenticationProvider, WebMvcConfigurer {
+public class NightFightSecurityConfig { //extends WebSecurityConfigurerAdapter implements ApplicationListener<ApplicationReadyEvent>, AuthenticationProvider, WebMvcConfigurer
+/*
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -77,5 +78,6 @@ public class NightFightSecurityConfig extends WebSecurityConfigurerAdapter imple
 	@Override
 	public void addCorsMappings(CorsRegistry corsRegistry) {
 		corsRegistry.addMapping("/**");
-	}	
+	}
+*/
 }
