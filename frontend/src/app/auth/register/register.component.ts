@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
-import { NightFightService, User } from '../../night-fight.service'
-import { LoginService } from '../login.service'
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NightFightService, User } from '../../night-fight.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -14,15 +14,16 @@ export class RegisterComponent implements OnInit{
     private password = ""
     private passwordConf = ""
     
-    constructor ( private nightFightService: NightFightService, 
-                    private loginService: LoginService,
-                    private router: Router) {}
+    constructor (
+        private authService: AuthService,
+        private router: Router
+        ) {}
 
     ngOnInit () {
         this.newUser.name = ""
         this.newUser.eMail = ""
         this.newUser.password = ""
-        console.log(this.loginService.login("Fiese Liese", "asdf"))
+        //console.log(this.authService.login("Fiese Liese", "asdf"))
 //        this.nightFightService.retrieveAllAccounts()
     }
     
