@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
-import { NightFightService, User } from '../../night-fight.service'
-import { LoginService } from '../login.service'
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { Credentials } from '../credentials';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User } from '../user';
 
 @Component({
   selector: 'app-login',
@@ -10,32 +12,51 @@ import { LoginService } from '../login.service'
 })
 export class LoginComponent implements OnInit {
 
-    user = new User()
-    private password = ""
+    private user: User;
+
+    private loginForm: FormGroup;
+    private loading = false;
+    private submitted:boolean = false;
+    private error = '';
+
+    private credentials: Credentials = new Credentials();
+    private returnUrl: string;
     
-    constructor ( private nightFightService: NightFightService, 
-                    private loginService: LoginService,
-                    private router: Router) {}
+    constructor (         
+        private authService: AuthService,
+        private router: Router,
+        private route: ActivatedRoute,
+        private formBuilder: FormBuilder
+        ) 
+        {}
 
     ngOnInit () {
-        this.user.eMail = ""
-        this.user.password = ""
-//        console.log(this.loginService.login("Fiese Liese", "asdf"))
-//        this.nightFightService.retrieveAllAccounts()
+        this.loginForm = this.formBuilder.group({
+                username: ['', [Validators.minLength(3), Validators.required]],
+                password: ['', [Validators.minLength(6), Validators.required]]
+            });
+
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        console.log("return URL = ", this.returnUrl)
     }
     
-    checkInput () {
-        if (( this.user.eMail != "" && this.password != "" )){
-            return true
-        }
-        return false
-    }
-    
-    submit () {
-        this.user.password = this.password
-        console.log(this.user)
-        //this.nightFightService.createAccount(this.newUser)
-        //this.nightFightService.retrieveAllAccounts()
-        this.router.navigateByUrl("/intro")
+    // convenience getter for easy access to form fields
+    get f() { return this.loginForm.controls; }
+        
+    onSubmit () {
+        this.submitted = true;
+        this.loading = true;
+
+        this.credentials.username = this.loginForm.value.username;
+        this.credentials.password = this.loginForm.value.password;
+
+        this.authService.login(this.credentials).then( response => {
+            console.log("login response", response)
+            this.router.navigateByUrl(this.returnUrl);
+        })
+        .catch( error => {
+            this.error = "Wrong credentials"
+            this.loading = false;
+        })
     }
 }

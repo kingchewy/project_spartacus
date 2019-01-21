@@ -4,6 +4,7 @@ import { IntroComponent } from './auth/intro/intro.component'
 import { RegisterComponent } from './auth/register/register.component'
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: '/intro', pathMatch: 'full' },
@@ -13,7 +14,12 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'logout', component: LogoutComponent },
     { path: 'pick-char', loadChildren: './character-create/pick-character/pick-character.module#PickCharacterModule'},
-    { path: 'base', loadChildren: './main/main.module#MainModule' }
+    { 
+      path: 'base',
+      loadChildren: './main/main.module#MainModule',
+      canActivate: [AuthGuard],
+      canActivateChild: [AuthGuard]
+    }
 ];
 
 @NgModule({

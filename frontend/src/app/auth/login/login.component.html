@@ -1,17 +1,60 @@
 <div id="background"></div>
 
-<div id="container">
-    <h1>Register</h1>
+<!-- <div id="container">
+    <h1>Login</h1>
     
     <div id="input-container">
         <label>Email
-            <input [(ngModel)]="user.eMail" type="email" placeholder="e.g.: example@example.com">
+            <input [(ngModel)]="credentials.username" type="email" placeholder="e.g.: example@example.com">
         </label>
         <label>Password
-            <input [(ngModel)]="password" type="password" placeholder="password">
+            <input [(ngModel)]="credentials.password" type="password" placeholder="password">
         </label>
     </div>
     
     <span *ngIf="!checkInput()">Please fill in all forms</span>
     <button *ngIf="checkInput()" type="submit" (click)="submit()" class="narr-btn">Submit</button>
+</div> -->
+
+<div id="container">
+    <h1>Login</h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div id="input-container">
+
+            <div class="item1">
+                <label>Username
+                    <input type="text" formControlName="username"/>
+                </label>
+                <div *ngIf="submitted && f.username.errors">
+                    <span *ngIf="f.username.errors.required">Username is required</span>
+                </div>
+                <span *ngIf="f['username'].hasError('minlength') && f['username'].touched">minimum characters = 3</span>
+            </div>
+
+            <div class="item2">
+                <label for="password">Password
+                    <input type="password" formControlName="password"/>
+                </label>
+                <div *ngIf="submitted && f.password.errors">
+                    <span *ngIf="f.password.errors.required">Password is required</span>
+                </div>
+                <span *ngIf="f['password'].hasError('minlength') && f['password'].touched">minimum password length = 6</span>            
+            </div>
+
+            <div>
+                <span *ngIf="f.password.untouched && f.username.untouched">Please fill in all forms</span>
+            </div>
+            
+            <div class="item3">
+                <button [disabled]="!loginForm.valid" class="narr-btn">Login</button>
+                <img *ngIf="loading" src="../../../assets/my-spinner3.gif" />
+            </div>
+
+            <span *ngIf="error">{{error}}</span>
+
+        </div>
+
+    </form>
+    <button type="submit" routerLink="/register" class="narr-btn">Register</button>
 </div>
