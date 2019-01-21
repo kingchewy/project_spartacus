@@ -104,5 +104,5 @@
         <h1 class="race-titel">MONSTER</h1>
     </span>
     
-    <router-outlet></router-outlet>    
+    <pick-char-details *ngIf="showDetails" [race]="clickedRace"></pick-char-details>
 </div>

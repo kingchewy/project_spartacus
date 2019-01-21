@@ -18,13 +18,13 @@ export class IntroComponent implements OnInit {
 
       document.getElementsByTagName("use")[0].addEventListener("animationend", () => {
           document.getElementById("logo").remove()
-          document.getElementById("opening-text").style.display = "block"
-          document.getElementById("opening-text").addEventListener("animationend", () => {
-              document.getElementById("opening").remove()
-          })
+  //        document.getElementById("opening-text").style.display = "block"
+////          document.getElementById("opening-text").addEventListener("animationend", () => {
+////              document.getElementById("opening").remove()
+//          })
           document.getElementById("background-fader").addEventListener("animationend", dn => {
               if ( this.newUser ) {
-                this.router.navigateByUrl("/pick-char")
+                this.router.navigateByUrl("opening/pick-char")
               } else {
                 this.router.navigateByUrl("/base/dashboard")                  
               }

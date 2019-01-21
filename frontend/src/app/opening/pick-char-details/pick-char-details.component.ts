@@ -1,9 +1,8 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PickCharacterComponent } from '../pick-character/pick-character.component';
-import { ActivatedRoute } from '@angular/router';
 import { AttributeRange } from './mock-attribute-range';
-import { Character } from 'src/app/character';
+import { Character } from '../../model/character';
 
 @Component({
   selector: 'pick-char-details',
@@ -11,33 +10,37 @@ import { Character } from 'src/app/character';
   styleUrls: ['./pick-char-details.component.css']
 })
 export class PickCharDetailsComponent {
-    private race = this.route.snapshot.paramMap.get('race')
+    @Input() race: string
     private charName = "Your Fighter"
-    private attrRange = AttributeRange[this.race]
-    private char: Character = {
-        id: 0,
-        playerID: 0,
-        name: "",
-        race: "",
-        lvl: 0,
-        hp: this.attrRange.minHp,
-        armor: this.attrRange.minArmor,
-        strength: this.attrRange.minStrength,
-        accuracy: this.attrRange.minAccuracy,
-        criticalhitchance: this.attrRange.minHitRate,
-        agility: this.attrRange.minAgility,
-        ownedGear: [],
-        equipped: []
-    }
+    private attrRange: any
+    private char: Character
     
   constructor(@Inject(PickCharacterComponent) private parent: PickCharacterComponent,
-               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {}
         
+    ngOnInit () {
+        this.attrRange = AttributeRange[this.race]
+        this.char = {
+            id: 0,
+            playerID: 0,
+            name: "",
+            race: "",
+            lvl: 0,
+            hp: this.attrRange.minHp,
+            armor: this.attrRange.minArmor,
+            strength: this.attrRange.minStrength,
+            accuracy: this.attrRange.minAccuracy,
+            criticalhitchance: this.attrRange.minHitRate,
+            agility: this.attrRange.minAgility,
+            ownedGear: [],
+            equipped: []
+        }
+    }
+    
     returnToOverview () {
         this.parent.showDetails = false
         this.parent.clickedRace = undefined
-        this.router.navigateByUrl("/pick-char")
+        this.router.navigateByUrl("/opening/pick-char")
     }
 
     pinChoice () {

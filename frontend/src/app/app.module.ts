@@ -8,9 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { IntroComponent } from './auth/intro/intro.component';
 import { RegisterComponent } from './auth/register/register.component';
-
 import { LoginComponent } from './auth/login/login.component';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { JwtInterceptor } from './auth/jwt-interceptor';
@@ -18,7 +16,6 @@ import { JwtInterceptor } from './auth/jwt-interceptor';
 @NgModule({
   declarations: [
       AppComponent,
-      IntroComponent,
       RegisterComponent,
       LoginComponent,
   ],

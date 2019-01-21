@@ -60,10 +60,12 @@ fieldset > div > div:hover .pop-up {
         bottom: 50vh;
         height: 0px;
         width: 0px;
+        line-height: 0px;
     }
     20% {
         bottom: 50vh;
         height: 10px;
         width: 15vw;
+        line-height: 0px;
     }
 }

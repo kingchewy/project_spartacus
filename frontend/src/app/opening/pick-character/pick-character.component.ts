@@ -4,10 +4,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'pick-character',
   templateUrl: './pick-character.component.html',
-  styleUrls: ['./pick-character.component.css']
+  styleUrls: ['./pick-character.component.css'],
+    inputs: ['race']
 })
 
 export class PickCharacterComponent {
+    race: string
     clickedRace : string
     showDetails = false
 
@@ -17,7 +19,7 @@ export class PickCharacterComponent {
         if (!this.showDetails){
             this.clickedRace = that.id
             this.showDetails = true
-            this.router.navigateByUrl("/pick-char/" + this.clickedRace)
+            //this.router.navigateByUrl("/pick-char/" + this.clickedRace)
         }
     }
 }
