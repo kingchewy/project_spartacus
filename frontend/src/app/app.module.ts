@@ -12,7 +12,6 @@ import { IntroComponent } from './auth/intro/intro.component';
 import { RegisterComponent } from './auth/register/register.component';
 
 import { LoginComponent } from './auth/login/login.component';
-import { LogoutComponent } from './auth/logout/logout.component';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { JwtInterceptor } from './auth/jwt-interceptor';
 
@@ -22,7 +21,6 @@ import { JwtInterceptor } from './auth/jwt-interceptor';
       IntroComponent,
       RegisterComponent,
       LoginComponent,
-      LogoutComponent,
   ],
   imports: [
       BrowserModule,

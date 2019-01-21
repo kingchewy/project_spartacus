@@ -1,9 +1,9 @@
-import { Component, Inject } from '@angular/core'
-import { Router } from '@angular/router'
-import { PickCharacterComponent } from '../pick-character/pick-character.component'
-import { ActivatedRoute } from '@angular/router'
-import { Character } from './character'
-import { AttributeRange } from './mock-attribute-range'
+import { Component, Inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { PickCharacterComponent } from '../pick-character/pick-character.component';
+import { ActivatedRoute } from '@angular/router';
+import { AttributeRange } from './mock-attribute-range';
+import { Character } from 'src/app/character';
 
 @Component({
   selector: 'pick-char-details',

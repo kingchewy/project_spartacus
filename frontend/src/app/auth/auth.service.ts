@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Credentials } from './credentials';
-import { User } from './user';
+import { User } from '../model/user';
 
 const jwtHelper = new JwtHelperService();
 const RESOURCE_URL = environment.baseUrl + "/authentication";
