@@ -15,7 +15,6 @@ export class Token {
   TokenType: string;
 }
 
-
 @Injectable({
   providedIn: 'root'
 })

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Credentials } from '../credentials';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User } from '../user';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+    private user: User;
 
     private loginForm: FormGroup;
     private loading = false;
@@ -39,14 +42,7 @@ export class LoginComponent implements OnInit {
     
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
-    
-    checkInput () {
-        if (( this.credentials.username != "" && this.credentials.password != "" )){
-            return true
-        }
-        return false
-    }
-    
+        
     onSubmit () {
         this.submitted = true;
         this.loading = true;

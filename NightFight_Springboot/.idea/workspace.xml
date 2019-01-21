@@ -12,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/message/request/LoginForm.java">
+      <file leaf-file-name="UserRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/UserRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+            <state relative-caret-position="102">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -24,18 +24,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignUpForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/message/request/SignUpForm.java">
+      <file leaf-file-name="WebSecurityConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/security/WebSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+            <state relative-caret-position="901">
+              <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1145#1146#0" expanded="true" />
-                <element signature="e#1177#1178#0" expanded="true" />
-                <element signature="e#1222#1223#0" expanded="true" />
-                <element signature="e#1254#1255#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpSecurity.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.1.2.RELEASE/spring-security-config-5.1.2.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/builders/HttpSecurity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="446">
+              <caret line="348" column="40" selection-start-line="348" selection-start-column="40" selection-end-line="348" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -49,7 +54,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RepositoryConfig.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RaceRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/RaceRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CharacterRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/CharacterRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoleRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/RoleRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="534">
+              <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RepositoryConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/config/RepositoryConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
@@ -61,53 +108,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JwtProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/security/jwt/JwtProvider.java">
+      <file leaf-file-name="TestRestAPIs.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/TestRestAPIs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="29" column="64" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="64" />
+            <state relative-caret-position="306">
+              <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#390#391#0" expanded="true" />
+                <element signature="e#433#434#0" expanded="true" />
+                <element signature="e#567#568#0" expanded="true" />
+                <element signature="e#620#621#0" expanded="true" />
+                <element signature="e#728#729#0" expanded="true" />
+                <element signature="e#771#772#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="122" column="34" lean-forward="true" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthenticationManager.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.1.2.RELEASE/spring-security-core-5.1.2.RELEASE-sources.jar!/org/springframework/security/authentication/AuthenticationManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JwtResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/message/response/JwtResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="47" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -158,21 +172,21 @@
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/security/jwt/JwtProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/security/WebSecurityConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/repository/RaceRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/TestRestAPIs.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/repository/config/RepositoryConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/security/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/repository/UserRepository.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2552" />
-    <option name="y" value="66" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="2621" />
+    <option name="y" value="74" />
+    <option name="width" value="1661" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -229,15 +243,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="nightfight" type="462c0819:PsiDirectoryNode" />
-              <item name="message" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NightFight" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NightFight_Springboot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="nightfight" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -248,16 +253,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="nightfight" type="462c0819:PsiDirectoryNode" />
               <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NightFight" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NightFight_Springboot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="nightfight" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NightFight" type="b2602c69:ProjectViewProjectNode" />
@@ -387,7 +382,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2552" y="66" width="1936" height="1056" extended-state="7" />
+    <frame x="2621" y="74" width="1661" height="1039" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
@@ -398,12 +393,12 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50076336" side_tool="true" weight="0.29861677" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49923664" visible="true" weight="0.3300866" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49923664" visible="true" weight="0.33627343" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29957357" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35103062" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -427,7 +422,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/user/UserTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/user/UserRepository.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/user/UserController.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.3.RELEASE/spring-web-5.1.3.RELEASE-sources.jar!/org/springframework/web/filter/OncePerRequestFilter.java">
@@ -540,57 +534,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/CharacterRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/UserController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="53" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/RoleRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/RaceRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/TestRestAPIs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-            <element signature="e#433#434#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/NightFightApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -601,30 +545,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/security/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="64" column="34" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/security/jwt/JwtAuthEntryPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -699,13 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/message/response/JwtResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/message/request/LoginForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -723,10 +640,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-rest-webmvc/3.1.3.RELEASE/spring-data-rest-webmvc-3.1.3.RELEASE-sources.jar!/org/springframework/data/rest/webmvc/config/RepositoryRestMvcConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="122" column="34" lean-forward="true" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
+        <state relative-caret-position="230">
+          <caret line="194" column="35" selection-start-line="194" selection-start-column="33" selection-end-line="194" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/message/response/JwtResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/security/jwt/JwtAuthEntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -740,10 +671,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-rest-webmvc/3.1.3.RELEASE/spring-data-rest-webmvc-3.1.3.RELEASE-sources.jar!/org/springframework/data/rest/webmvc/config/RepositoryRestMvcConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/RaceRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="194" column="35" selection-start-line="194" selection-start-column="33" selection-end-line="194" selection-end-column="35" />
+        <state relative-caret-position="119">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/CharacterRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/RoleRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.1.2.RELEASE/spring-security-config-5.1.2.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/builders/HttpSecurity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="348" column="40" selection-start-line="348" selection-start-column="40" selection-end-line="348" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -753,6 +728,32 @@
           <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/security/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/TestRestAPIs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#390#391#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
+            <element signature="e#567#568#0" expanded="true" />
+            <element signature="e#620#621#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
           </folding>
         </state>
       </provider>
