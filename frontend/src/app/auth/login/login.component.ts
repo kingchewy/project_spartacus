@@ -13,14 +13,14 @@ export class LoginComponent implements OnInit {
 
     private loginForm: FormGroup;
     private loading = false;
-    private submitted = false;
+    private submitted:boolean = false;
     private error = '';
 
     private credentials: Credentials = new Credentials();
     private returnUrl: string;
     
     constructor (         
-        private AuthService: AuthService,
+        private authService: AuthService,
         private router: Router,
         private route: ActivatedRoute,
         private formBuilder: FormBuilder
@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit () {
         this.loginForm = this.formBuilder.group({
-                username: ['', Validators.required],
-                password: ['', Validators.required]
+                username: ['', [Validators.minLength(3), Validators.required]],
+                password: ['', [Validators.minLength(6), Validators.required]]
             });
 
         this.returnUrl = this.route.queryParams['returnUrl'] || '/';
@@ -48,15 +48,12 @@ export class LoginComponent implements OnInit {
     
     onSubmit () {
         this.submitted = true;
-
-        if(this.loginForm.invalid) return;
-
         this.loading = true;
 
         this.credentials.username = this.loginForm.value.username;
         this.credentials.password = this.loginForm.value.password;
 
-        this.AuthService.login(this.credentials).then( response => {
+        this.authService.login(this.credentials).then( response => {
             console.log("login response", response)
             this.router.navigateByUrl(this.returnUrl);
         })

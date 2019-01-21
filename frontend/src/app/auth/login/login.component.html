@@ -22,31 +22,39 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div id="input-container">
 
-            <div class="form-group">
+            <div class="item1">
                 <label>Username
-                    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <input type="text" formControlName="username"/>
                 </label>
-                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="submitted && f.username.errors">
                     <span *ngIf="f.username.errors.required">Username is required</span>
                 </div>
+                <span *ngIf="f['username'].hasError('minlength') && f['username'].touched">minimum characters = 3</span>
             </div>
 
-            <div class="form-group">
+            <div class="item2">
                 <label for="password">Password
-                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <input type="password" formControlName="password"/>
                 </label>
-                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="submitted && f.password.errors">
                     <span *ngIf="f.password.errors.required">Password is required</span>
                 </div>
+                <span *ngIf="f['password'].hasError('minlength') && f['password'].touched">minimum password length = 6</span>            
+            </div>
+
+            <div>
+                <span *ngIf="!submitted && (f.password.untouched || f.username.untouched) ">Please fill in all forms</span>
             </div>
             
-            <div class="form-group">
-                <button [disabled]="loading" class="narr-btn">Login</button>
-                <img *ngIf="loading" class="pl-2" src="../../../assets/my-spinner3.gif" />
+            <div class="item3">
+                <button [disabled]="!loginForm.valid" class="narr-btn">Login</button>
+                <img *ngIf="loading" src="../../../assets/my-spinner3.gif" />
             </div>
-            <span *ngIf="error" class="alert alert-danger">{{error}}</span>
+
+            <span *ngIf="error">{{error}}</span>
 
         </div>
 
     </form>
+    <button type="submit" routerLink="/register" class="narr-btn">Register</button>
 </div>

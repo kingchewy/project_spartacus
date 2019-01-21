@@ -22,6 +22,7 @@
 }
 #input-container{
     display: grid;
+    grid-template-columns: auto;
 /*    grid-template-rows: 60px auto auto auto auto auto;*/
     align-content: space-evenly;
     height: 50%;
@@ -44,4 +45,9 @@ span {
     color: var(--narr-color);
     font-weight: bold;
     opacity: 0.5;
+}
+
+#input-container > div{
+    text-align: center;
+    padding-bottom: 10px;
 }

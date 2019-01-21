@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap, shareReplay } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
-import * as moment from "moment";
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Credentials } from './credentials';
+import { User } from './user';
 
 const jwtHelper = new JwtHelperService();
 const RESOURCE_URL = environment.baseUrl + "/authentication";
@@ -25,21 +25,19 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  signup(){
-    
+  signup(newUser: User):Promise<any>{
+    return this.http.post(RESOURCE_URL + '/signup', newUser, {responseType: 'text'}).toPromise();
   }
 
   login(credentials: Credentials):Promise<Token> {
     return this.http.post<Token>(RESOURCE_URL + '/signin', credentials).pipe(
       tap( authResult => this.setToken(authResult.accessToken)) )
       .toPromise();
-  }
-       
+  }       
 
   logout() {
       localStorage.removeItem("jwt_token");
   }
-
 
   isTokenExpired(token?: string):boolean{
     if(!token) token = this.getToken();
