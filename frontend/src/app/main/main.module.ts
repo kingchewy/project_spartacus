@@ -3,19 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { MainRoutingModule } from './main-routing.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MainComponent } from './main.component';
-import { CharDetailsComponent } from './char-details/char-details.component';
-import { ShopComponent } from './shop/shop.component';
-import { FightsHistoryComponent } from './fights-history/fights-history.component';
-import { FightsSearchComponent } from './fights-search/fights-search.component';
-import { FightsUpcomingComponent } from './fights-upcoming/fights-upcoming.component';
+import { CharDetailsComponent } from './pages/char-details/char-details.component';
+import { ShopComponent } from './pages/shop/shop.component';
+import { FightsHistoryComponent } from './pages/fights-history/fights-history.component';
+import { FightsSearchComponent } from './pages/fights-search/fights-search.component';
+import { FightsUpcomingComponent } from './pages/fights-upcoming/fights-upcoming.component';
 
-import { DialogComponent } from './shared/dialog/dialog.component';
-import { XpBarComponent } from './shared/xp-bar/xp-bar.component';
-import { GearListBasicComponent } from './shared/gear-list-basic/gear-list-basic.component';
-import { EquippedComponent } from './shared/equipped/equipped.component';
-import { AttrStatsComponent } from './shared/attr-stats/attr-stats.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { XpBarComponent } from './components/xp-bar/xp-bar.component';
+import { GearListBasicComponent } from './components/gear-list-basic/gear-list-basic.component';
+import { EquippedComponent } from './components/equipped/equipped.component';
+import { AttrStatsComponent } from './components/attr-stats/attr-stats.component';
 
 @NgModule({
   declarations: [

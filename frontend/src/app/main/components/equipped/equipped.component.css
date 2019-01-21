@@ -1,5 +1,5 @@
 fieldset {
-    height: 95vh;
+    height: 5vh;
     width: 100%;
     border: 3px solid var(--race-color);
     box-shadow: 0px 0px 30px var(--race-color) inset;
@@ -12,7 +12,7 @@ legend {
 }
 fieldset > div {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
     grid-gap: 20px;
     justify-content: space-evenly;
 }

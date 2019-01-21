@@ -1,8 +1,5 @@
 #container {
-    height: 100vh;
-    width: 40vw;
-    margin-left: 10vw;
-    padding: 20px;
+    
 }
 #overview {
     background-color: rgba(var(--race-color-d),0.5);

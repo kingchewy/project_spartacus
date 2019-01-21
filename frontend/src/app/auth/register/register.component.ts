@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit{
         this.newUser.name = ""
         this.newUser.eMail = ""
         this.newUser.password = ""
-        console.log(this.loginService.login("Fiese Liese", "asdf"))
+//        console.log(this.loginService.login("Fiese Liese", "asdf"))
 //        this.nightFightService.retrieveAllAccounts()
     }
     

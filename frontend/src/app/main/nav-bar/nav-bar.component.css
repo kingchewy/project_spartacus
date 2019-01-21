@@ -35,11 +35,15 @@ ul li{
     padding: 5px 0px 5px 20px;
     transition: 0.5s;
     cursor: pointer;
+    width: 200%;
 }
 nav:hover > ul li {
     background-color: rgba(var(--narr-color-t),0.3);
     padding-left: 35px;
 }
+.mark,
+nav:hover > ul li.mark,
+ul li ul li.mark,
 nav:hover > ul li:hover {
     background-color: rgba(var(--narr-color-t),0.5);
     padding-left: 40px;

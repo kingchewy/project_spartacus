@@ -13,7 +13,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'logout', component: LogoutComponent },
     { path: 'pick-char', loadChildren: './character-create/pick-character/pick-character.module#PickCharacterModule'},
-    { path: 'base', loadChildren: './main/main.module#MainModule'}
+    { path: 'base', loadChildren: './main/main.module#MainModule' }
 ];
 
 @NgModule({

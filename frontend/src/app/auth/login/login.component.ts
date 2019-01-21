@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     ngOnInit () {
         this.user.eMail = ""
         this.user.password = ""
-        console.log(this.loginService.login("Fiese Liese", "asdf"))
+//        console.log(this.loginService.login("Fiese Liese", "asdf"))
 //        this.nightFightService.retrieveAllAccounts()
     }
     

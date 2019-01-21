@@ -1,0 +1,17 @@
+#container{
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+/*    background-image: url(../../images/Akira-bg-1.jpg);*/
+}
+#container div {
+    background-color: rgba(var(--race-color-d),0.5);
+}
+#money {
+    grid-row: 2 / 3;
+}
+#news {
+    grid-row: 1 / span 2;
+}
+#your-record {
+    grid-row: 3 / span 2;
+}

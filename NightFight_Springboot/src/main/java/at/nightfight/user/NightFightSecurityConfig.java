@@ -3,8 +3,8 @@ package at.nightfight.user;
 import java.util.ArrayList;
 import java.util.List;
 
-import at.nightfight.model.User;
-import at.nightfight.repository.UserRepository;
+//import at.nightfight.model.User;
+//import at.nightfight.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
