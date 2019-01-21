@@ -1,9 +1,12 @@
 fieldset {
     height: 100%;
     width: 100%;
+    overflow: scroll;
+    position: relative;
+    padding: 20px 0px 20px 0px;
+    
     border: 3px solid var(--race-color);
     box-shadow: 0px 0px 30px var(--race-color) inset;
-    overflow: scroll;
     background-color: rgba(var(--race-color-d),0.5);
 }
 legend {
@@ -11,16 +14,56 @@ legend {
     padding: 0px 10px 0px 10px;
 }
 fieldset > div {
-/*
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 20px;
     justify-content: space-evenly;
-*/
+    position: absolute;
+    width: 100%;
 }
 fieldset > div > div {
-    height: 8vw;
-    width: 8vw;
+    height: 10vw;
+    width: 10vw;
     background-color: var(--race-color);
     margin-bottom: 20px;
+}
+.pop-up {
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+    width: 15vw;
+    margin-left: 10vw;
+    bottom:  0px;
+    
+    animation: pop-up 0.5s ease-in-out 1;
+    background-color: rgba(var(--race-color-d), 0.8);
+    box-shadow: 0px 0px 50px var(--race-color) inset;
+    border: solid 5px var(--race-color);
+    overflow: hidden;
+    line-height: 100vh; /* muss gleich der height sein */
+    text-align: center;
+    
+    display: none;
+}
+fieldset > div > div:hover .pop-up {
+    display: block;
+}
+
+.pop-up span {
+    display: inline-block;
+    line-height: normal;
+    text-align: left;
+}
+
+@keyframes pop-up {
+    0% {
+        bottom: 50vh;
+        height: 0px;
+        width: 0px;
+    }
+    20% {
+        bottom: 50vh;
+        height: 10px;
+        width: 15vw;
+    }
 }

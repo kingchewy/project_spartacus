@@ -9,7 +9,7 @@
 }
 #your-equipment {
     display: grid;
-    grid-template-columns: 400px 200px;
+    grid-template-columns: 60% auto;
     grid-template-rows: auto auto;
     grid-gap: 20px;
 }
