@@ -43,7 +43,7 @@
             </div>
 
             <div>
-                <span *ngIf="!submitted && (f.password.untouched || f.username.untouched) ">Please fill in all forms</span>
+                <span *ngIf="f.password.untouched && f.username.untouched">Please fill in all forms</span>
             </div>
             
             <div class="item3">

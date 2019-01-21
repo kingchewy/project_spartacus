@@ -50,7 +50,7 @@ export class AuthService {
     localStorage.setItem('jwt_token', token);
   }
 
-  private getToken():string{
+  public getToken():string{
     return localStorage.getItem('jwt_token');
   }
 }

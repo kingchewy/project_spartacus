@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
                 password: ['', [Validators.minLength(6), Validators.required]]
             });
 
-        this.returnUrl = this.route.queryParams['returnUrl'] || '/';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        console.log("return URL = ", this.returnUrl)
     }
     
     // convenience getter for easy access to form fields
