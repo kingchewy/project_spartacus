@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-    race = "human"
+    race = "monster"
   constructor() { }
     
     ngOnInit () {

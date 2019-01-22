@@ -3,6 +3,7 @@ nav {
     left: 0px;
     top: 0px;
     bottom: 0px;
+    z-index: 100;
     
     background-color: rgba(var(--narr-color-d),0.5);
     

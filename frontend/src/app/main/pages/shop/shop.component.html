@@ -1,5 +1,7 @@
 <h1 class="page-title">SHOP</h1>
 <div id="container" class="page">
-    <div id="you"><gear-list-basic></gear-list-basic></div>
-    <div id="shop"><gear-list-basic></gear-list-basic></div>
+    <div id="you"><gear-list-basic [setting]="'yours'"></gear-list-basic></div>
+    <div id="shop"><gear-list-basic [setting]="'shop'"></gear-list-basic></div>
+    <div><shop-selectet-item [setting]="'yours'"></shop-selectet-item></div>
+    <div><shop-selectet-item [setting]="'shop'"></shop-selectet-item></div>
 </div>

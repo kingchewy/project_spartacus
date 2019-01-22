@@ -16,6 +16,8 @@ import { XpBarComponent } from './components/xp-bar/xp-bar.component';
 import { GearListBasicComponent } from './components/gear-list-basic/gear-list-basic.component';
 import { EquippedComponent } from './components/equipped/equipped.component';
 import { AttrStatsComponent } from './components/attr-stats/attr-stats.component';
+import { EquipmentItemComponent } from './components/equipment-item/equipment-item.component';
+import { ShopSelectetItemComponent } from './components/shop-selectet-item/shop-selectet-item.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { AttrStatsComponent } from './components/attr-stats/attr-stats.component
         GearListBasicComponent,
         EquippedComponent,
         AttrStatsComponent,
+        EquipmentItemComponent,
+        ShopSelectetItemComponent,
   ],
   imports: [
         CommonModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'gear-list-basic',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GearListBasicComponent implements OnInit {
 
+    @Input() setting: string
+    
   constructor() { }
 
   ngOnInit() {

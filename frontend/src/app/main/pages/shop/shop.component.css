@@ -1,6 +1,6 @@
 #container {
     grid-template-columns: auto auto;
-}
-#container div {
-    background-color: rgba(var(--race-color-d),0.5);
+    grid-template-rows: 70% auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 10px;
 }
