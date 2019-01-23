@@ -30,7 +30,7 @@ import org.hibernate.annotations.NaturalId;
 
 //==== JPA ====
 @Entity
-@Table(name="t_user", uniqueConstraints = {
+@Table(name="t_user_test", uniqueConstraints = {
 		@UniqueConstraint(columnNames = {
 				"username"
 		}),
@@ -82,11 +82,13 @@ public class User {
 	@XmlAttribute
 	private LocalDate created;
 	
-	@OneToMany
+/*	@OneToMany
 	@JoinColumn(
 		name="user_id",
 		referencedColumnName=("id")
 	)
+	private List<Character> characters;*/
+	@OneToMany(mappedBy = "user")
 	private List<Character> characters;
 
 

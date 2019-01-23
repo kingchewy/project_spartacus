@@ -39,8 +39,10 @@ public class Item {
     @JoinColumn(name = "inventory_id", insertable =  false, updatable = false)
     private Inventory inventory;*/
 
+    @NonNull
     @Column(nullable = false)
     private Long minLvl;
 
-
+    @NonNull
+    private Long price;
 }
