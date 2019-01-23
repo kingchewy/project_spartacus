@@ -39,7 +39,7 @@ import { ShopSelectetItemComponent } from './components/shop-selectet-item/shop-
   ],
   imports: [
         CommonModule,
-        MainRoutingModule,
+        MainRoutingModule
   ]
 })
 export class MainModule { }

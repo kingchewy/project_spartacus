@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Item } from '../../../model/item';
 
 @Component({
   selector: 'equipment-item',
@@ -8,10 +9,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EquipmentItemComponent implements OnInit {
 
     @Input() setting: string
-    private type = "armor"
+    @Input() item: Item
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

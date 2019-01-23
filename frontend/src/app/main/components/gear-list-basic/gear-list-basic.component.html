@@ -1,20 +1,8 @@
 <fieldset class="{{setting}}">
     <legend><h1 *ngIf="setting == 'yours'">Your Equipment</h1><h1 *ngIf="setting == 'shop'">Shop</h1></legend>
     <div>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
-        <equipment-item [setting]="setting"></equipment-item>
+        <div *ngFor="let item of allGear">
+            <equipment-item [setting]="setting" [item]="item"></equipment-item>
+        </div>
     </div>
 </fieldset>

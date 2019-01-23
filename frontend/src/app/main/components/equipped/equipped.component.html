@@ -1,8 +1,8 @@
 <fieldset>
     <legend><h1>Equipped</h1></legend>
     <div>
-        <equipment-item [setting]="'yours'"></equipment-item>
-        <equipment-item [setting]="'yours'"></equipment-item>
-        <equipment-item [setting]="'yours'"></equipment-item>
+        <div *ngFor="let item of equipped">
+            <equipment-item [setting]="'yours'" [item]="item"></equipment-item>
+        </div>
     </div>
 </fieldset>

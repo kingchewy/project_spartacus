@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CharacterService } from '../../../service/character.service';
+import { Character } from '../../../model/character';
+import { Item } from '../../../model/item';
 
 @Component({
   selector: 'gear-list-basic',
@@ -9,7 +12,13 @@ export class GearListBasicComponent implements OnInit {
 
     @Input() setting: string
     
-  constructor() { }
+    private char = this.characterService.getCharacter().subscribe( x => {
+        this.allGear = x.ownedGear
+        console.log(x.ownedGear)
+    })
+    private allGear: Item[]
+    
+  constructor( private characterService: CharacterService ) { }
 
   ngOnInit() {
   }

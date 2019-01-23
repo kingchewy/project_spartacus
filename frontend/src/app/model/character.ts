@@ -1,3 +1,5 @@
+import { Item } from '../model/item';
+
 export class Character {
     id: number
     playerID: number
@@ -10,6 +12,6 @@ export class Character {
     accuracy: number
     criticalhitchance: number
     agility: number
-    ownedGear: Array<string>
-    equipped: Array<string>
+    ownedGear: Array<Item>
+    equipped: Array<Item>
 }

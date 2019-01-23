@@ -23,12 +23,17 @@ export class IntroComponent implements OnInit {
 ////              document.getElementById("opening").remove()
 //          })
           document.getElementById("background-fader").addEventListener("animationend", dn => {
-              if ( this.newUser ) {
-                this.router.navigateByUrl("opening/pick-char")
-              } else {
-                this.router.navigateByUrl("/base/dashboard")                  
-              }
+              this.navigateToNextUrl()
           })
       })
 
-}}
+}
+
+    navigateToNextUrl () {
+        if ( this.newUser ) {
+          this.router.navigateByUrl("opening/pick-char")
+        } else {
+          this.router.navigateByUrl("/base/dashboard")                  
+        }   
+    }
+}

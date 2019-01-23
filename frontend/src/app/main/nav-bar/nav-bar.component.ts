@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CharacterService } from '../../service/character.service';
+import { Character } from '../../model/character';
 
 @Component({
   selector: 'nav-bar',
@@ -8,8 +10,13 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent {
     location = "dashboard"
-                                   
-    constructor( private router: Router ) {
+    private char = this.characterService.getCharacter().subscribe( x => {
+        this.name = x.name
+    })
+    private name: string
+    
+    constructor( private router: Router,
+                  private characterService: CharacterService ) {
           router.events.subscribe(event => {
               let url = router.url
               this.location = url.substr(url.indexOf("/", 2) + 1)
