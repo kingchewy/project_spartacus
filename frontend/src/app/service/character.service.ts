@@ -6,11 +6,10 @@ import { Item } from '../model/item';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CharacterService {
 
-    public _character: BehaviorSubject<Character> = new BehaviorSubject<Character>(null);
-    public readonly character$: Observable<Character> = this._character.asObservable();
-    item1: Item = {
+    private item1: Item = {
         id : 1,
         name : "Lanze",
         type : "weapon",
@@ -23,7 +22,7 @@ export class CharacterService {
         armor : 0,
         agility : 0
     }
-    item3: Item = {
+    private item3: Item = {
         id : 3,
         name : "Harpune",
         type : "weapon",
@@ -36,7 +35,7 @@ export class CharacterService {
         armor : 0,
         agility : 0
     }
-    item2: Item = {
+    private item2: Item = {
         id : 2,
         name : "flipflops",
         type : "armor",
@@ -49,26 +48,57 @@ export class CharacterService {
         armor : 1,
         agility : 4
     }
-    char: Character = {
+    private char: Character = {
         id : 1,
         name : "Green Queen",
         race : "human",
         playerID : 1,
+        money : 1500,
         lvl : 4,
         hp : 1200,
-        strength : 5,
-        armor : 4,
+        attack: 100,
+        strength : 3,
+        armor : 1,
         accuracy : 7,
-        agility : 3,
-        criticalhitchance : 0.3,
+        agility : 6,
+        criticalhitchance : 0.5,
         ownedGear : [ this.item1, this.item2, this.item3 ],
-        equipped : [ this.item2, this.item3 ]
+        equipped : [ this.item2 ]
     }
     
+    public _character: BehaviorSubject<Character> = new BehaviorSubject<Character>(this.char)
+    public readonly character$: Observable<Character> = this._character.asObservable()
+
     constructor() {
+        this.char.equipped.forEach( item => this.setCharStats(item) )
+    }
+    
+    removeFromInventory ( item: Item ) {
+        this.char.ownedGear = this.char.ownedGear.filter( arrItem => (arrItem !== item) )
+        this.unequipp( item )
         this._character.next(this.char)
-    }    
-  getCharacter() {
-      return this.character$
-  }
+    }
+    
+    unequipp ( item: Item ) {
+        this.char.equipped = this.char.equipped.filter( arrItem => (arrItem !== item) )
+        this._character.next(this.char)
+
+        this.resetCharStats(item)
+    }
+    
+    setCharStats ( item: Item ) {
+        this.char.attack += item.damage
+        this.char.accuracy += item.accuracy
+        this.char.criticalhitchance += item.critDamage
+        this.char.armor += item.armor
+        this.char.agility += item.agility
+    }
+    
+    resetCharStats ( item: Item ) {
+            this.char.attack -= item.damage
+            this.char.accuracy -= item.accuracy
+            this.char.criticalhitchance -= item.critDamage
+            this.char.armor -= item.armor
+            this.char.agility -= item.agility
+    }
 }

@@ -26,6 +26,7 @@ export class PickCharDetailsComponent {
             name: "",
             race: "",
             lvl: 0,
+            attack: 100,
             hp: this.attrRange.minHp,
             armor: this.attrRange.minArmor,
             strength: this.attrRange.minStrength,
@@ -33,7 +34,8 @@ export class PickCharDetailsComponent {
             criticalhitchance: this.attrRange.minHitRate,
             agility: this.attrRange.minAgility,
             ownedGear: [],
-            equipped: []
+            equipped: [],
+            money: 0
         }
     }
     

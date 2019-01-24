@@ -8,7 +8,7 @@ import { Character } from '../../../model/character';
   styleUrls: ['./char-details.component.css']
 })
 export class CharDetailsComponent implements OnInit {
-    private char = this.characterService.getCharacter().subscribe( x => {
+    private char = this.characterService.character$.subscribe( x => {
         this.name = x.name
     })
     private name: string

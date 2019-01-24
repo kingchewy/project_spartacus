@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CharacterService } from '../../../service/character.service';
+import { Character } from '../../../model/character';
 import { Item } from '../../../model/item';
 
 @Component({
@@ -10,9 +12,32 @@ export class EquipmentItemComponent implements OnInit {
 
     @Input() setting: string
     @Input() item: Item
+    
+    private selected: boolean
+    private observe = this.characterService.character$.subscribe( x => {
+        this.checkIfSelected (x)
+        this.char = x
+    })
+    private char: Character
 
-  constructor() { }
+  constructor( private characterService: CharacterService ) { }
+    
+    ngOnInit () {
+        this.checkIfSelected(this.char)
+    }
+    
+    checkIfSelected (char$) {
+        if (this.item) {
+            let found = char$.equipped.
+            filter( item => {
+                return item == this.item
+            })
 
-  ngOnInit() {}
-
+            if (found.length) {
+                this.selected = true
+            } else {
+                this.selected = false
+            }
+        }
+    }
 }

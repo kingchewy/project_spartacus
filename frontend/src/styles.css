@@ -11,22 +11,23 @@
 *::selection{
     background-color: var(--narr-color);
     color: rgb(var(--narr-color-d));
+    text-shadow: none;
 }
 :root{
-    --human-color: rgb(150,255,100);
-    --robot-color: rgb(100,150,255);
-    --monster-color: rgb(255,150,100);
-    --narr-color: rgb(255, 200, 200);
+    --human-color: rgb(110,255,90);
+    --robot-color: rgb(120,200,255);
+    --monster-color: rgb(255,100,90);
+    --narr-color: rgb(200, 255, 200);
     
-    --human-color-d: 0,80,0;
-    --robot-color-d: 0,0,80;
-    --monster-color-d: 80,0,0;
-    --narr-color-d: 150, 0, 0;
+    --human-color-d: 0,80,50;
+    --robot-color-d: 80,0,80;
+    --monster-color-d: 80,50,50;
+    --narr-color-d: 100, 0, 20;
     
-    --human-color-t: 150,255,100;
-    --robot-color-t: 100,150,255;
-    --monster-color-t: 255,150,100;
-    --narr-color-t: 255, 200, 200;
+    --human-color-t: 110,255,90;
+    --robot-color-t: 120,200,255;
+    --monster-color-t: 255,100,90;
+    --narr-color-t: 200, 255, 200;
     
     --race-color: white;
     --race-color-t: white;
@@ -82,15 +83,17 @@ button:active{
 }
 .you-btn {
     color: var(--race-color);
-    background-color: rgba(var(--race-color-d),0.2);
+    background-color: rgba(var(--race-color-t),0.3);
     border-color: var(--race-color);
+    font-weight: bold;
 }
 .you-btn:hover{
-    background-color: rgba(var(--race-color-d),0.4);
+    color: rgba(var(--race-color-d),1);
+    background-color: rgba(var(--race-color-t),0.8);
     box-shadow: 0px 0px 40px rgba(var(--race-color-t),0.6);
 }
 .you-btn:active{
-    background-color: rgba(var(--race-color-d),0.5);
+    background-color: rgba(var(--race-color-t),1);
     box-shadow: 0px 0px 40px rgba(var(--race-color-t),0.8);
 }
 .narr-btn{
@@ -99,11 +102,12 @@ button:active{
     border-color: var(--narr-color);
 }
 .narr-btn:hover{
-    background-color: rgba(var(--narr-color-t),0.4);
+    color: rgba(var(--narr-color-d),1);
+    background-color: rgba(var(--narr-color-t),0.7);
     box-shadow: 0px 0px 40px rgba(var(--narr-color-t),0.6);
 }
 .narr-btn:active{
-    background-color: rgba(var(--narr-color-t),0.5);
+    background-color: rgba(var(--narr-color-t),1);
     box-shadow: 0px 0px 40px rgba(var(--narr-color-t),0.8);
 }
 .page-title {

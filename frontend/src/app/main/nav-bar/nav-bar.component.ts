@@ -10,7 +10,7 @@ import { Character } from '../../model/character';
 })
 export class NavBarComponent {
     location = "dashboard"
-    private char = this.characterService.getCharacter().subscribe( x => {
+    private char = this.characterService.character$.subscribe( x => {
         this.name = x.name
     })
     private name: string

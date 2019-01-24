@@ -8,10 +8,12 @@ export class Character {
     lvl: number
     hp: number
     armor: number
+    attack: number
     strength: number
     accuracy: number
     criticalhitchance: number
     agility: number
     ownedGear: Array<Item>
     equipped: Array<Item>
+    money: number
 }

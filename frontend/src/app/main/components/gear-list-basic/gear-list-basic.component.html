@@ -1,8 +1,8 @@
 <fieldset class="{{setting}}">
-    <legend><h1 *ngIf="setting == 'yours'">Your Equipment</h1><h1 *ngIf="setting == 'shop'">Shop</h1></legend>
+    <legend><h1 *ngIf="setting == 'yours'">{{char.name}}</h1><h1 *ngIf="setting == 'shop'">Shop</h1></legend>
     <div>
-        <div *ngFor="let item of allGear">
-            <equipment-item [setting]="setting" [item]="item"></equipment-item>
+        <div *ngFor="let item of char.ownedGear">
+            <equipment-item [setting]="setting" [item]="item" (click)="add.emit(item)"></equipment-item>
         </div>
     </div>
 </fieldset>

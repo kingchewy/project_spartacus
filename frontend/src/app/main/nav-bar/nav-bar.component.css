@@ -28,6 +28,7 @@ span {
     opacity: 0;
     transition: 1s;
     transition-timing-function: ease-out;
+    color: inherit;
 }
 nav:hover > ul li span {
     opacity: 1;
@@ -37,6 +38,7 @@ ul li{
     transition: 0.5s;
     cursor: pointer;
     width: 100vw;
+    color: var(--narr-color);
 }
 nav:hover > ul li {
     background-color: rgba(var(--narr-color-t),0.3);

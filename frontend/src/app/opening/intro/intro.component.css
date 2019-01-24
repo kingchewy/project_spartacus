@@ -108,4 +108,8 @@ svg {
     position: fixed;
     right: 30px;
     bottom: 30px;
+    opacity: 0.4;
+}
+#skipper:hover {
+    opacity: 1;
 }

@@ -9,11 +9,11 @@ import { Item } from '../model/item';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-    private char = this.characterService.getCharacter().subscribe( x => {
-        this.race = x.race
-    })
-    private race : string
-  
+//    private observer = this.characterService.getCharacter().subscribe( x => {
+//        this.char = x
+//    })
+//    private char : Character
+//  
 //    item1: Item = {
 //        id : 1,
 //        name : "Lanze",
@@ -72,23 +72,23 @@ export class MainComponent {
     constructor( private characterService: CharacterService ) { }
     
     ngOnInit () {
-//        
 //        setTimeout( () => {
 //            this.characterService._character.next(this.char2)
 //            console.log(this.race)
 //        }, 2000)
         
-        this.setColors()
+        this.setColors(this.characterService._character.value.race)
+    }
+
+    setColors (race) {
+        document.documentElement.style
+            .setProperty('--race-color', `var(--${race}-color)`)
+                
+        document.documentElement.style
+            .setProperty('--race-color-t', `var(--${race}-color-t)`)
+                
+        document.documentElement.style
+            .setProperty('--race-color-d', `var(--${race}-color-d)`)
     }
     
-    setColors () {
-        document.documentElement.style
-            .setProperty('--race-color', `var(--${this.race}-color)`)
-                
-        document.documentElement.style
-            .setProperty('--race-color-t', `var(--${this.race}-color-t)`)
-                
-        document.documentElement.style
-            .setProperty('--race-color-d', `var(--${this.race}-color-d)`)
-    }
 }

@@ -7,7 +7,7 @@ fieldset {
     
     border: 3px solid var(--race-color);
     box-shadow: 0px 0px 30px var(--race-color) inset;
-    background-color: rgba(var(--race-color-d),0.5);
+    background-color: rgba(var(--race-color-d),0.7);
 }
 legend {
     margin: 0px auto -20px auto;

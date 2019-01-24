@@ -3,7 +3,7 @@
     width: 70vw;
     margin-top: 5vh;
     padding: 20px 0px 20px 0px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.6);
     animation: appear 1s 1 ease-out;
     text-align: center;
     transition: 1s;
