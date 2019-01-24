@@ -1,6 +1,8 @@
 package at.nightfight.controller;
 
 import at.nightfight.model.Character;
+import at.nightfight.model.dto.CharacterNewDTO;
+import at.nightfight.model.mapper.ICharacterNewMapper;
 import at.nightfight.repository.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,9 @@ public class CharacterController {
 
     @Autowired
     CharacterRepository characterRepository;
+
+    @Autowired
+    ICharacterNewMapper mapper;
 
     @GetMapping("/characters")
     public ResponseEntity<List<Character>> getAllCharacters(){
@@ -37,16 +42,29 @@ public class CharacterController {
         return this.characterRepository.findById(id);
     }
 
-    @PostMapping("/users/{id}/characters")
-    public Optional<Character> createCharacter(@PathVariable(name = "id") Long id){
+/*    @PostMapping("/users/{id}/characters")
+    public ResponseEntity<Character> createCharacter(@PathVariable(name = "id") Long id, @RequestBody Character character){
         Optional<Character> characterOptional = this.characterRepository.findById(id);
 
-      /*  if(characterOptional.isPresent()){
+        Character newCharacter = this.characterRepository.save(character);
+      *//*  if(characterOptional.isPresent()){
             Character character = characterOptional.get();
             return new ResponseEntity<Character>(character, HttpStatus.OK);
-        } else*/
+        } else*//*
 
         //return new ResponseEntity<Optional<Character>>(characterOptional, HttpStatus.OK);
-        return this.characterRepository.findById(id);
+        return new ResponseEntity<Character>(newCharacter, HttpStatus.CREATED);
+    }*/
+
+    @PostMapping("/users/{id}/characters")
+    public ResponseEntity<Character> createCharacter(@PathVariable(name = "id") Long id, @RequestBody CharacterNewDTO characterNewDTO){
+        Optional<Character> characterOptional = this.characterRepository.findById(id);
+
+        Character characterNew = mapper.characterNewDTOtoCharacter(characterNewDTO);
+
+        Character characterCreated = this.characterRepository.save(characterNew);
+
+
+        return new ResponseEntity<Character>(characterCreated, HttpStatus.CREATED);
     }
 }
