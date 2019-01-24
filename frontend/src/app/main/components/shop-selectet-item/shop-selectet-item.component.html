@@ -1,0 +1,23 @@
+<div id="container" class="{{setting}}">
+    <h1>Selected</h1>
+    <div id="grid-container">
+        <div>
+<!--
+[item]="item" is missing
+            <equipment-item [setting]="setting"></equipment-item>
+            <equipment-item [setting]="setting"></equipment-item>
+            <equipment-item [setting]="setting"></equipment-item>
+-->
+        </div>
+    </div>
+    <div>
+        <h3>
+            <span *ngIf="setting=='yours'">Sell</span>
+            <span *ngIf="setting=='shop'">Buy</span> selected for <br><br><b>1234€?</b>
+        </h3>
+    </div>
+    <button class="you-btn">
+        <span *ngIf="setting=='yours'">Sell</span>
+        <span *ngIf="setting=='shop'">Buy</span> selected
+    </button>
+</div>

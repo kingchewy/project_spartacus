@@ -3,6 +3,7 @@ nav {
     left: 0px;
     top: 0px;
     bottom: 0px;
+    z-index: 100;
     
     background-color: rgba(var(--narr-color-d),0.5);
     
@@ -35,7 +36,7 @@ ul li{
     padding: 5px 0px 5px 20px;
     transition: 0.5s;
     cursor: pointer;
-    width: 200%;
+    width: 100vw;
 }
 nav:hover > ul li {
     background-color: rgba(var(--narr-color-t),0.3);
@@ -76,4 +77,5 @@ nav:hover > ul li:hover > ul li:hover{
 
 #account {
     margin-bottom: 20vh;
+    font-size: 0.8em;
 }

@@ -1,0 +1,72 @@
+.icon {
+    height: 10vw;
+    width: 10vw;
+    
+    cursor: pointer;
+    user-select: none;
+}
+.pop-up {
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+    width: 18vw;        /* keyframes müssen darauf angepasst sein (width,padding)*/
+    margin-left: 10vw;
+    bottom:  0px;
+    
+    animation: pop-up 0.6s ease-in-out 1;
+    overflow: hidden;
+    line-height: 100vh; /* muss gleich der height sein */
+    text-align: center;
+    padding: 0px 10px 0px 10px;
+    
+    display: none;
+}
+.icon:hover .pop-up {
+    display: block;
+    cursor: auto;
+}
+.pop-up span {
+    display: inline-block;
+    line-height: normal;
+    text-align: left;
+}
+ul li {
+    line-height: 2em;
+}
+
+@keyframes pop-up {
+    0% {
+        bottom: 50vh;
+        height: 0px;
+        width: 0px;
+        line-height: 0px;
+        padding: 0px -9vw 0px 0px; /* Hälfte der width */
+    }
+    20% {
+        bottom: 50vh;
+        height: 10px;
+        width: 18vw;
+        line-height: 0px;
+        padding: 0px 10px 0px 10px;
+    }
+}
+
+.yours svg {
+    fill: var(--race-color);
+}
+.shop svg {
+    fill: var(--narr-color);
+}
+svg {
+    fill: white;
+}
+.yours .pop-up {
+    background-color: rgba(var(--race-color-d), 0.8);
+    box-shadow: 0px 0px 50px var(--race-color) inset;
+    border: solid 5px var(--race-color);
+}
+.shop .pop-up {
+    background-color: rgba(var(--narr-color-d), 0.8);
+    box-shadow: 0px 0px 50px var(--narr-color) inset;
+    border: solid 5px var(--narr-color);
+}

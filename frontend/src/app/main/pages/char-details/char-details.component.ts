@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterService } from '../../../service/character.service';
+import { Character } from '../../../model/character';
 
 @Component({
   selector: 'app-char-details',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./char-details.component.css']
 })
 export class CharDetailsComponent implements OnInit {
-
-  constructor() { }
+    private char = this.characterService.getCharacter().subscribe( x => {
+        this.name = x.name
+    })
+    private name: string
+    
+  constructor( private characterService: CharacterService ) { }
 
   ngOnInit() {
   }

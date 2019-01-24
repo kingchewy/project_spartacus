@@ -24,6 +24,5 @@ fieldset > div {
 fieldset > div > div {
     height: 10vw;
     width: 10vw;
-    background-color: var(--race-color);
     margin-bottom: 20px;
 }
