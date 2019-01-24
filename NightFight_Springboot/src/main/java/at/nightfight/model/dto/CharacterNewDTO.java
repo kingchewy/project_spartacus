@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
+@Getter
+@Setter
 public class CharacterNewDTO {
 
     private Long userId;
@@ -13,7 +16,7 @@ public class CharacterNewDTO {
 
     private String name;
 
-    public CharacterNewDTO() {
+/*    public CharacterNewDTO() {
     }
 
     public CharacterNewDTO(Long userId, String race, String name) {
@@ -44,5 +47,7 @@ public class CharacterNewDTO {
 
     public void setName(String name) {
         this.name = name;
-    }
+    }*/
+
+
 }

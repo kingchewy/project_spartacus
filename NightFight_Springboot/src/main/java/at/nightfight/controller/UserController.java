@@ -30,13 +30,13 @@ public class UserController {
         return new ResponseEntity<Optional<User>>(user, HttpStatus.OK);
     }
 
-    @PostMapping("/users")
+/*    @PostMapping("/users")
     public ResponseEntity<Character> createCharacter(){
 
         Character newCharacter = new Character();
 
         return new ResponseEntity<Character>(newCharacter, HttpStatus.CREATED);
-    }
+    }*/
 
 
 }
