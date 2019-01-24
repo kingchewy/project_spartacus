@@ -3,6 +3,7 @@ package at.nightfight.security;
 import at.nightfight.security.jwt.JwtAuthEntryPoint;
 import at.nightfight.security.jwt.JwtAuthTokenFilter;
 import at.nightfight.security.services.UserDetailsServiceImpl;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,6 +51,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
+    }
+
+    @Bean
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
     }
 
     @Bean
