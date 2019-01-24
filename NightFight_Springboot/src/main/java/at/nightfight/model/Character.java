@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAttribute;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +13,8 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.List;
 
 //==== Lombok ====
 @NoArgsConstructor
@@ -28,10 +32,6 @@ public class Character {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@XmlAttribute
 	private Long id;
-
-/*	@Column(name="user_id")
-	@XmlAttribute
-	private Long user_id;*/
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -84,11 +84,23 @@ public class Character {
 	private float agility;
 
 /*	@OneToOne(
-			mappedBy = "character"
-			*//*cascade = CascadeType.ALL,
-			fetch = FetchType.LAZY*//*
+			mappedBy = "character",
+			cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY
 	)
 	private Inventory inventory;*/
+
+	@NonNull
+	@OneToMany(
+			cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY,
+			orphanRemoval = true
+	)
+	@JsonManagedReference
+	@JoinColumn(name = "character_id")
+	//@org.hibernate.annotations.IndexColumn(name = "character_index")
+	private List<Inventory> inventoryItems;
+
 
 	// METHODS
 	public void setNewCharacterAttributes(){

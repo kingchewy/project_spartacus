@@ -1,10 +1,12 @@
 package at.nightfight.controller;
 
 import at.nightfight.model.Character;
+import at.nightfight.model.Inventory;
 import at.nightfight.model.User;
 import at.nightfight.model.dto.CharacterNewDTO;
 import at.nightfight.model.mapper.ICharacterNewMapper;
 import at.nightfight.repository.CharacterRepository;
+import at.nightfight.repository.InventoryRespository;
 import at.nightfight.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
@@ -31,6 +33,9 @@ public class CharacterController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    InventoryRespository inventoryRespository;
+
 /*    @Autowired
     ICharacterNewMapper mapper;*/
 
@@ -45,6 +50,7 @@ public class CharacterController {
     public Optional<Character> getCharacter(@PathVariable(name = "id") Long id){
         Optional<Character> characterOptional = this.characterRepository.findById(id);
 
+        System.out.println("############################################### " );
       /*  if(characterOptional.isPresent()){
             Character character = characterOptional.get();
             return new ResponseEntity<Character>(character, HttpStatus.OK);
@@ -86,7 +92,15 @@ public class CharacterController {
         Character character = this.convertToEntity(characterNewDTO);
         character.setNewCharacterAttributes();
 
+
         Character characterCreated = characterRepository.save(character);
+
+        Inventory newInventory = new Inventory();
+        newInventory.setCharacter(character);
+        Inventory createdInventory = inventoryRespository.save(newInventory);
+
+        //character.setInventory(newInventory);
+
 
         return new ResponseEntity<Character>(characterCreated, HttpStatus.CREATED);
     }
