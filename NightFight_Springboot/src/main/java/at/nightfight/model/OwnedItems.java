@@ -1,6 +1,7 @@
 package at.nightfight.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
@@ -22,10 +23,10 @@ import java.util.Set;
 
 //==== JPA ====
 @Entity
-@Table(name="t_inventory")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Inventory {
-
+@Table(name="t_owned_items")
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class OwnedItems {
+    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -57,6 +58,7 @@ public class Inventory {
     @JoinColumn(name = "item_id")
     private Item item;
 
+    @Column(unique = true)
     @NonNull
     private Long slotNumber;
 

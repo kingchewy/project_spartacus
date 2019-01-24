@@ -1,12 +1,9 @@
 package at.nightfight.controller;
 
 import at.nightfight.model.Character;
-import at.nightfight.model.Inventory;
-import at.nightfight.model.User;
 import at.nightfight.model.dto.CharacterNewDTO;
-import at.nightfight.model.mapper.ICharacterNewMapper;
 import at.nightfight.repository.CharacterRepository;
-import at.nightfight.repository.InventoryRespository;
+import at.nightfight.repository.OwnedItemsRespository;
 import at.nightfight.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
@@ -15,8 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.standard.Destination;
-import javax.swing.text.html.Option;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +30,7 @@ public class CharacterController {
     UserRepository userRepository;
 
     @Autowired
-    InventoryRespository inventoryRespository;
+    OwnedItemsRespository ownedItemsRespository;
 
 /*    @Autowired
     ICharacterNewMapper mapper;*/
@@ -89,18 +85,27 @@ public class CharacterController {
     @PostMapping("/characters")
     public ResponseEntity<Character> createCharacter(@RequestBody CharacterNewDTO characterNewDTO){
 
+        // MAP to Entity
         Character character = this.convertToEntity(characterNewDTO);
+
+        // SET Default Attributes for new character by race
         character.setNewCharacterAttributes();
 
+        character.setOwnedItems(new ArrayList<>());
 
+        // Persist new character and (returns created character)
         Character characterCreated = characterRepository.save(character);
+/*
 
-        Inventory newInventory = new Inventory();
+
+        // create an empty inventory for new character
+        OwnedItems newInventory = new OwnedItems();
         newInventory.setCharacter(character);
-        Inventory createdInventory = inventoryRespository.save(newInventory);
+        OwnedItems createdInventory = ownedItemsRespository.save(newInventory);
 
         //character.setInventory(newInventory);
 
+*/
 
         return new ResponseEntity<Character>(characterCreated, HttpStatus.CREATED);
     }

@@ -3,6 +3,7 @@ package at.nightfight.security;
 import at.nightfight.security.jwt.JwtAuthEntryPoint;
 import at.nightfight.security.jwt.JwtAuthTokenFilter;
 import at.nightfight.security.services.UserDetailsServiceImpl;
+import at.nightfight.service.OwnedItemsServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -56,6 +57,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public ModelMapper modelMapper(){
         return new ModelMapper();
+    }
+
+    @Bean
+    public OwnedItemsServiceImpl ownedItemsService(){
+        return new OwnedItemsServiceImpl();
     }
 
     @Bean
