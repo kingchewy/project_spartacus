@@ -90,7 +90,7 @@ public class Character {
 			cascade = CascadeType.ALL,
 			fetch = FetchType.LAZY
 	)
-	private OwnedItems inventory;*/
+	private OwnedItem inventory;*/
 
 	@NonNull
 	@OneToMany(
@@ -101,7 +101,7 @@ public class Character {
 	@JsonManagedReference
 	@JoinColumn(name = "character_id")
 	//@org.hibernate.annotations.IndexColumn(name = "character_index")
-	private List<OwnedItems> ownedItems;
+	private List<OwnedItem> ownedItems;
 
 	@JsonManagedReference
 	@JoinColumn(name = "character_id")

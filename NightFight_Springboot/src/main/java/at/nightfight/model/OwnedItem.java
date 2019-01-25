@@ -25,7 +25,7 @@ import java.util.Set;
 @Entity
 @Table(name="t_owned_items")
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class OwnedItems {
+public class OwnedItem {
     @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,7 +55,7 @@ public class OwnedItems {
     private Item item;*/
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "item_id")
+    @JoinColumn(name = "item_id", unique = true)
     private Item item;
 
     @Column(unique = true)

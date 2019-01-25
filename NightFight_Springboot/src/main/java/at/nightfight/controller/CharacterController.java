@@ -3,7 +3,7 @@ package at.nightfight.controller;
 import at.nightfight.model.Character;
 import at.nightfight.model.dto.CharacterNewDTO;
 import at.nightfight.repository.CharacterRepository;
-import at.nightfight.repository.OwnedItemsRespository;
+import at.nightfight.repository.OwnedItemRespository;
 import at.nightfight.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
@@ -30,7 +30,7 @@ public class CharacterController {
     UserRepository userRepository;
 
     @Autowired
-    OwnedItemsRespository ownedItemsRespository;
+    OwnedItemRespository ownedItemRespository;
 
 /*    @Autowired
     ICharacterNewMapper mapper;*/
@@ -99,9 +99,9 @@ public class CharacterController {
 
 
         // create an empty inventory for new character
-        OwnedItems newInventory = new OwnedItems();
+        OwnedItem newInventory = new OwnedItem();
         newInventory.setCharacter(character);
-        OwnedItems createdInventory = ownedItemsRespository.save(newInventory);
+        OwnedItem createdInventory = ownedItemRespository.save(newInventory);
 
         //character.setInventory(newInventory);
 
