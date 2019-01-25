@@ -1,7 +1,7 @@
 <h1 class="page-title">SHOP</h1>
 <div id="container" class="page">
-    <div id="you"><gear-list-basic [setting]="'yours'"></gear-list-basic></div>
-    <div id="shop"><gear-list-basic [setting]="'shop'"></gear-list-basic></div>
-    <div><shop-selectet-item [setting]="'yours'"></shop-selectet-item></div>
-    <div><shop-selectet-item [setting]="'shop'"></shop-selectet-item></div>
+    <div id="shop"><gear-list-basic [setting]="'shop'" (add)="buy.take($event)"></gear-list-basic></div>
+    <div id="you"><gear-list-basic [setting]="'yours'" (add)="sell.take($event)"></gear-list-basic></div>
+    <div><shop-selectet-item #buy [setting]="'shop'"></shop-selectet-item></div>
+    <div><shop-selectet-item #sell [setting]="'yours'"></shop-selectet-item></div>
 </div>

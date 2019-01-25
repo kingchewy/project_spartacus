@@ -1,8 +1,8 @@
 <h1 class="page-title">SEARCH FOR FIGHTS</h1>
 <div id="container" class="page">
     <div id="your-equipment">
-        <gear-list-basic [setting]="'yours'"></gear-list-basic>
-        <curr-equipped></curr-equipped>
+        <gear-list-basic [setting]="'yours'" (add)="equipped.equip($event)"></gear-list-basic>
+        <curr-equipped #equipped></curr-equipped>
         <attr-stats></attr-stats>
     </div>
     <div id="opponent">Opponent</div>

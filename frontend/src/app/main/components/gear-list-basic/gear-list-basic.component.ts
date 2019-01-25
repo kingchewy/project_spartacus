@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { CharacterService } from '../../../service/character.service';
 import { Character } from '../../../model/character';
 import { Item } from '../../../model/item';
@@ -8,19 +8,15 @@ import { Item } from '../../../model/item';
   templateUrl: './gear-list-basic.component.html',
   styleUrls: ['./gear-list-basic.component.css']
 })
-export class GearListBasicComponent implements OnInit {
+export class GearListBasicComponent {
 
-    @Input() setting: string
+    @Input() setting: string    
+    @Output() private add = new EventEmitter<Item>()
     
-    private char = this.characterService.getCharacter().subscribe( x => {
-        this.allGear = x.ownedGear
-        console.log(x.ownedGear)
+    private observe = this.characterService.character$.subscribe( x => {
+        this.char = x
     })
-    private allGear: Item[]
+    private char: Character
     
   constructor( private characterService: CharacterService ) { }
-
-  ngOnInit() {
-  }
-
 }

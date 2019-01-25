@@ -2,7 +2,7 @@
     <legend><h1>Equipped</h1></legend>
     <div>
         <div *ngFor="let item of equipped">
-            <equipment-item [setting]="'yours'" [item]="item"></equipment-item>
+            <equipment-item [setting]="'yours'" [item]="item" (click)="characterService.unequipp(item)"></equipment-item>
         </div>
     </div>
 </fieldset>

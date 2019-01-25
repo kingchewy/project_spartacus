@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CharacterService } from '../../../service/character.service';
 import { Character } from '../../../model/character';
 
@@ -7,25 +7,11 @@ import { Character } from '../../../model/character';
   templateUrl: './attr-stats.component.html',
   styleUrls: ['./attr-stats.component.css']
 })
-export class AttrStatsComponent implements OnInit {
-    private char = this.characterService.getCharacter().subscribe( x => {
-        this.hp = x.hp
-        this.armor = x.armor
-        this.critHitChance = x.criticalhitchance
-        this.strength = x.strength
-        this.accuracy = x.accuracy
-        this.agility = x.agility
+export class AttrStatsComponent {
+    private observer = this.characterService.character$.subscribe( x => {
+        this.char = x
     })
-    private hp: number
-    private armor: number
-    private critHitChance: number
-    private strength: number
-    private accuracy: number
-    private agility: number
+    private char: Character
     
   constructor( private characterService: CharacterService ) { }
-
-  ngOnInit() {
-  }
-
 }
