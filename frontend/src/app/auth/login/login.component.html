@@ -15,12 +15,11 @@
     <span *ngIf="!checkInput()">Please fill in all forms</span>
     <button *ngIf="checkInput()" type="submit" (click)="submit()" class="narr-btn">Submit</button>
 </div> -->
-
 <div id="container">
+    <img id="load-spinner" *ngIf="loading" src="../../../assets/my-spinner3.gif" />
     <h1>Login</h1>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div id="input-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"  id="input-container">
 
             <div class="item1">
                 <label>Username
@@ -48,13 +47,8 @@
             
             <div class="item3">
                 <button [disabled]="!loginForm.valid" class="narr-btn">Login</button>
-                <img *ngIf="loading" src="../../../assets/my-spinner3.gif" />
             </div>
 
             <span *ngIf="error">{{error}}</span>
-
-        </div>
-
     </form>
-<!--    <button type="submit" routerLink="/register" class="narr-btn">Register</button>-->
 </div>

@@ -6,7 +6,7 @@ fieldset {
     background-color: rgba(var(--race-color-d),0.7);
     
     position: relative;
-    overflow: scroll;
+    overflow: auto;
     text-align: left;
 }
 legend {

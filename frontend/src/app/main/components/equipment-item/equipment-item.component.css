@@ -38,6 +38,7 @@
     line-height: 100vh; /* muss gleich der height sein */
     text-align: center;
     padding: 0px 10px 0px 10px;
+    text-overflow: ellipsis; 
     
     display: none;
 }

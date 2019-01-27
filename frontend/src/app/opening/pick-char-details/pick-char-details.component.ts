@@ -28,6 +28,7 @@ export class PickCharDetailsComponent {
             lvl: 0,
             attack: 100,
             hp: this.attrRange.minHp,
+            xp: 0,
             armor: this.attrRange.minArmor,
             strength: this.attrRange.minStrength,
             accuracy: this.attrRange.minAccuracy,

@@ -7,6 +7,7 @@ export class Character {
     race: string
     lvl: number
     hp: number
+    xp: number
     armor: number
     attack: number
     strength: number
