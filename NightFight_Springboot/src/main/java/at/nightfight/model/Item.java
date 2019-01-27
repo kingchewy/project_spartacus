@@ -44,7 +44,7 @@ public class Item {
 
 /*    @ManyToOne
     @JoinColumn(name = "inventory_id", insertable =  false, updatable = false)
-    private Inventory inventory;*/
+    private OwnedItem inventory;*/
 
 /*    @NonNull
     @OneToMany
@@ -61,17 +61,17 @@ public class Item {
             joinColumns = { @JoinColumn(name="item_id", referencedColumnName = "item_id")},
             inverseJoinColumns = { @JoinColumn(name = "inventoryItems_ID", referencedColumnName = "id", unique = true)}
     )
-    private List<Inventory> inventoryItems;*/
+    private List<OwnedItem> inventoryItems;*/
 
 /*    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "item_id")
-    private List<Inventory> inventories;*/
+    private List<OwnedItem> inventories;*/
 
 /*    @OneToOne(
             mappedBy = "item", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    private Inventory inventory;*/
+    private OwnedItem inventory;*/
 
     @NonNull
     @Column(nullable = false)

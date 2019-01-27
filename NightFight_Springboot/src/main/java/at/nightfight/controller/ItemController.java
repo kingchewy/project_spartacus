@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/resources/")
+@RequestMapping("/resources")
 public class ItemController {
 
     @Autowired
     ItemRepository itemRepository;
 
-    @GetMapping("characters/{id}/items/")
+    @GetMapping("/characters/{id}/items")
     public ResponseEntity<List<Item>> getCharactersItems(@PathVariable("id") Long id){
-        List<Item> items = this.itemRepository.findBycharacterId(id);
+        List<Item> items = this.itemRepository.findAllByCharacterId(id);
         return new ResponseEntity<List<Item>>(items, HttpStatus.OK);
     }
 

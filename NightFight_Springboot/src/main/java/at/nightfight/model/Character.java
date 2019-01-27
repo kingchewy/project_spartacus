@@ -4,7 +4,6 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAttribute;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -66,7 +65,7 @@ public class Character {
 	@NonNull
 	@Column
 	@XmlAttribute
-	private float damage_resistance;
+	private float armor;
 
 	@NonNull
 	@Column
@@ -83,12 +82,15 @@ public class Character {
 	@XmlAttribute
 	private float agility;
 
+	@NonNull
+	private float discs;
+
 /*	@OneToOne(
 			mappedBy = "character",
 			cascade = CascadeType.ALL,
 			fetch = FetchType.LAZY
 	)
-	private Inventory inventory;*/
+	private OwnedItem inventory;*/
 
 	@NonNull
 	@OneToMany(
@@ -99,13 +101,16 @@ public class Character {
 	@JsonManagedReference
 	@JoinColumn(name = "character_id")
 	//@org.hibernate.annotations.IndexColumn(name = "character_index")
-	private List<Inventory> inventoryItems;
+	private List<OwnedItem> ownedItems;
 
+	@JsonManagedReference
+	@JoinColumn(name = "character_id")
 
 	// METHODS
 	public void setNewCharacterAttributes(){
 		this.lvl = 1;
 		this.xp = 0;
+		this.discs = 0;
 
 		setDefaultValuesByRace();
 	}
@@ -114,21 +119,21 @@ public class Character {
 		switch (this.race){
 			case "human":
 				this.hp = 2100;
-				this.damage_resistance = 300;
+				this.armor = 300;
 				this.strength = 430;
 				this.accuracy = 334;
 				this.agility = 345;
 				break;
 			case "robot":
 				this.hp = 3500;
-				this.damage_resistance = 500;
+				this.armor = 500;
 				this.strength = 340;
 				this.accuracy = 42;
 				this.agility = 23;
 				break;
 			case "monster":
 				this.hp = 3100;
-				this.damage_resistance = 345;
+				this.armor = 345;
 				this.strength = 600;
 				this.accuracy = 150;
 				this.agility = 250;
