@@ -18,7 +18,12 @@ import javax.persistence.*;
 //@DiscriminatorValue("weapon")
 public class ShopItemWeapon extends ShopItem{
 
-    private String special;
-
+    @NonNull
     private Float damage;
+
+    @NonNull
+    private Float accuracy;
+
+    @NonNull
+    private Float criticalDamage;
 }

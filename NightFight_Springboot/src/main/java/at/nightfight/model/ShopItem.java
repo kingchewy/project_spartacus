@@ -1,6 +1,7 @@
 package at.nightfight.model;
 
 import lombok.*;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 
@@ -21,14 +22,24 @@ public class ShopItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
+    @Column(name = "shop_id")
     private Long id;
 
     @NonNull
     private String name;
 
+    @Enumerated(EnumType.STRING)
+    //@NaturalId
+    @Column(length = 60)
+    private ItemType itemType;
 
-    private int strength;
+    @NonNull
+    @Column(nullable = false)
+    private Long minLvl;
 
+    @NonNull
+    private Long price;
 
+    private Long slot;
 
 }
