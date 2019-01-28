@@ -3,8 +3,7 @@ package at.nightfight.model;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAttribute;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +24,8 @@ import java.util.List;
 
 //==== JPA ====
 @Entity
-@Table(name="t_character_test")
+@Table(name="z_character")
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Character {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -85,14 +85,8 @@ public class Character {
 	@NonNull
 	private float discs;
 
-/*	@OneToOne(
-			mappedBy = "character",
-			cascade = CascadeType.ALL,
-			fetch = FetchType.LAZY
-	)
-	private OwnedItem inventory;*/
 
-	@NonNull
+/*	@NonNull
 	@OneToMany(
 			cascade = CascadeType.ALL,
 			fetch = FetchType.LAZY,
@@ -101,10 +95,20 @@ public class Character {
 	@JsonManagedReference
 	@JoinColumn(name = "character_id")
 	//@org.hibernate.annotations.IndexColumn(name = "character_index")
-	private List<OwnedItem> ownedItems;
+	private List<OwnedItem> ownedItems;*/
 
-	@JsonManagedReference
-	@JoinColumn(name = "character_id")
+/*	@JsonIdentityInfo(
+			generator = ObjectIdGenerators.PropertyGenerator.class,
+			property = "id"
+	)*/
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "z_character_characteritem",
+			joinColumns = { @JoinColumn(name = "character_id")},
+			inverseJoinColumns = { @JoinColumn(name = "character_item_id")}
+	)
+	private List<Item> ownedItems;
+
 
 	// METHODS
 	public void setNewCharacterAttributes(){
