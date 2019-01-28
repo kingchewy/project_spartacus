@@ -2,15 +2,15 @@ package at.nightfight.controller;
 
 import at.nightfight.model.Shop;
 import at.nightfight.model.ShopItem;
+import at.nightfight.model.ShopItemArmor;
 import at.nightfight.model.ShopItemWeapon;
 import at.nightfight.repository.ShopRepository;
+import at.nightfight.service.ShopServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,6 +20,9 @@ public class ShopController {
     @Autowired
     ShopRepository shopRepository;
 
+    @Autowired
+    ShopServiceImpl shopService;
+
     @PostMapping("/shops")
     public ResponseEntity<Shop> createShop(@RequestBody Shop shop){
 
@@ -27,6 +30,7 @@ public class ShopController {
 
         return new ResponseEntity<Shop>(newShop, HttpStatus.CREATED);
     }
+
 
     @GetMapping("/shops/{id}")
     public ResponseEntity<Shop> getShop(@PathVariable("id") Long id){
@@ -38,22 +42,22 @@ public class ShopController {
         return new ResponseEntity (HttpStatus.NOT_FOUND);
     }
 
-    @PutMapping("/shops/{id}/shopitems")
-    public ResponseEntity<Shop> addItem(@RequestBody ShopItemWeapon shopItemWeapon, @PathVariable("id") Long id){
-        System.out.println("########" + shopItemWeapon);
-        Optional<Shop> shopOptional = shopRepository.findById(id);
-        if(shopOptional.isPresent()){
-            Shop shop = shopOptional.get();
 
-            List<ShopItem> currentShopItems = shop.getShopItems();
-            currentShopItems.add(shopItemWeapon);
+    @PostMapping("/shops/{id}/weapons")
+    public ResponseEntity<Shop> createNewWeapon(@PathVariable("id") Long id, @RequestBody ShopItemWeapon shopItemWeapon){
 
-            shop.setShopItems(currentShopItems);
-            Shop savedShop = shopRepository.save(shop);
+        ResponseEntity response = shopService.createNewWeaponForShop(id, shopItemWeapon);
 
-            return new ResponseEntity<Shop>(savedShop, HttpStatus.OK);
-        }
-
-        return new ResponseEntity("irgendwas passt nicht", HttpStatus.NOT_FOUND);
+        return response;
     }
+
+
+    @PostMapping("/shops/{id}/armors")
+    public ResponseEntity<Shop> createNewArmor(@PathVariable("id") Long id, @RequestBody ShopItemArmor shopItemArmor){
+        ResponseEntity response = shopService.createNewArmorForShop(id, shopItemArmor);
+
+        return response;
+    }
+
+
 }

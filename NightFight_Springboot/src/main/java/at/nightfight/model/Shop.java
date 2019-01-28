@@ -41,4 +41,8 @@ public class Shop {
             inverseJoinColumns = { @JoinColumn(name = "shopitem_id")}
     )
     private List<ShopItem> shopItems;
+
+    public void addShopItem(ShopItem shopItem){
+        shopItems.add(shopItem);
+    }
 }
