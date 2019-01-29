@@ -10,69 +10,33 @@ import { Shop } from '../model/shop';
 
 export class CharacterService {
 
-    private item1: Item = {
-        id : 1,
-        name : "Lanze",
-        type : "weapon",
-        characterId : 3,
-        price : 123,
-        minimumLvl : 4,
-        damage : 120,
-        accuracy : 0.6,
-        critDamage : 3,
-        armor : 0,
-        agility : 0
-    }
-    private item3: Item = {
-        id : 3,
-        name : "Harpune",
-        type : "weapon",
-        characterId : 3,
-        price : 321,
-        minimumLvl : 4,
-        damage : 1000,
-        accuracy : 0.6,
-        critDamage : 3,
-        armor : 0,
-        agility : 0
-    }
-    private item2: Item = {
-        id : 2,
-        name : "flipflops",
-        type : "armor",
-        characterId : 3,
-        price : 666,
-        minimumLvl : 0,
-        damage : 0,
-        accuracy : 0,
-        critDamage : 0,
-        armor : 1,
-        agility : 4
-    }
     private char: Character = {
-        id : 1,
-        name : "Green Queen",
-        race : "monster",
-        playerID : 1,
-        money : 1500,
-        lvl : 4,
-        hp : 1200,
-        xp : 1900,
-        attack: 100,
-        strength : 3,
-        armor : 1,
-        accuracy : 7,
-        agility : 6,
-        criticalhitchance : 0.5,
-        ownedGear : [ this.item1, this.item2, this.item3 ],
-        equipped : [ this.item2 ]
+        id : 0,
+        name : "loading…",
+        race : "",
+        playerID : 0,
+        money : 0,
+        lvl : 0,
+        hp : 0,
+        xp : 0,
+        attack: 0,
+        strength : 0,
+        armor : 0,
+        accuracy : 0,
+        agility : 0,
+        criticalhitchance : 0,
+        ownedGear : [],
+        equipped : []
     }
-    
-    public _character: BehaviorSubject<Character> = new BehaviorSubject<Character>(this.char)
-    public readonly character$: Observable<Character> = this._character.asObservable()
+
+    _character: BehaviorSubject<Character> = new BehaviorSubject<Character>(this.char)
+    readonly character$: Observable<Character> = this._character.asObservable()
 
     constructor() {
-        this.char.equipped.forEach( item => this.setCharStats(item) )
+        this.character$.subscribe( char => {
+            this.char = char
+            char.equipped.forEach( item => this.setCharStats(item) )
+        })
     }
     
     removeFromInventory ( item: Item ) {
@@ -89,18 +53,20 @@ export class CharacterService {
     }
     
     setCharStats ( item: Item ) {
-        this.char.attack += item.damage
-        this.char.accuracy += item.accuracy
-        this.char.criticalhitchance += item.critDamage
-        this.char.armor += item.armor
-        this.char.agility += item.agility
+        console.log("set")
+        this.char.attack = Math.round(this.char.attack + item.damage)
+        this.char.accuracy = Math.round(this.char.accuracy + item.accuracy)
+        this.char.criticalhitchance = Math.round(this.char.criticalhitchance + item.critDamage)
+        this.char.armor = Math.round(this.char.armor + item.armor)
+        this.char.agility = Math.round(this.char.agility + item.agility)
     }
     
     resetCharStats ( item: Item ) {
-            this.char.attack -= item.damage
-            this.char.accuracy -= item.accuracy
-            this.char.criticalhitchance -= item.critDamage
-            this.char.armor -= item.armor
-            this.char.agility -= item.agility
+        console.log("reset")
+        this.char.attack = Math.round(this.char.attack - item.damage)
+        this.char.accuracy = Math.round(this.char.accuracy - item.accuracy)
+        this.char.criticalhitchance = Math.round(this.char.criticalhitchance - item.critDamage)
+        this.char.armor = Math.round(this.char.armor - item.armor)
+        this.char.agility = Math.round(this.char.agility - item.agility)
     }
 }

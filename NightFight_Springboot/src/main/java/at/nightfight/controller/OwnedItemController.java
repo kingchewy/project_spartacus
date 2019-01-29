@@ -4,7 +4,7 @@ import at.nightfight.model.OwnedItem;
 import at.nightfight.repository.CharacterRepository;
 import at.nightfight.repository.OwnedItemRespository;
 import at.nightfight.repository.ItemRepository;
-import at.nightfight.service.OwnedItemServiceImpl;
+//import at.nightfight.service.OwnedItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +16,10 @@ import java.util.List;
 @RequestMapping("/resources/")
 public class OwnedItemController {
 
-    @Autowired
-    OwnedItemServiceImpl ownedItemsService;
+   // @Autowired
+//    OwnedItemServiceImpl ownedItemsService;
 
-    @Autowired
+ //   @Autowired
     OwnedItemRespository ownedItemRespository;
 
     @Autowired
@@ -28,12 +28,12 @@ public class OwnedItemController {
     @Autowired
     ItemRepository itemRepository;
 
-    @RequestMapping("/character/{id}/owneditems")
-    public ResponseEntity<List<OwnedItem>> getCharactersOwnedItems(@PathVariable Long id){
-        List<OwnedItem> ownedItemList = this.ownedItemsService.getListOfOwnedItems(id);
+  //  @RequestMapping("/character/{id}/owneditems")
+ //   public ResponseEntity<List<OwnedItem>> getCharactersOwnedItems(@PathVariable Long id){
+//        List<OwnedItem> ownedItemList = this.ownedItemsService.getListOfOwnedItems(id);
 
-        return new ResponseEntity<List<OwnedItem>>(ownedItemList, HttpStatus.OK);
-    }
+  //      return new ResponseEntity<List<OwnedItem>>(ownedItemList, HttpStatus.OK);
+   // }
 
     @GetMapping("/owneditems")
     public ResponseEntity<List<OwnedItem>> getAllOwnedItems(){

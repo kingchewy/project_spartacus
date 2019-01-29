@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CharacterService } from '../../../service/character.service';
 import { ShopService } from '../../../service/shop.service';
 import { Character } from '../../../model/character';
@@ -16,10 +16,10 @@ export class ShopSelectetItemComponent {
     private price: number = 0
     private warnPrice: boolean = false
     
-    private observeChar = this.characterService.character$.subscribe( x => this.char = x )
+    private observeChar = this.characterService.character$.subscribe( char => this.char = char )
     private char: Character
     
-    private observeShop = this.shopService.shop$.subscribe( x => this.shop = x )
+    private observeShop = this.shopService.shop$.subscribe( shop => this.shop = shop )
     private shop: Shop
     
   constructor( private characterService: CharacterService,

@@ -9,4 +9,5 @@ import { Item } from '../../../model/item';
 export class ShopComponent {
 
   constructor() { }
+    
 }

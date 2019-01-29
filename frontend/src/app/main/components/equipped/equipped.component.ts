@@ -11,10 +11,11 @@ import { Item } from '../../../model/item';
 export class EquippedComponent {
     private availableSlots
     private warning: String
+    private shouldWarn = false
     
-    private observe = this.characterService.character$.subscribe( x => {
-        this.char = x
-        this.equipped = x.equipped
+    private observe = this.characterService.character$.subscribe( char => {
+        this.char = char
+        this.equipped = char.equipped
         this.availableSlots = [1,2,3]
         this.equipped.forEach (()=> this.availableSlots.pop())
     })
@@ -28,19 +29,27 @@ export class EquippedComponent {
         
         if ( notYetSelected && this.equipped.length < 3 && item.minimumLvl <= this.char.lvl ){
             this.char.equipped.push(item)
-            this.characterService.setCharStats(item)
+//            this.characterService.setCharStats(item)
             this.characterService._character.next(this.char)
             
         } else if ( this.equipped.length >= 3 && item.minimumLvl ) {
             this.warning = "Only 3 Items equippable!"
-            console.log(this.warning)
+            this.warn()
             
         } else if ( item.minimumLvl > this.char.lvl ) {
             this.warning = "Your Level is too low!"
-            console.log(this.warning)
+            this.warn()
             
         } else if (!notYetSelected) {
-            console.log("Already selected")
+            this.warn()
+            this.warning = "Already selected"
         }
+    }
+    
+    warn () {
+        this.shouldWarn = true
+            setTimeout ( () => {
+                this.shouldWarn = false
+            }, 2000)
     }
 }

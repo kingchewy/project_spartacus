@@ -14,9 +14,9 @@ export class EquipmentItemComponent implements OnInit {
     @Input() item: Item
     
     private selected: boolean
-    private observe = this.characterService.character$.subscribe( x => {
-        this.checkIfSelected (x)
-        this.char = x
+    private observe = this.characterService.character$.subscribe( char => {
+        this.checkIfSelected (char)
+        this.char = char
     })
     private char: Character
 

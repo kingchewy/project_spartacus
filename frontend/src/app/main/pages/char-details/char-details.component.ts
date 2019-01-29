@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CharacterService } from '../../../service/character.service';
 import { Character } from '../../../model/character';
 
@@ -7,15 +7,12 @@ import { Character } from '../../../model/character';
   templateUrl: './char-details.component.html',
   styleUrls: ['./char-details.component.css']
 })
-export class CharDetailsComponent implements OnInit {
-    private char = this.characterService.character$.subscribe( x => {
-        this.name = x.name
+export class CharDetailsComponent {
+    private char = this.characterService.character$.subscribe( char => {
+        this.name = char.name
     })
     private name: string
     
   constructor( private characterService: CharacterService ) { }
-
-  ngOnInit() {
-  }
 
 }

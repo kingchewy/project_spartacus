@@ -25,12 +25,12 @@ export class GearListBasicComponent implements OnInit{
     
     ngOnInit () {
         if (this.setting == "yours") {
-            this.observe = this.characterService.character$.subscribe( x => {
-                this.char = x
+            this.observe = this.characterService.character$.subscribe( char => {
+                this.char = char
             })            
         } else if (this.setting == "shop") {
-            this.observe = this.shopService.shop$.subscribe( x => {
-                this.shop = x
+            this.observe = this.shopService.shop$.subscribe( shop => {
+                this.shop = shop
             })
         }
 

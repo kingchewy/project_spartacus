@@ -43,3 +43,23 @@ fieldset > div > div {
     width: 0px;
     background: transparent;
 }
+#warning {
+    position: absolute;
+    opacity: 0;
+    animation: warn 2s linear;
+    z-index: 1;
+    background-color: rgba(200,50,50,0.8);
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    margin-top: -20px;
+    
+    font-size: 1.5em;
+    font-weight: bold;
+}
+@keyframes warn {
+    1% { opacity: 1; }
+    8% { opacity: 0.5; }
+    15% { opacity: 1; }
+}
