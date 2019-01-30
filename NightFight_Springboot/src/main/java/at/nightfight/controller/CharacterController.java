@@ -1,6 +1,7 @@
 package at.nightfight.controller;
 
 import at.nightfight.model.Character;
+import at.nightfight.model.EquippedGear;
 import at.nightfight.model.dto.CharacterNewDTO;
 import at.nightfight.repository.CharacterRepository;
 import at.nightfight.repository.UserRepository;
@@ -54,6 +55,11 @@ public class CharacterController {
         character.setNewCharacterAttributes();
 
         character.setOwnedItems(new ArrayList<>());
+        EquippedGear equippedGear = new EquippedGear();
+        equippedGear.setCharacterId(character.getCharacterId());
+        equippedGear.setCharacter(character);
+
+        character.setEquippedGear(equippedGear);
 
         // Persist new character and (returns created character)
         Character characterCreated = characterRepository.save(character);
@@ -66,7 +72,7 @@ public class CharacterController {
 
         if(mapper.getTypeMap(CharacterNewDTO.class, Character.class) == null){
             TypeMap<CharacterNewDTO, Character> typeMap = mapper.createTypeMap(CharacterNewDTO.class, Character.class);
-            typeMap.addMappings( mapper -> mapper.skip(Character::setId));
+            typeMap.addMappings( mapper -> mapper.skip(Character::setCharacterId));
         }
 
         return mapper.map(characterNewDTO, Character.class);
