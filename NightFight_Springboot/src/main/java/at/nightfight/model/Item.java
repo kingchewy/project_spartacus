@@ -1,9 +1,10 @@
 package at.nightfight.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import at.nightfight.util.serializer.CharacterListSerializer;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
+import org.hibernate.annotations.NaturalId;
 
 import javax.crypto.spec.IvParameterSpec;
 import javax.persistence.*;
@@ -19,14 +20,14 @@ import java.util.List;
 
 //==== JPA ====
 @Entity
-@Table(name="t_item")
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "item_type")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name="z_items")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@DiscriminatorColumn(name = "item_type")
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "item_id")
     private Long id;
 
@@ -34,44 +35,25 @@ public class Item {
     //@Column(nullable = false)
     private String name;
 
-    @NonNull
-    @Column(name ="item_type", insertable = false, updatable = false)
-    protected String itemType;
-
-    @NonNull
-   //@Column(nullable = true)
-    private Long characterId;
-
-/*    @ManyToOne
-    @JoinColumn(name = "inventory_id", insertable =  false, updatable = false)
-    private OwnedItem inventory;*/
+    @Enumerated(EnumType.STRING)
+    //@NaturalId
+    @Column(length = 60)
+    private ItemType itemType;
 
 /*    @NonNull
-    @OneToMany
-*//*            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            orphanRemoval = true
-    )
+    @JsonIgnore
+   //@Column(nullable = true)
+    private Long characterId;*/
 
     //@JsonManagedReference
-    @JoinColumn(name = "item_id")
-    //@org.hibernate.annotations.IndexColumn(name = "character_index")*//*
-    @JoinTable(
-            name = "item_itemsinventory",
-            joinColumns = { @JoinColumn(name="item_id", referencedColumnName = "item_id")},
-            inverseJoinColumns = { @JoinColumn(name = "inventoryItems_ID", referencedColumnName = "id", unique = true)}
-    )
-    private List<OwnedItem> inventoryItems;*/
-
-/*    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "item_id")
-    private List<OwnedItem> inventories;*/
-
-/*    @OneToOne(
-            mappedBy = "item", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    private OwnedItem inventory;*/
+/*    @JsonIdentityInfo(
+            generator = ObjectIdGenerators.PropertyGenerator.class,
+            property = "id"
+    )*/
+    @JsonIgnore
+    //@JsonSerialize(using = CharacterListSerializer.class)
+    @ManyToMany(mappedBy = "ownedItems")
+    private List<Character> characters;
 
     @NonNull
     @Column(nullable = false)
@@ -79,4 +61,6 @@ public class Item {
 
     @NonNull
     private Long price;
+
+    private Long slot;
 }

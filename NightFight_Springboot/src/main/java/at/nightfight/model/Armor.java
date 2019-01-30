@@ -16,8 +16,8 @@ import javax.persistence.Table;
 
 //==== JPA ====
 @Entity
-@Table(name="t_armor")
-@DiscriminatorValue("armor")
+@Table(name="z_armor")
+//@DiscriminatorValue("armor")
 public class Armor extends Item {
 
     @NonNull
