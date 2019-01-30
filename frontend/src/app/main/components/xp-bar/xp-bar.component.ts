@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CharacterService } from '../../../service/character.service';
+import { Lvl } from '../../shared/lvl-xp-borders'
 
 @Component({
   selector: 'xp-bar',
@@ -7,13 +9,13 @@ import { Component } from '@angular/core';
 })
 export class XpBarComponent {
 
-    currentXP = 10
-    prevLvlXP = 8
-    nextLvlXP = 15
-    prevLvl = 2
-    nextLvl = 3
-    
-  constructor() { }
+    currentXp = this.characterService._character.value.xp
+    charName = this.characterService._character.value.name
 
+    currLvl = this.characterService._character.value.lvl
+    nextLvl = this.currLvl + 1
+    thisLvlXp = Lvl[this.characterService._character.value.lvl].fromXp
+    nextLvlXp = Lvl[this.characterService._character.value.lvl].toXp
     
+  constructor( private characterService: CharacterService ) {}
 }

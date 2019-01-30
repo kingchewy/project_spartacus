@@ -1,6 +1,7 @@
 <div id="lvl-numbers">
-    <h1>{{prevLvl}}</h1>
-    <h1>Lvl</h1>
+    <h1>{{currLvl}}</h1>
+    <h1>Lvl-{{currLvl}}</h1>
     <h1>{{nextLvl}}</h1>
 </div>
-<meter value="{{currentXP}}" min="{{prevLvlXP}}" max="{{nextLvlXP}}">XP</meter>
+<meter value="{{currentXp}}" min="{{thisLvlXp}}" max="{{nextLvlXp}}">XP</meter>
+<div id="info">Current Xp: {{currentXp}} — next Lvl: {{nextLvlXp}}</div>

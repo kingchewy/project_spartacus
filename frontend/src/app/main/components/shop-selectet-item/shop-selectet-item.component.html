@@ -1,7 +1,7 @@
 <div id="container" class="{{setting}}">
     <h1>Selected</h1>
-    <div id="warnPrice" *ngIf="warnPrice && setting=='shop'">You do not have sufficiant money!</div>
-    <div id="warnPrice" *ngIf="warnPrice && setting=='yours'">The shop does not have sufficiant money!</div>
+    <div id="warnPrice" *ngIf="warnPrice && setting=='shop'">You do not have sufficiant Discs!</div>
+    <div id="warnPrice" *ngIf="warnPrice && setting=='yours'">The shop does not have sufficiant Discs!</div>
     <div id="grid-container">
         <div>
             <div *ngFor="let item of itemList">
@@ -11,8 +11,8 @@
     </div>
     <div>
         <h3>
-            <span *ngIf="setting=='yours'">Your Money: {{char.money}}</span>
-            <span *ngIf="setting=='shop'">Shop's Money: {{char.money}}</span>
+            <span *ngIf="setting=='yours'">Your Discs: {{char.money}}</span>
+            <span *ngIf="setting=='shop'">Shop's Discs: {{shop.money}}</span>
             <br>
             <br>
             <span>Price:  </span><b>{{price}}</b>

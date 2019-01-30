@@ -16,3 +16,10 @@ meter {
     background: white;
     background-image: none;
 }
+#info {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 10px;
+    background-color: rgba(var(--race-color-d),0.8);
+    padding: 5px;
+}

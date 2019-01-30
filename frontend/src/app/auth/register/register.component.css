@@ -1,11 +1,11 @@
-/* #background{
+ #background{
     position: absolute;
     height: 100vh;
     width: 100vw;
     background-color: black;
     z-index: -1;
     margin-top: -10vh;
-} */
+} 
 
 #container{
     position: relative;
@@ -22,8 +22,8 @@
 }
 #input-container{
     display: grid;
-/*    grid-template-rows: 60px auto auto auto auto auto;*/
     align-content: space-evenly;
+    grid-gap: 10px;
     height: 50%;
     text-align: right;
     margin-right: 20%;
@@ -36,6 +36,9 @@ h1{
 
 button{
     margin-top: 10vh;
+    margin-left: 50%;
+    width: 50%;
+    float: right;
 }
 label{
     color: var(--narr-color);

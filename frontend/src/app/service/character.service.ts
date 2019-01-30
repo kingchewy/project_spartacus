@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Character } from '../model/character';
 import { Item } from '../model/item';
+import { Shop } from '../model/shop';
 
 @Injectable({
   providedIn: 'root'
@@ -51,11 +52,12 @@ export class CharacterService {
     private char: Character = {
         id : 1,
         name : "Green Queen",
-        race : "human",
+        race : "monster",
         playerID : 1,
         money : 1500,
         lvl : 4,
         hp : 1200,
+        xp : 1900,
         attack: 100,
         strength : 3,
         armor : 1,

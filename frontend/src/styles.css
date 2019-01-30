@@ -93,7 +93,7 @@ button:active{
     box-shadow: 0px 0px 40px rgba(var(--race-color-t),0.6);
 }
 .you-btn:active{
-    background-color: rgba(var(--race-color-t),1);
+    background-color: rgba(var(--race-color-t),0.9);
     box-shadow: 0px 0px 40px rgba(var(--race-color-t),0.8);
 }
 .narr-btn{
@@ -107,7 +107,7 @@ button:active{
     box-shadow: 0px 0px 40px rgba(var(--narr-color-t),0.6);
 }
 .narr-btn:active{
-    background-color: rgba(var(--narr-color-t),1);
+    background-color: rgba(var(--narr-color-t),0.9);
     box-shadow: 0px 0px 40px rgba(var(--narr-color-t),0.8);
 }
 .page-title {
