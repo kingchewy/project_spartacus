@@ -19,20 +19,12 @@ public class CharacterListSerializer extends StdSerializer<List<Character>> {
         super(c);
     }
 
-/*    public CharacterListSerializer(){
-        this(null);
-    }
-
-    public CharacterListSerializer(Class<List> t){
-        super(t);
-    }*/
-
     @Override
     public void serialize(List<Character> characters, JsonGenerator gen, SerializerProvider provider) throws IOException {
 
         List<Long> ids = new ArrayList<>();
         for (Character character : characters){
-            ids.add(character.getId());
+            ids.add(character.getCharacterId());
         }
         gen.writeObject(ids);
     }
