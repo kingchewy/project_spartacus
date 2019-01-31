@@ -2,11 +2,9 @@ package at.nightfight.model;
 
 import lombok.*;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-//==== Lombok ====
 @NoArgsConstructor
 //@RequiredArgsConstructor
 @AllArgsConstructor
@@ -16,9 +14,8 @@ import javax.persistence.Table;
 
 //==== JPA ====
 @Entity
-@Table(name="z_armor")
-//@DiscriminatorValue("armor")
-public class Armor extends Item {
+@Table(name="z_shopitems_armor")
+public class ShopItemArmor extends ShopItem{
 
     @NonNull
     private Float reducedDamage;

@@ -3,7 +3,11 @@ package at.nightfight.security;
 import at.nightfight.security.jwt.JwtAuthEntryPoint;
 import at.nightfight.security.jwt.JwtAuthTokenFilter;
 import at.nightfight.security.services.UserDetailsServiceImpl;
-import at.nightfight.service.OwnedItemServiceImpl;
+import at.nightfight.service.EquippedGearServiceImpl;
+import at.nightfight.service.ShopItemServiceImpl;
+import at.nightfight.service.ShopServiceImpl;
+import at.nightfight.util.serializer.CharacterListSerializer;
+import at.nightfight.util.serializer.CharacterSerializer;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -59,10 +63,33 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new ModelMapper();
     }
 
-    @Bean
+/*    @Bean
     public OwnedItemServiceImpl ownedItemsService(){
         return new OwnedItemServiceImpl();
+    }*/
+
+    @Bean
+    public ShopServiceImpl shopService(){
+        return new ShopServiceImpl();
     }
+
+    @Bean
+    public ShopItemServiceImpl shopItemService(){
+        return  new ShopItemServiceImpl();
+    }
+
+    @Bean
+    public EquippedGearServiceImpl equippedGearService(){
+        return new EquippedGearServiceImpl();
+    }
+
+    @Bean
+    public CharacterListSerializer characterListSerializer(){
+        return new CharacterListSerializer();
+    }
+
+    @Bean
+    public CharacterSerializer characterSerializer(){return new CharacterSerializer();}
 
     @Bean
     public PasswordEncoder passwordEncoder() {
