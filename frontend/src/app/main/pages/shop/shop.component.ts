@@ -8,6 +8,8 @@ import { Item } from '../../../model/item';
 })
 export class ShopComponent {
 
-  constructor() { }
+    constructor() {
+        document.body.setAttribute("class","background-shop")
+    }
     
 }

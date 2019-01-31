@@ -34,8 +34,14 @@ export class PickCharDetailsComponent {
             accuracy: this.attrRange.minAccuracy,
             criticalhitchance: this.attrRange.minHitRate,
             agility: this.attrRange.minAgility,
-            ownedGear: [],
-            equipped: [],
+            ownedItems: [],
+            equippedItems: {
+                characterId: 1,
+                weaponPrimary: null,
+                weaponSecondary: null,
+                armor: null,
+                special: null,
+            },
             money: 0
         }
     }

@@ -25,8 +25,14 @@ export class CharacterService {
         accuracy : 0,
         agility : 0,
         criticalhitchance : 0,
-        ownedGear : [],
-        equipped : []
+        ownedItems : [],
+        equippedItems: {
+            characterId: 1,
+            weaponPrimary: null,
+            weaponSecondary: null,
+            armor: null,
+            special: null,
+        },
     }
 
     _character: BehaviorSubject<Character> = new BehaviorSubject<Character>(this.char)
@@ -35,21 +41,34 @@ export class CharacterService {
     constructor() {
         this.character$.subscribe( char => {
             this.char = char
-            char.equipped.forEach( item => this.setCharStats(item) )
+//            char.equippedItems.forEach( item => this.setCharStats(item) )
         })
     }
     
     removeFromInventory ( item: Item ) {
-        this.char.ownedGear = this.char.ownedGear.filter( arrItem => (arrItem !== item) )
-        this.unequipp( item )
+        this.char.ownedItems = this.char.ownedItems.filter( arrItem => (arrItem !== item) )
+       // this.unequipp( item )
         this._character.next(this.char)
     }
     
-    unequipp ( item: Item ) {
-        this.char.equipped = this.char.equipped.filter( arrItem => (arrItem !== item) )
+    unequip ( which:String ) {
+        switch ( which.toLowerCase() ){
+            case "weaponprimary":
+                this.char.equippedItems.weaponPrimary = null
+                break
+            case "weaponsecondary":
+                this.char.equippedItems.weaponSecondary = null
+                break
+            case "armor":
+                this.char.equippedItems.armor = null
+                break
+            case "special":
+                this.char.equippedItems.special = null
+                break
+        }
         this._character.next(this.char)
 
-        this.resetCharStats(item)
+//        this.resetCharStats(item)
     }
     
     setCharStats ( item: Item ) {

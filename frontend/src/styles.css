@@ -15,37 +15,59 @@
 }
 :root{
     --human-color: rgb(110,255,90);
-    --robot-color: rgb(120,200,255);
-    --monster-color: rgb(255,100,90);
+    --robot-color: rgb(110,190,255);
+    --monster-color: rgb(255,100,100);
     --narr-color: rgb(200, 255, 200);
     
-    --human-color-d: 0,80,50;
-    --robot-color-d: 80,0,80;
+    --human-color-d: 0,80,70;
+    --robot-color-d: 60,40,80;
     --monster-color-d: 80,50,50;
     --narr-color-d: 100, 0, 20;
     
     --human-color-t: 110,255,90;
     --robot-color-t: 120,200,255;
-    --monster-color-t: 255,100,90;
+    --monster-color-t: 255,120,100;
     --narr-color-t: 200, 255, 200;
     
     --race-color: white;
-    --race-color-t: white;
-    --race-color-d: white;
+    --race-color-t: 0,0,0;
+    --race-color-d: 127.5,127.5,127.5;
 }
 body{
-    background-image: url(./images/akira_city.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
-    
+    background-image: url(./images/city22.jpg);
+
+    background-color: rgba(var(--race-color-d),1);
+    background-blend-mode: overlay;
     transition: background-position 20s;
     
     overflow-x: hidden;
     overflow-y: scroll;
     
     font-family: sans-serif;
+}
+.background-base {
+    background-image: url(./images/city22.jpg);
+    transition: background-position 0s;
+    background-position: bottom;
+}
+.background-char-details {
+    background-image: url(./images/engineer2.jpg);
+    transition: background-position 0s;
+    background-position: bottom;
+}
+.background-city {
+    background-image: url(./images/city.jpg);
+    transition: background-position 0s;
+    background-position: bottom;
+}
+.background-shop {
+    background-image: url(./images/streets.jpg);
+    transition: background-position 0s;
+    background-position: bottom;
 }
 h1{
     font-family: 'Kanit', impact;
@@ -59,6 +81,7 @@ h1{
 h2{
     font-family: 'Kanit', impact;
     font-size: 2em;
+    color: var(--race-color);
 }
 button{
     transition: 0.2s;

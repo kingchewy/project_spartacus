@@ -10,4 +10,14 @@ export class Item {
     critDamage: number;
     armor: number
     agility: number
+    slot?: number
+    twohanded?: boolean
+}
+
+
+
+export class SpecialItem {
+    id: number
+    name: string
+    type: string
 }

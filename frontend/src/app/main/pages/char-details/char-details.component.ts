@@ -13,6 +13,8 @@ export class CharDetailsComponent {
     })
     private name: string
     
-  constructor( private characterService: CharacterService ) { }
+    constructor( private characterService: CharacterService ) {
+        document.body.setAttribute("class","background-char-details")
+    }
 
 }

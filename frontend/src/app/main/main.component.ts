@@ -15,6 +15,7 @@ export class MainComponent {
     
     ngOnInit () {
         this.requestService.getPlayerCharacter().subscribe( char => {
+            console.log(char)
             this.characterService._character.next(char)
             this.setColors(char.race)
         })

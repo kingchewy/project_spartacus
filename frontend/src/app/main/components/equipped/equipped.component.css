@@ -1,31 +1,43 @@
-fieldset {
+#container {
     height: 100%;
-    width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
-    padding: 20px 0px 20px 0px;
     
-    border: 3px solid var(--race-color);
-    box-shadow: 0px 0px 30px var(--race-color) inset;
     background-color: rgba(var(--race-color-d),0.7);
 }
+#container > div {
+    position: absolute;
+    width: 100%;
+}
+fieldset {
+    width: 100%;
+    border: 3px solid var(--race-color);
+    box-shadow: 0px 0px 30px var(--race-color) inset;
+}
 legend {
-    margin: 0px auto -20px auto;
+    margin: 0px auto 0px auto;
     padding: 0px 10px 0px 10px;
 }
-fieldset > div {
+h1 {
+    margin-bottom: 5px;
+}
+h3 {
+    color: var(--race-color);
+    text-shadow: 0px 0px 15px black,
+        0px 0px 30px black;
+}
+.itemGroup {
     display: grid;
     grid-template-columns: auto;
     grid-gap: 20px;
     justify-content: space-evenly;
-    position: absolute;
-    width: 100%;
-}
-fieldset > div > div {
-    height: 10vw;
-    width: 10vw;
-    margin-bottom: 20px;
+    
+    padding: 20px 0px 10px 0px;
+    border-width: 2px 0px 2px 0px;
+    background-color: rgba(var(--race-color-t),0.2);
+    
+    margin-bottom: 10px;
 }
 .slot {
     border: solid 3px var(--race-color);
@@ -38,6 +50,9 @@ fieldset > div > div {
     padding-top: 3.5vw;
     font-weight: bold;
     color: var(--race-color);
+}
+equipment-item {
+    margin-bottom: 20px;
 }
 ::-webkit-scrollbar {
     width: 0px;
@@ -52,8 +67,7 @@ fieldset > div > div {
     height: 100%;
     width: 100%;
     text-align: center;
-    padding-top: 50px;
-    margin-top: -20px;
+    padding-top: 50%;
     
     font-size: 1.5em;
     font-weight: bold;

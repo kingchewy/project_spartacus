@@ -2,33 +2,19 @@
     height: 10vw;
     width: 10vw;
     
-    cursor: grab;
-    user-select: none;
-}
-.icon:hover #background {
-    width: 100%;
-    margin-left: 0px;
-}
-#background {
-    height: 110%;
-    width: 0%;
-    margin-top: -105%;
-    transition: 0.3s;
-    
-    float: none;
-}
-.selected #background {
-    width: 100%;
-}
-.icon:active {
-    cursor: grabbing;
+    cursor: pointer;
+    padding: 0px;
+    transition: 1s;
+    transition-timing-function: ease-out;
+    border: solid 0px var(--race-color); /* für transition effekte behalten */
 }
 .pop-up {
+    will-change: left;
+
     position: fixed;
     z-index: 2;
     height: 0vh;
     width: 0vw;        /* keyframes müssen darauf angepasst sein (width,padding)*/
-    margin-left: 10vw;
     border-width: 0px;
     
     animation: pop-up 0.6s ease-in-out 1;
@@ -39,8 +25,10 @@
     text-align: center;
     padding: 0px 10px 0px 10px;
     text-overflow: ellipsis; 
-    
     display: none;
+    
+    transition: 1s;
+    transition-timing-function: cubic-bezier(0, 0, 0, 1);
 }
 @keyframes pop-up {
     0% {
@@ -64,7 +52,7 @@
         width: 18vw;
         line-height: 100vh;
         padding: 0px 10px 0px 10px;
-        border-width: 5px;
+        border-width: 0px 5px 0px 5px;
     }
 }
 .icon:hover .pop-up {
@@ -90,7 +78,10 @@ ul li {
 }
 svg {
     fill: white;
-    transition: 1s;
+    transition: 0.4s;
+    transition-timing-function: ease-out;
+    width: 100%;
+    filter: brightness(1);
 }
 .yours .pop-up {
     background-color: rgba(var(--race-color-d), 0.8);
@@ -102,17 +93,37 @@ svg {
     box-shadow: 0px 0px 50px var(--narr-color) inset;
     border: solid 0px var(--narr-color);
 }
-.yours #background {
-    background-color: var(--race-color);
+.shop h2 {
+    color: var(--narr-color);
 }
-.shop #background {
-    background-color: var(--narr-color);
+.icon:hover {
+    padding: 6px;
 }
-.selected.yours svg,
+.icon:hover svg {
+    filter: brightness(1.5);
+}
+.yours:hover {
+    background-color: rgba(var(--race-color-t),0.5);
+}
+.shop:hover {
+    background-color: rgba(var(--narr-color-t),0.5);
+}
+.selected {
+    border: solid 3px var(--race-color);
+    padding: 4px;
+    box-shadow: 10px 10px 40px rgba(var(--race-color-d), 1) inset,
+                10px 10px 20px rgba(var(--race-color-d), 1) inset;
+}
+/*.selected.yours svg,*/
+/*
 .yours:hover svg{
-    fill: rgba(var(--race-color-d),1);
+    fill: rgba(var(--race-color-d),0.3);
 }
-.selected.shop svg,
+*/
+/*.selected.shop svg,*/
+/*
+
 .shop:hover svg{
-    fill: rgba(var(--narr-color-d),1);
+    fill: rgba(var(--narr-color-d),0.3);
 }
+*/

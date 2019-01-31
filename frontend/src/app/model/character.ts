@@ -14,7 +14,13 @@ export class Character {
     accuracy: number
     criticalhitchance: number
     agility: number
-    ownedGear: Array<Item>
-    equipped: Array<Item>
+    ownedItems: Array<Item>
+    equippedItems: {
+        characterId: number,
+        weaponPrimary?: Item,
+        weaponSecondary?: Item,
+        armor?: Item,
+        special?: Item
+    }
     money: number
 }

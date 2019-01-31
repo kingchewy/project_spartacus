@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 export class FightsSearchComponent {
 
-  constructor() { }
+    constructor() {
+        document.body.setAttribute("class","background-city")
+    }
 }

@@ -1,12 +1,31 @@
-<fieldset>
-    <legend><h1>Equipped</h1></legend>
+<fieldset id="container">
+    <legend id="legend-equipped"><h1>Equipped</h1></legend>
     <div>
-        <div *ngFor="let item of equipped">
-            <equipment-item [setting]="'yours'" [item]="item" (click)="characterService.unequipp(item)"></equipment-item>
-        </div>
-        <div *ngFor="let slot of availableSlots">
-            <div class="slot">available<br>Slot</div>
-        </div>
+        
+        <fieldset class="itemGroup">
+            <legend><h3>Weapons</h3></legend>
+            <div>
+                <equipment-item *ngIf="char.equippedItems.weaponPrimary" [setting]="'yours'" [item]="char.equippedItems.weaponPrimary" (click)="characterService.unequip('weaponPrimary')"></equipment-item>
+                <div class="slot" *ngIf="!char.equippedItems.weaponPrimary">empty<br>Slot</div>
+            </div>
+            <div>
+                <equipment-item *ngIf="char.equippedItems.weaponSecondary" [setting]="'yours'" [item]="char.equippedItems.weaponSecondary" (click)="characterService.unequip('weaponSecondary')"></equipment-item>
+                <div class="slot" *ngIf="!char.equippedItems.weaponSecondary && (!char.equippedItems.weaponPrimary || !char.equippedItems.weaponPrimary.twohanded)">empty<br>Slot</div>
+            </div>
+        </fieldset>
+        
+        <fieldset class="itemGroup">
+            <legend><h3>Armor</h3></legend>
+                <equipment-item *ngIf="char.equippedItems.armor" [setting]="'yours'" [item]="char.equippedItems.armor" (click)="characterService.unequip('armor')"></equipment-item>
+                <div class="slot"  *ngIf="!char.equippedItems.armor">empty<br>Slot</div>
+        </fieldset>
+        
+        <fieldset class="itemGroup">
+            <legend><h3>Special</h3></legend>
+                <equipment-item *ngIf="special" [setting]="'yours'" [item]="char.equippedItems.special" (click)="characterService.unequip('special')"></equipment-item>
+                <div class="slot" *ngIf="!char.equippedItems.special">empty<br>Slot</div>
+        </fieldset>
     </div>
-        <div *ngIf="shouldWarn" id="warning">{{warning}}</div>
+    <div *ngIf="shouldWarn" id="warning">{{warning}}</div>
 </fieldset>
+ 

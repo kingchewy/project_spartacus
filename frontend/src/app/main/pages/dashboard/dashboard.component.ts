@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class DashboardComponent {
     private userName = "Green Queen"
     
-  constructor() { }
+    constructor() { 
+        document.body.setAttribute("class","background-base")
+    }
 
 }

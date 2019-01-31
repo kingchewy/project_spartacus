@@ -73,7 +73,7 @@ export class ShopSelectetItemComponent {
         this.char.money -= this.price
         this.shop.money += this.price
         
-        this.itemList.forEach ( item => this.char.ownedGear.push(item) )
+        this.itemList.forEach ( item => this.char.ownedItems.push(item) )
         this.characterService._character.next(this.char)
         
         this.shop.items = this.shop.items.filter ( item => {
