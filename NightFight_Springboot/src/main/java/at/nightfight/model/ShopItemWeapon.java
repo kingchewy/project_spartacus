@@ -3,6 +3,7 @@ package at.nightfight.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 //==== Lombok ====
 @NoArgsConstructor
@@ -15,15 +16,46 @@ import javax.persistence.*;
 //==== JPA ====
 @Entity
 @Table(name="z_shopitems_weapon")
-//@DiscriminatorValue("weapon")
+@DiscriminatorValue("WEAPON")
 public class ShopItemWeapon extends ShopItem{
 
-    @NonNull
+    //@NonNull
     private Float damage;
 
-    @NonNull
+    //@NonNull
     private Float accuracy;
 
-    @NonNull
+    //@NonNull
+    @Column(name = "critical_damage")
     private Float criticalDamage;
+
+    //@NonNull
+    @Column(name = "two_handed")
+    private boolean twoHanded;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ShopItemWeapon)) return false;
+        if (!super.equals(o)) return false;
+        ShopItemWeapon weapon = (ShopItemWeapon) o;
+        return twoHanded == weapon.twoHanded &&
+                Objects.equals(damage, weapon.damage) &&
+                Objects.equals(accuracy, weapon.accuracy) &&
+                Objects.equals(criticalDamage, weapon.criticalDamage);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), damage, accuracy, criticalDamage, twoHanded);
+    }
+
+    public ShopItemWeapon(Long id, String name, Long minLvl, Long price, Float damage, Float accuracy, Float criticalDamage, boolean twoHanded) {
+        super(id, name, minLvl, price);
+        this.damage = damage;
+        this.accuracy = accuracy;
+        this.criticalDamage = criticalDamage;
+        this.twoHanded = twoHanded;
+    }
 }

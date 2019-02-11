@@ -2,6 +2,8 @@ package at.nightfight.repository;
 
 import at.nightfight.model.ShopItemArmor;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
-public interface ShopItemArmorRepository extends CrudRepository<ShopItemArmor, Long> {
+@Transactional
+public interface ShopItemArmorRepository extends BaseShopItemRepository<ShopItemArmor> {
 }
