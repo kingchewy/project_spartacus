@@ -3,11 +3,9 @@ package at.nightfight.security;
 import at.nightfight.security.jwt.JwtAuthEntryPoint;
 import at.nightfight.security.jwt.JwtAuthTokenFilter;
 import at.nightfight.security.services.UserDetailsServiceImpl;
-import at.nightfight.service.EquippedGearServiceImpl;
-import at.nightfight.service.ShopItemServiceImpl;
-import at.nightfight.service.ShopServiceImpl;
-import at.nightfight.util.serializer.CharacterListSerializer;
-import at.nightfight.util.serializer.CharacterSerializer;
+import at.nightfight.service.*;
+import at.nightfight.util.mapping.NullPropertyMapper;
+import at.nightfight.util.serializer.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -79,6 +77,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
+    public ShopItemWeaponServiceImpl shopItemWeaponService(){
+        return  new ShopItemWeaponServiceImpl();
+    }
+
+    @Bean
+    public ShopItemArmorServiceImpl shopItemArmorService(){
+        return new ShopItemArmorServiceImpl();
+    }
+
+    @Bean
+    public ShopItemSpecialServiceImpl shopItemSpecialService(){
+        return new ShopItemSpecialServiceImpl();
+    }
+
+    @Bean
     public EquippedGearServiceImpl equippedGearService(){
         return new EquippedGearServiceImpl();
     }
@@ -86,6 +99,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public CharacterListSerializer characterListSerializer(){
         return new CharacterListSerializer();
+    }
+
+    @Bean
+    public ShopShopItemsSerializer shopItemsSerializer(){
+        return new ShopShopItemsSerializer();
+    }
+
+    @Bean
+    public ShopItemShopsSerializer shopItemShopsSerializer(){
+        return new ShopItemShopsSerializer();
+    }
+
+    @Bean
+    public NullPropertyMapper beanUtil(){
+        return new NullPropertyMapper();
+    }
+
+    @Bean
+    public ShopItemSerializer shopItemSerializer(){
+        return new ShopItemSerializer();
     }
 
     @Bean
