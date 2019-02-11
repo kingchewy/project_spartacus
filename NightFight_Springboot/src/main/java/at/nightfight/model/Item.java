@@ -24,7 +24,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@DiscriminatorColumn(name = "item_type")
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Item {
+public abstract class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
