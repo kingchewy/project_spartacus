@@ -87,16 +87,6 @@ public class Character {
 	private float discs;
 
 
-/*	@NonNull
-	@OneToMany(
-			cascade = CascadeType.ALL,
-			fetch = FetchType.LAZY,
-			orphanRemoval = true
-	)
-	@JsonManagedReference
-	@JoinColumn(name = "character_id")
-	//@org.hibernate.annotations.IndexColumn(name = "character_index")
-	private List<OwnedItem> ownedItems;*/
 
 /*	@JsonIdentityInfo(
 			generator = ObjectIdGenerators.PropertyGenerator.class,

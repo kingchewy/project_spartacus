@@ -2,7 +2,6 @@ package at.nightfight.service;
 
 import at.nightfight.model.Character;
 import at.nightfight.model.EquippedGear;
-import at.nightfight.model.Weapon;
 
 import java.util.Optional;
 

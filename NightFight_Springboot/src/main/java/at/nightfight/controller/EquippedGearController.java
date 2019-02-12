@@ -2,18 +2,13 @@ package at.nightfight.controller;
 
 import at.nightfight.model.Character;
 import at.nightfight.model.EquippedGear;
-import at.nightfight.model.Item;
-import at.nightfight.model.Weapon;
 import at.nightfight.repository.CharacterRepository;
-import at.nightfight.repository.ItemRepository;
-import at.nightfight.repository.WeaponRepository;
 import at.nightfight.service.EquippedGearServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @RestController
@@ -40,8 +35,8 @@ public class EquippedGearController {
 
     @PostMapping("characters/{id}/equippeditems")
     public ResponseEntity<Character> setEquippedItems(@PathVariable("id") Long id, @RequestBody EquippedGear equippedGear){
-        equippedGear.getWeaponPrimary().getId();
-        System.out.println("#################### weapon by id  -> " + equippedGear.getWeaponPrimary().getId());
+        equippedGear.getItemWeaponPrimary().getId();
+        System.out.println("#################### weapon by id  -> " + equippedGear.getItemWeaponPrimary().getId());
 
         Optional<Character> characterOptional = characterRepository.findById(id);
 

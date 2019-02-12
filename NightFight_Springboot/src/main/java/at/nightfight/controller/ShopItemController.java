@@ -31,6 +31,7 @@ public class ShopItemController {
         Optional<ShopItem> shopItemOptional = shopItemRepository.findById(id);
 
         if(shopItemOptional.isPresent()){
+            System.out.println("ShopItem -> " + (ShopItemWeapon) shopItemOptional.get());
             return new ResponseEntity<ShopItem>(shopItemOptional.get(), HttpStatus.OK);
         }
 
@@ -50,37 +51,6 @@ public class ShopItemController {
         return new ResponseEntity<Shop>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/shopitems/weapons")
-    public ResponseEntity<ShopItemWeapon> createNewShopItemWeapon(@RequestBody ShopItemWeapon shopItemWeapon){
-        ShopItemWeapon createWeapon = shopItemService.createShopItemWeapon(shopItemWeapon);
 
-        return new ResponseEntity<ShopItemWeapon>(shopItemWeapon, HttpStatus.CREATED);
-    }
 
-    @PostMapping("/shopitems/armors")
-    public ResponseEntity<ShopItemArmor> createNewShopItemArmor(@RequestBody ShopItemArmor shopItemArmor){
-        ShopItemArmor createArmor = shopItemService.createShopItemArmor(shopItemArmor);
-
-        return new ResponseEntity<ShopItemArmor>(shopItemArmor, HttpStatus.CREATED);
-    }
-
-    @PutMapping("/shopitems/weapons")
-    public ResponseEntity<ShopItem> updateShopItemWeapon(@RequestBody ShopItemWeapon shopItemWeapon){
-        if(shopItemRepository.findById(shopItemWeapon.getId()).isPresent() == false){
-            return new ResponseEntity<ShopItem>(HttpStatus.NOT_FOUND);
-        }
-        ShopItem updatedItem = shopItemService.updateShopItemWeapon(shopItemWeapon);
-
-        return new ResponseEntity<ShopItem>(updatedItem, HttpStatus.OK);
-    }
-
-    @PutMapping("/shopitems/armors")
-    public ResponseEntity<ShopItem> updateShopItemArmor(@RequestBody ShopItemArmor shopItemArmor){
-        if(shopItemRepository.findById(shopItemArmor.getId()).isPresent() == false){
-            return new ResponseEntity<ShopItem>(HttpStatus.NOT_FOUND);
-        }
-        ShopItem updatedItem = shopItemService.updateShopItemArmor(shopItemArmor);
-
-        return new ResponseEntity<ShopItem>(updatedItem, HttpStatus.OK);
-    }
 }
