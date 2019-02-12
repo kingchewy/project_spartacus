@@ -1,9 +1,6 @@
 #container {
     grid-template-columns: auto auto 30%;
 }
-#container div {
-    background-color: rgba(var(--race-color-d),0.5);
-}
 #overview {
     grid-column: 3/span 1;
 }

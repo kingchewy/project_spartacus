@@ -1,5 +1,5 @@
 <fieldset class="{{setting}}">
-    <legend><h1 *ngIf="setting == 'yours'">{{char.name}} - {{char.ownedItems.length}} items</h1><h1 *ngIf="setting == 'shop'">Shop - {{shop.items.length}} items</h1></legend>
+    <legend><h2 *ngIf="setting == 'yours'">{{char.name}} - {{char.ownedItems.length}} items</h2><h2 *ngIf="setting == 'shop'">Shop - {{shop.items.length}} items</h2></legend>
     <div>
         <div  *ngIf="setting=='yours'" id="gear-container">
             <div *ngFor="let item of char.ownedItems">

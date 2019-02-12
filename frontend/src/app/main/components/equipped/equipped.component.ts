@@ -10,8 +10,8 @@ import { Item } from '../../../model/item';
 })
 export class EquippedComponent {
     private availableSlots
-    private warning: String
     private shouldWarn = false
+    private warning: string
     
     private observe = this.characterService.character$.subscribe( char => this.char = char )
     private char: Character
@@ -33,55 +33,37 @@ export class EquippedComponent {
         this.characterService._character.next(this.char)
     }
     
-//    equip ( item: Item ) {
-//        let notYetSelected = this.equippedItems.every( selected => item != selected )
-//        
-//        if ( notYetSelected && this.equippedItems.length < 3 && item.minimumLvl <= this.char.lvl ){
-////            this.char.equippedItems.push(item)
-//            this.characterService._character.next(this.char)
-//            
-//        } else if ( this.equippedItems.length >= 3 && item.minimumLvl ) {
-//            this.warning = "Only 3 Items equippable!"
-//            this.warn()
-//            
-//        } else if ( item.minimumLvl > this.char.lvl ) {
-//            this.warning = "Your Level is too low!"
-//            this.warn()
-//            
-//        } else if ( !notYetSelected ) {
-//            this.warn()
-//            this.warning = "Already selected"
-//        }
-//    }
     equipWeapon ( item: Item ) {
+        let equipped = this.char.equippedItems
+        
         if ( this.char.lvl >= item.minimumLvl ) {
-
+            
             if ( item.twohanded ) {
-                this.char.equippedItems.weaponPrimary = item
-                this.char.equippedItems.weaponSecondary = null
+                equipped.weaponPrimary = item
+                equipped.weaponSecondary = null
                 
-            } else if ( !this.char.equippedItems.weaponPrimary ) {
-                this.char.equippedItems.weaponPrimary = item
+            } else if ( !equipped.weaponPrimary ) {
+                equipped.weaponPrimary = item
                 
-            } else if ( !this.char.equippedItems.weaponSecondary
-                       && !this.char.equippedItems.weaponPrimary.twohanded
-                       && this.char.equippedItems.weaponPrimary != item ) {
-                this.char.equippedItems.weaponSecondary = item
+            } else if ( !equipped.weaponSecondary
+                       && !equipped.weaponPrimary.twohanded
+                       && equipped.weaponPrimary != item ) {
+                equipped.weaponSecondary = item
                 
-            } else if ( this.char.equippedItems.weaponPrimary.twohanded || this.char.equippedItems.weaponSecondary.twohanded ) {
-                this.char.equippedItems.weaponPrimary = item
+            } else if ( equipped.weaponPrimary.twohanded ) {
+                equipped.weaponPrimary = item
+                
+            } else if (equipped.weaponPrimary && equipped.weaponSecondary) {
+                this.warn ( "Full" )
             }
         } else {
-            this.warning = "Your Level is too low!"
-            this.warn()
+            this.warn( "Your Level is too low!" )
         }
     }
     
-    
-    warn () {
+    warn ( warning ) {
+        this.warning = warning
         this.shouldWarn = true
-            setTimeout ( () => {
-                this.shouldWarn = false
-            }, 2000)
+        setTimeout ( () => this.shouldWarn = false, 2000)
     }
 }

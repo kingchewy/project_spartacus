@@ -1,7 +1,6 @@
 #container{
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-/*    background-image: url(../../images/Akira-bg-1.jpg);*/
 }
 #container div {
     background-color: rgba(var(--race-color-d),0.5);

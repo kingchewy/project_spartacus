@@ -40,7 +40,7 @@ body{
     background-attachment: fixed;
     background-image: url(./images/city22.jpg);
 
-    background-color: rgba(var(--race-color-d),1);
+    background-color: rgba(var(--race-color-d),0.75);
     background-blend-mode: overlay;
     transition: background-position 20s;
     
@@ -51,21 +51,20 @@ body{
 }
 .background-base {
     background-image: url(./images/city22.jpg);
-    transition: background-position 0s;
-    background-position: bottom;
 }
 .background-char-details {
     background-image: url(./images/engineer2.jpg);
-    transition: background-position 0s;
-    background-position: bottom;
 }
 .background-city {
     background-image: url(./images/city.jpg);
-    transition: background-position 0s;
-    background-position: bottom;
 }
 .background-shop {
     background-image: url(./images/streets.jpg);
+}
+.background-base,
+.background-char-details,
+.background-city,
+.background-shop {
     transition: background-position 0s;
     background-position: bottom;
 }
@@ -80,7 +79,7 @@ h1{
 }
 h2{
     font-family: 'Kanit', impact;
-    font-size: 2em;
+    font-size: 1.8em;
     color: var(--race-color);
 }
 button{
@@ -160,4 +159,14 @@ input{
 }
 input:focus{
     background-color: rgb(60,60,60);
+}
+legend {
+    margin: 0px auto -10px auto;
+    padding: 0px 10px 0px 10px;
+    border: solid 3px var(--race-color);
+    background-color: rgba(var(--race-color-d),0.8);
+}
+legend h1 {
+    text-shadow: none;
+    margin-bottom: 0px;
 }

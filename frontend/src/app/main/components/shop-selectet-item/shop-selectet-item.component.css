@@ -2,12 +2,13 @@
     height: 100%;
     width: 100%;
     padding: 20px 0px 20px 0px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
     
     display: grid;
     grid-template-columns: 30vw 1fr;
-    grid-auto-rows: 1fr 20%;
+    grid-auto-rows: 1fr auto;
     text-align: center;
 }
 h1 {
@@ -20,7 +21,8 @@ h3 {
     margin-right: 10px;
 }
 #grid-container {
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
     grid-row: 1 / span 2;
 }
@@ -34,7 +36,7 @@ h3 {
     width: 100%;
 }
 button {
-    margin-bottom: 20px;
+    margin: 5px 5px 0px 0px;
 }
 button span {
     color: inherit;

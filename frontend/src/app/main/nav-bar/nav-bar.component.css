@@ -70,7 +70,6 @@ nav:hover > ul li:hover > ul li{
     opacity: 1;
     height: 65px;
     pointer-events: all;
-    background-color: none;
     padding: 5px 0px 5px 45px;
 }
 nav:hover > ul li:hover > ul li:hover{

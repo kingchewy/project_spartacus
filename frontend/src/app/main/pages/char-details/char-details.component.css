@@ -2,9 +2,6 @@
     grid-template-rows: 100px 100px 1fr;
     grid-template-columns: 70% 1fr;
 }
-#container div {
-/*    background-color: rgba(var(--race-color-d),0.5);*/
-}
 #inventory {
     grid-row: 1/4;
     display: grid;

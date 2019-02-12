@@ -39,16 +39,15 @@ export class CharacterService {
     readonly character$: Observable<Character> = this._character.asObservable()
 
     constructor() {
-        this.character$.subscribe( char => {
-            this.char = char
-//            char.equippedItems.forEach( item => this.setCharStats(item) )
-        })
+        this.character$.subscribe( char => this.char = char )
     }
     
     removeFromInventory ( item: Item ) {
         this.char.ownedItems = this.char.ownedItems.filter( arrItem => (arrItem !== item) )
-       // this.unequipp( item )
+        
         this._character.next(this.char)
+        
+        this.unequip(item.type)
     }
     
     unequip ( which:String ) {
@@ -65,27 +64,10 @@ export class CharacterService {
             case "special":
                 this.char.equippedItems.special = null
                 break
+            case "weapon":
+                this.char.equippedItems.weaponPrimary = null
+                this.char.equippedItems.weaponSecondary = null
         }
         this._character.next(this.char)
-
-//        this.resetCharStats(item)
-    }
-    
-    setCharStats ( item: Item ) {
-        console.log("set")
-        this.char.attack = Math.round(this.char.attack + item.damage)
-        this.char.accuracy = Math.round(this.char.accuracy + item.accuracy)
-        this.char.criticalhitchance = Math.round(this.char.criticalhitchance + item.critDamage)
-        this.char.armor = Math.round(this.char.armor + item.armor)
-        this.char.agility = Math.round(this.char.agility + item.agility)
-    }
-    
-    resetCharStats ( item: Item ) {
-        console.log("reset")
-        this.char.attack = Math.round(this.char.attack - item.damage)
-        this.char.accuracy = Math.round(this.char.accuracy - item.accuracy)
-        this.char.criticalhitchance = Math.round(this.char.criticalhitchance - item.critDamage)
-        this.char.armor = Math.round(this.char.armor - item.armor)
-        this.char.agility = Math.round(this.char.agility - item.agility)
     }
 }

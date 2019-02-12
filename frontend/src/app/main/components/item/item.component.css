@@ -1,6 +1,6 @@
 .icon {
-    height: 10vw;
-    width: 10vw;
+    height: 7vw;
+    width: 7vw;
     
     cursor: pointer;
     padding: 0px;
@@ -36,22 +36,19 @@
         height: 0px;
         width: 0px;
         line-height: 0px;
-        padding: 0px -9vw 0px 0px; /* Hälfte der width */
         border-width: 5px;
     }
     20% {
         bottom: 50vh;
         height: 0px;
-        width: 18vw;
+        min-width: 18vw;
         line-height: 0px;
-        padding: 0px 10px 0px 10px;
     }
     100% {
         bottom: 0px;
         height: 100vh;
-        width: 18vw;
+        min-width: 18vw;
         line-height: 100vh;
-        padding: 0px 10px 0px 10px;
         border-width: 0px 5px 0px 5px;
     }
 }
@@ -59,9 +56,9 @@
     display: block;
     cursor: auto;
 }
-/*.icon:active .pop-up {*/
-/*    display: none;*/
-/*}*/
+.icon:active .pop-up {
+    display: none;
+}
 .pop-up span {
     display: inline-block;
     line-height: normal;
@@ -82,6 +79,8 @@ svg {
     transition-timing-function: ease-out;
     width: 100%;
     filter: brightness(1);
+    
+/*    animation: place 1s ease-in-out 1;*/
 }
 .yours .pop-up {
     background-color: rgba(var(--race-color-d), 0.8);
@@ -114,16 +113,8 @@ svg {
     box-shadow: 10px 10px 40px rgba(var(--race-color-d), 1) inset,
                 10px 10px 20px rgba(var(--race-color-d), 1) inset;
 }
-/*.selected.yours svg,*/
-/*
-.yours:hover svg{
-    fill: rgba(var(--race-color-d),0.3);
+@keyframes place {
+    50% {
+        fill: white;
+    }
 }
-*/
-/*.selected.shop svg,*/
-/*
-
-.shop:hover svg{
-    fill: rgba(var(--narr-color-d),0.3);
-}
-*/

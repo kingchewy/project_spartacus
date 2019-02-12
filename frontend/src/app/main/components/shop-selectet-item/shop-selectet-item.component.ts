@@ -39,9 +39,7 @@ export class ShopSelectetItemComponent {
             this.calcPrice()   
         } else if (notYetSelected) {
             this.warnPrice = true
-            setTimeout ( () => {
-                this.warnPrice = false
-            }, 2000)
+            setTimeout ( () => this.warnPrice = false, 2000)
         }
     }
     

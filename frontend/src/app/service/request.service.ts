@@ -29,9 +29,7 @@ export class RequestService {
             minimumLvl : 4,
             damage : 120,
             accuracy : 0.6,
-            critDamage : 3,
-            armor : 0,
-            agility : 0
+            critDamage : 3
         }
         let item4: Item = {
             id : 1,
@@ -73,10 +71,40 @@ export class RequestService {
             armor : 1,
             agility : 4
         }
+        let item5: Item = {
+            id : 25,
+            name : "scales",
+            type : "armor",
+            characterId : 3,
+            price : 666,
+            armor : 12,
+            agility : 4
+        }
+        let item6: Item = {
+            id : 26,
+            name : "skin",
+            type : "armor",
+            characterId : 3,
+            price : 666,
+            armor : 10,
+            agility : 4
+        }
+        let item7: Item = {
+            id : 27,
+            name : "Bad Mood",
+            type : "weapon",
+            characterId : 3,
+            price : 666,
+            minimumLvl : 3,
+            damage : 200,
+            accuracy : 100,
+            critDamage : 100,
+            agility : 4
+        }
         let char: Character = {
             id : 1,
             name : "Green Queen",
-            race : "robot",
+            race : "human",
             playerID : 1,
             money : 1500,
             lvl : 4,
@@ -88,7 +116,7 @@ export class RequestService {
             accuracy : 7,
             agility : 6,
             criticalhitchance : 0.5,
-            ownedItems : [ item1, item2, item3, item4 ],
+            ownedItems : [ item1, item2, item3, item4, item5, item6, item7 ],
             equippedItems: {
                 characterId: 1,
                 weaponPrimary: item1,

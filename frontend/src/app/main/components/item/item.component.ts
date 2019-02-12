@@ -5,18 +5,19 @@ import { Item } from '../../../model/item';
 
 @Component({
   selector: 'equipment-item',
-  templateUrl: './equipment-item.component.html',
-  styleUrls: ['./equipment-item.component.css']
+  templateUrl: './item.component.html',
+  styleUrls: ['./item.component.css']
 })
-export class EquipmentItemComponent implements OnInit {
+export class ItemComponent implements OnInit {
 
     @Input() setting: string
     @Input() item: Item
+    @Input() forceSelected: boolean
     
     private selected = false
     private observe = this.characterService.character$.subscribe( char => {
-        this.checkIfSelected(char)
         this.char = char
+        this.checkIfSelected(char)
     })
     private char: Character
 
@@ -39,6 +40,6 @@ export class EquipmentItemComponent implements OnInit {
     }
     
     arrangePopup (node, $event) {
-        node.style.left = ( $event.clientX + 100 ) +"px"
+        node.style.left = ( $event.clientX + 60 ) +"px"
     }
 }
