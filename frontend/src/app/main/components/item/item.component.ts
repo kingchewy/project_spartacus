@@ -24,14 +24,14 @@ export class ItemComponent implements OnInit {
     constructor( private characterService: CharacterService ) { }
     
     ngOnInit () {
-        this.checkIfSelected(this.char)
+//        this.checkIfSelected(this.char)
     }
     
     checkIfSelected ( char: Character ) {
-        if ( this.item && (char.equippedItems.weaponPrimary == this.item ||
-            char.equippedItems.weaponSecondary == this.item ||
-            char.equippedItems.armor == this.item ||
-            char.equippedItems.special == this.item) )
+        if ( this.item && (char.equippedGear.itemWeaponPrimary == this.item ||
+            char.equippedGear.itemWeaponSecondary == this.item ||
+            char.equippedGear.itemArmor == this.item ||
+            char.equippedGear.itemSpecial == this.item) )
         {
             this.selected = true
         } else {

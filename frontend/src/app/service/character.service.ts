@@ -15,7 +15,7 @@ export class CharacterService {
         name : "loading…",
         race : "",
         playerID : 0,
-        money : 0,
+        discs : 0,
         lvl : 0,
         hp : 0,
         xp : 0,
@@ -26,12 +26,11 @@ export class CharacterService {
         agility : 0,
         criticalhitchance : 0,
         ownedItems : [],
-        equippedItems: {
-            characterId: 1,
-            weaponPrimary: null,
-            weaponSecondary: null,
-            armor: null,
-            special: null,
+        equippedGear: {
+            itemWeaponPrimary: null,
+            itemWeaponSecondary: null,
+            itemArmor: null,
+            itemSpecial: null,
         },
     }
 
@@ -47,26 +46,26 @@ export class CharacterService {
         
         this._character.next(this.char)
         
-        this.unequip(item.type)
+        this.unequip(item.itemType)
     }
     
     unequip ( which:String ) {
         switch ( which.toLowerCase() ){
             case "weaponprimary":
-                this.char.equippedItems.weaponPrimary = null
+                this.char.equippedGear.itemWeaponPrimary = null
                 break
             case "weaponsecondary":
-                this.char.equippedItems.weaponSecondary = null
+                this.char.equippedGear.itemWeaponSecondary = null
                 break
             case "armor":
-                this.char.equippedItems.armor = null
+                this.char.equippedGear.itemArmor = null
                 break
             case "special":
-                this.char.equippedItems.special = null
+                this.char.equippedGear.itemSpecial = null
                 break
             case "weapon":
-                this.char.equippedItems.weaponPrimary = null
-                this.char.equippedItems.weaponSecondary = null
+                this.char.equippedGear.itemWeaponPrimary = null
+                this.char.equippedGear.itemWeaponSecondary = null
         }
         this._character.next(this.char)
     }

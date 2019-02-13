@@ -39,7 +39,7 @@ export class AttrStatsComponent {
     }
     
     calcSlots ( slot ) {
-        let items = this.char.equippedItems
+        let items = this.char.equippedGear
         if ( items[slot] ) {
             this.attack += items[slot].damage || 0
             this.armor += items[slot].armor || 0

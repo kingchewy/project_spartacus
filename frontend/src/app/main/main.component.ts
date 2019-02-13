@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterService } from '../service/character.service';
-import { RequestService } from '../service/request.service';
+import { UserService } from '../service/user.service';
+import { RequestCharService } from '../service/request-char.service';
+import { RequestUserService } from '../service/request-user.service'
 import { Character } from '../model/character';
 import { Item } from '../model/item';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-main',
@@ -10,13 +13,22 @@ import { Item } from '../model/item';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
+    
+    private user: User
+    
     constructor( private characterService: CharacterService ,
-                  private requestService: RequestService ) { }
+                  private userService: UserService ,
+                  private requestCharService: RequestCharService,
+                  private requestUserService: RequestUserService  ) { }
     
     ngOnInit () {
-        this.requestService.getPlayerCharacter().subscribe( char => {
-            this.characterService._character.next(char)
-            this.setColors(char.race)
+        this.requestUserService.getThisUser().
+            subscribe( user => {
+            this.userService._user.next( user )
+            this.characterService._character.next ( user.characters[0] )
+            this.setColors( user.characters[0].race )
+            
+            console.log(user.characters[0])
         })
     }
 

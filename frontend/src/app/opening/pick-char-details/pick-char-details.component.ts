@@ -35,14 +35,14 @@ export class PickCharDetailsComponent {
             criticalhitchance: this.attrRange.minHitRate,
             agility: this.attrRange.minAgility,
             ownedItems: [],
-            equippedItems: {
+            equippedGear: {
                 characterId: 1,
-                weaponPrimary: null,
-                weaponSecondary: null,
-                armor: null,
-                special: null,
+                itemWeaponPrimary: null,
+                itemWeaponSecondary: null,
+                itemArmor: null,
+                itemSpecial: null,
             },
-            money: 0
+            discs: 0
         }
     }
     

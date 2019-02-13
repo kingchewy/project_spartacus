@@ -31,7 +31,7 @@ export class ShopSelectetItemComponent {
             if ( this.setting == "yours" ) {
                 passes = ( this.price + item.price <= this.shop.money ) && notYetSelected
             } else if ( this.setting == "shop" ){
-                passes = (this.price + item.price <= this.char.money) && notYetSelected 
+                passes = (this.price + item.price <= this.char.discs) && notYetSelected 
             }
         
         if ( passes ) {
@@ -54,7 +54,7 @@ export class ShopSelectetItemComponent {
     }
     
     sellSelected () {
-        this.char.money += this.price
+        this.char.discs += this.price
         this.shop.money -= this.price
         
         this.itemList.forEach( item => this.characterService.removeFromInventory(item) )
@@ -68,7 +68,7 @@ export class ShopSelectetItemComponent {
     }
     
     buySelected () {
-        this.char.money -= this.price
+        this.char.discs -= this.price
         this.shop.money += this.price
         
         this.itemList.forEach ( item => this.char.ownedItems.push(item) )

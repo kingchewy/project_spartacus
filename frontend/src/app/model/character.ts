@@ -15,12 +15,12 @@ export class Character {
     criticalhitchance: number
     agility: number
     ownedItems: Array<Item>
-    equippedItems: {
-        characterId: number,
-        weaponPrimary?: Item,
-        weaponSecondary?: Item,
-        armor?: Item,
-        special?: Item
+    equippedGear: {
+        characterId?: number,
+        itemWeaponPrimary?: Item,
+        itemWeaponSecondary?: Item,
+        itemArmor?: Item,
+        itemSpecial?: Item
     }
-    money: number
+    discs: number
 }

@@ -2,7 +2,7 @@ export class Item {
     id?: number;
     name: string;
     price: number;
-    type: string;
+    itemType: string;
     slot?: number
     
     characterId?: number;

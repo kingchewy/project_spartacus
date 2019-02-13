@@ -2,28 +2,28 @@
     <legend id="legend-equipped"><h2>Equipped</h2></legend>
     <div>
         
-        <fieldset class="itemGroup" [class.grid-gap]="char.equippedItems.weaponSecondary || (char.equippedItems.weaponPrimary && !char.equippedItems.weaponPrimary.twohanded)">
+        <fieldset class="itemGroup" [class.grid-gap]="char.equippedGear.weaponSecondary || (char.equippedGear.weaponPrimary && !char.equippedGear.weaponPrimary.twohanded)">
             <legend><h3>Weapons</h3></legend>
             <div>
-                <equipment-item *ngIf="char.equippedItems.weaponPrimary" [item]="char.equippedItems.weaponPrimary" (click)="characterService.unequip('weaponPrimary')" [forceSelected]="true" [setting]="'yours'"></equipment-item>
-                <div class="slot" *ngIf="!char.equippedItems.weaponPrimary">empty<br>Slot</div>
+                <equipment-item *ngIf="char.equippedGear.itemWeaponPrimary" [item]="char.equippedGear.itemWeaponPrimary" (click)="characterService.unequip('weaponPrimary')" [forceSelected]="true" [setting]="'yours'"></equipment-item>
+                <div class="slot" *ngIf="!char.equippedGear.itemWeaponPrimary">empty<br>Slot</div>
             </div>
             <div>
-                <equipment-item *ngIf="char.equippedItems.weaponSecondary" [item]="char.equippedItems.weaponSecondary" (click)="characterService.unequip('weaponSecondary')" [forceSelected]="true" [setting]="'yours'"></equipment-item>
-                <div class="slot" *ngIf="!char.equippedItems.weaponSecondary && (!char.equippedItems.weaponPrimary || !char.equippedItems.weaponPrimary.twohanded)">empty<br>Slot</div>
+                <equipment-item *ngIf="char.equippedGear.itemWeaponSecondary" [item]="char.equippedGear.itemWeaponSecondary" (click)="characterService.unequip('weaponSecondary')" [forceSelected]="true" [setting]="'yours'"></equipment-item>
+                <div class="slot" *ngIf="!char.equippedGear.itemWeaponSecondary && (!char.equippedGear.itemWeaponPrimary || !char.equippedGear.itemWeaponPrimary.twohanded)">empty<br>Slot</div>
             </div>
         </fieldset>
         
         <fieldset class="itemGroup">
             <legend><h3>Armor</h3></legend>
-                <equipment-item *ngIf="char.equippedItems.armor" [item]="char.equippedItems.armor" (click)="characterService.unequip('armor')" [forceSelected]="true" [setting]="'yours'"></equipment-item>
-                <div class="slot"  *ngIf="!char.equippedItems.armor">empty<br>Slot</div>
+                <equipment-item *ngIf="char.equippedGear.itemArmor" [item]="char.equippedGear.itemArmor" (click)="characterService.unequip('armor')" [forceSelected]="true" [setting]="'yours'"></equipment-item>
+                <div class="slot"  *ngIf="!char.equippedGear.itemArmor">empty<br>Slot</div>
         </fieldset>
         
         <fieldset class="itemGroup">
             <legend><h3>Special</h3></legend>
-                <equipment-item *ngIf="special" [item]="char.equippedItems.special" (click)="characterService.unequip('special')" [forceSelected]="true" [setting]="'yours'"></equipment-item>
-                <div class="slot" *ngIf="!char.equippedItems.special">empty<br>Slot</div>
+                <equipment-item *ngIf="itemSpecial" [item]="char.equippedGear.itemSpecial" (click)="characterService.unequip('special')" [forceSelected]="true" [setting]="'yours'"></equipment-item>
+                <div class="slot" *ngIf="!char.equippedGear.itemSpecial">empty<br>Slot</div>
         </fieldset>
     </div>
     <div *ngIf="shouldWarn" id="warning">{{warning}}</div>

@@ -5,25 +5,25 @@ import { Character } from '../model/character';
 import { Item } from '../model/item';
 import { Shop } from '../model/shop';
 
-const Resources = 'http://localhost:8080/night_fight/resources'
+const RESCOURCES = 'http://localhost:8080/night_fight/resources'
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class RequestService {
+export class RequestCharService {
 
   constructor(private httpClient: HttpClient) { }
     
 //    getPlayerCharacter(): Observable<Character> {
-//        return this.httpClient.get<Character>(Resources + '/characters/1');
+//        return this.httpClient.get<Character>(RESCOURCES + '/characters/1');
 //    }
     
     getPlayerCharacter(): Observable<Character> {
         let item1: Item = {
             id : 1,
             name : "Lanze",
-            type : "weapon",
+            itemType : "weapon",
             characterId : 3,
             price : 123,
             minimumLvl : 4,
@@ -34,7 +34,7 @@ export class RequestService {
         let item4: Item = {
             id : 1,
             name : "Zweihänder",
-            type : "weapon",
+            itemType : "weapon",
             characterId : 3,
             price : 123,
             minimumLvl : 4,
@@ -48,7 +48,7 @@ export class RequestService {
         let item3: Item = {
             id : 3,
             name : "Harpune",
-            type : "weapon",
+            itemType : "weapon",
             characterId : 3,
             price : 321,
             minimumLvl : 4,
@@ -61,7 +61,7 @@ export class RequestService {
         let item2: Item = {
             id : 2,
             name : "flipflops",
-            type : "armor",
+            itemType : "armor",
             characterId : 3,
             price : 666,
             minimumLvl : 0,
@@ -74,7 +74,7 @@ export class RequestService {
         let item5: Item = {
             id : 25,
             name : "scales",
-            type : "armor",
+            itemType : "armor",
             characterId : 3,
             price : 666,
             armor : 12,
@@ -83,7 +83,7 @@ export class RequestService {
         let item6: Item = {
             id : 26,
             name : "skin",
-            type : "armor",
+            itemType : "armor",
             characterId : 3,
             price : 666,
             armor : 10,
@@ -92,7 +92,7 @@ export class RequestService {
         let item7: Item = {
             id : 27,
             name : "Bad Mood",
-            type : "weapon",
+            itemType : "weapon",
             characterId : 3,
             price : 666,
             minimumLvl : 3,
@@ -104,9 +104,9 @@ export class RequestService {
         let char: Character = {
             id : 1,
             name : "Green Queen",
-            race : "human",
+            race : "monster",
             playerID : 1,
-            money : 1500,
+            discs : 1500,
             lvl : 4,
             hp : 1200,
             xp : 1900,
@@ -117,12 +117,12 @@ export class RequestService {
             agility : 6,
             criticalhitchance : 0.5,
             ownedItems : [ item1, item2, item3, item4, item5, item6, item7 ],
-            equippedItems: {
+            equippedGear: {
                 characterId: 1,
-                weaponPrimary: item1,
-                weaponSecondary: null,
-                armor: item2,
-                special: null,
+                itemWeaponPrimary: item1,
+                itemWeaponSecondary: null,
+                itemArmor: item2,
+                itemSpecial: null,
             },
         }
         return of (char)

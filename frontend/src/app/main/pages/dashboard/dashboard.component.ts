@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-
+import { RequestUserService } from '../../../service/request-user.service'
 @Component({
   selector: 'dash-board',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-    private userName = "Green Queen"
+    private userName: string
     
-    constructor() { 
-        document.body.setAttribute("class","background-base")
+    constructor( private requestUserService: RequestUserService ) { 
+        this.requestUserService.getThisUser().
+                subscribe( user => this.userName = user.name )
     }
 
 }

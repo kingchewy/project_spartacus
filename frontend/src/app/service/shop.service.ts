@@ -11,7 +11,7 @@ export class ShopService {
     private item1s: Item = {
         id : 1,
         name : "Stick",
-        type : "weapon",
+        itemType : "weapon",
         characterId : 3,
         price : 12,
         minimumLvl : 4,
@@ -24,7 +24,7 @@ export class ShopService {
     private item2s: Item = {
         id : 3,
         name : "Whip",
-        type : "weapon",
+        itemType : "weapon",
         characterId : 3,
         price : 388,
         minimumLvl : 4,
@@ -37,7 +37,7 @@ export class ShopService {
     private item3s: Item = {
         id : 2,
         name : "Blaster Master",
-        type : "weapon",
+        itemType : "weapon",
         characterId : 3,
         price : 10400,
         minimumLvl : 6,
@@ -50,7 +50,7 @@ export class ShopService {
     private item4s: Item = {
         id : 42,
         name : "axe",
-        type : "weapon",
+        itemType : "weapon",
         characterId : 3,
         price : 304,
         minimumLvl : 0,
@@ -63,7 +63,7 @@ export class ShopService {
     private item5s: Item = {
         id : 22,
         name : "FlipFlops",
-        type : "armor",
+        itemType : "armor",
         characterId : 3,
         price : 424,
         minimumLvl : 3,
@@ -76,7 +76,7 @@ export class ShopService {
     private item6s: Item = {
         id : 11,
         name : "Latexsiut",
-        type : "armor",
+        itemType : "armor",
         characterId : 3,
         price : 666,
         minimumLvl : 0,
@@ -89,7 +89,7 @@ export class ShopService {
     private item7s: Item = {
         id : 10,
         name : "PowerArmor",
-        type : "armor",
+        itemType : "armor",
         characterId : 3,
         price : 666,
         minimumLvl : 0,
@@ -102,7 +102,7 @@ export class ShopService {
     private item8s: Item = {
         id : 130,
         name : "Garment",
-        type : "armor",
+        itemType : "armor",
         characterId : 3,
         price : 300,
         minimumLvl : 0,
@@ -115,7 +115,7 @@ export class ShopService {
     private item9s: Item = {
         id : 150,
         name : "Chainmail",
-        type : "armor",
+        itemType : "armor",
         characterId : 3,
         price : 900,
         minimumLvl : 0,
@@ -128,7 +128,7 @@ export class ShopService {
     private item10s: Item = {
         id : 120,
         name : "RobotArm",
-        type : "weapon",
+        itemType : "weapon",
         characterId : 3,
         price : 1500,
         minimumLvl : 9,
