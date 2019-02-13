@@ -1,14 +1,14 @@
 package at.nightfight.model;
 
+
 import at.nightfight.model.dto.ShopItemDTO;
 import at.nightfight.util.serializer.ShopShopItemsSerializer;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 //==== Lombok ====
 
@@ -159,6 +159,35 @@ public class Shop {
         }
         return null;
     }
+
+    public boolean itemsAvailable(List<ShopItemDTO> selectedItems){
+        AtomicBoolean available = new AtomicBoolean(false);
+
+        for(ShopItemDTO item: selectedItems){
+            available.set(false);
+
+            // if quantity not specified, set to 1
+            if(item.getQuantity() == null || item.getQuantity() == 0 ){
+                item.setQuantity(1L);
+            }
+
+            for (ShopShopItem shopShopItem : shopShopitems) {
+                ShopItem currentShopItem = shopShopItem.getShopitem();
+
+                if (currentShopItem.getId().equals(item.getId()) && shopShopItem.getQuantity() >= item.getQuantity()) {
+                    available.set(true);
+                    break;
+                }
+            }
+
+            if(!available.get()){
+                // current Item not available in Shop -> check failed
+                break;
+            }
+        }
+        return available.get();
+    }
+
 
     // E Q U A L S  &   H A S H
     @Override

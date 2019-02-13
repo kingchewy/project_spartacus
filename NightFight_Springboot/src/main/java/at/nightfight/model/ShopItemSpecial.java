@@ -11,7 +11,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 
 //==== JPA ====
 @Entity
@@ -60,5 +59,25 @@ public class ShopItemSpecial extends ShopItem{
     public int hashCode() {
 
         return Objects.hash(super.hashCode(), getDamage(), getAccuracy(), getCriticalDamage(), getReducedDamage(), getAgility());
+    }
+
+    @Override
+    public <T> T accept(IShopItemVisitor<T> visitor) {
+        return visitor.visitShopItemSpecial(this);
+    }
+
+    @Override
+    public String toString() {
+        return "ShopItemSpecial{" +
+                " Id=" + super.getId() +
+                ", name=" + super.getName() +
+                ", minLvl=" + super.getMinLvl() +
+                ", price=" + super.getPrice() +
+                ", damage=" + damage +
+                ", accuracy=" + accuracy +
+                ", criticalDamage=" + criticalDamage +
+                ", reducedDamage=" + reducedDamage +
+                ", agility=" + agility +
+                '}';
     }
 }

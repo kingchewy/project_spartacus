@@ -11,7 +11,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 
 //==== JPA ====
 @Entity
@@ -51,11 +50,30 @@ public class ShopItemWeapon extends ShopItem{
         return Objects.hash(super.hashCode(), damage, accuracy, criticalDamage, twoHanded);
     }
 
+    @Override
+    public <T> T accept(IShopItemVisitor<T> visitor) {
+        return visitor.visitShopItemWeapon(this);
+    }
+
     public ShopItemWeapon(Long id, String name, Long minLvl, Long price, Float damage, Float accuracy, Float criticalDamage, boolean twoHanded) {
         super(id, name, minLvl, price);
         this.damage = damage;
         this.accuracy = accuracy;
         this.criticalDamage = criticalDamage;
         this.twoHanded = twoHanded;
+    }
+
+    @Override
+    public String toString() {
+        return "ShopItemWeapon{"  +
+                "Id=" + super.getId() +
+                ", name=" + super.getName() +
+                ", minLvl=" + super.getMinLvl() +
+                ", price=" + super.getPrice() +
+                ", damage=" + damage +
+                ", accuracy=" + accuracy +
+                ", criticalDamage=" + criticalDamage +
+                ", twoHanded=" + twoHanded +
+                '}';
     }
 }

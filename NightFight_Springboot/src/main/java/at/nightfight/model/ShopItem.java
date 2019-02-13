@@ -1,12 +1,7 @@
 package at.nightfight.model;
 
-import at.nightfight.util.serializer.ShopItemSerializer;
-import at.nightfight.util.serializer.ShopItemShopsSerializer;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.*;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.NaturalIdCache;
@@ -144,24 +139,9 @@ public abstract class ShopItem implements Serializable {
     }
 
 
+    // METHODS
+    public abstract <T> T accept(IShopItemVisitor<T> visitor);
 
-
-/*    @Override
-    public boolean equals(Object o) {
-        System.out.println("###### BOOOOOOOOOOOOOOOOM ************");
-        if (this == o) return true;
-        if ( o == null || !(o instanceof ShopItem)) return false;
-
-        ShopItem that = (ShopItem) o;
-
-        return getId().equals(that.getId());
-    }
-
-    @Override
-    public int hashCode() {
-
-        return getId().hashCode();
-    }*/
 
     @Override
     public String toString() {

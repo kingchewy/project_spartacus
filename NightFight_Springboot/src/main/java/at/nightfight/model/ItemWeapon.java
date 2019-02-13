@@ -32,6 +32,11 @@ public class ItemWeapon extends Item{
     @Column(name = "two_handed")
     private boolean twoHanded;
 
-
-
+    public ItemWeapon(String name, ItemType itemType, Long minLvl, Long price, Float damage, Float accuracy, Float criticalDamage, boolean twoHanded) {
+        super(name, itemType, minLvl, price);
+        this.damage = damage;
+        this.accuracy = accuracy;
+        this.criticalDamage = criticalDamage;
+        this.twoHanded = twoHanded;
+    }
 }
