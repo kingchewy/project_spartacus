@@ -1,23 +1,16 @@
 package at.nightfight.service;
 
 import at.nightfight.model.*;
+import at.nightfight.model.Character;
 import at.nightfight.model.dto.*;
-import at.nightfight.repository.ShopItemRepository;
-import at.nightfight.repository.ShopItemWeaponRepository;
-import at.nightfight.repository.ShopRepository;
+import at.nightfight.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class ShopServiceImpl implements IShopService {
-
-    @Autowired
-    ShopRepository shopRepository;
 
     @Autowired
     ShopItemWeaponRepository shopItemWeaponRepository;
@@ -25,35 +18,52 @@ public class ShopServiceImpl implements IShopService {
     @Autowired
     ShopItemRepository shopItemRepository;
 
-/*    @Override
-    public ResponseEntity<Shop> createNewWeaponForShop(Long shopId, ShopItemWeapon shopItemWeapon) {
-        Optional<Shop> shopOptional = shopRepository.findById(shopId);
-        if(shopOptional.isPresent()){
-            Shop shop = shopOptional.get();
+    @Autowired
+    CharacterRepository characterRepository;
 
-          //  shop.addShopItem(shopItemWeapon);
+    @Autowired
+    ShopItemArmorRepository shopItemArmorRepository;
 
-            Shop updatedShop = shopRepository.save(shop);
-            return new ResponseEntity<Shop>(updatedShop, HttpStatus.CREATED);
+    @Autowired
+    ShopItemSpecialRepository shopItemSpecialRepository;
+
+
+    public ResponseEntity<Character> buyItems(BuyShopItemDTO buyShopItemDTO, Character character){
+        List<ShopItem> selectedShopItems = (List) shopItemRepository.findAllById(buyShopItemDTO.getIterableListOfShopItemIds());
+
+        Long itemPriceSum = calculateItemPriceSum(buyShopItemDTO, selectedShopItems);
+
+        if(!character.hasTheMoney(itemPriceSum)){
+             return new ResponseEntity("Character has not enough money", HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<Shop> (HttpStatus.BAD_REQUEST);
+        character.pay(itemPriceSum);
+
+        addNewItemsToCharacter(selectedShopItems, character);
+
+        Character updatedCharacter = characterRepository.save(character);
+
+        return new ResponseEntity<Character>(updatedCharacter, HttpStatus.OK);
     }
 
-    @Override
-    public ResponseEntity<Shop> createNewArmorForShop(Long shopId, ShopItemArmor shopItemArmor) {
-        Optional<Shop> shopOptional = shopRepository.findById(shopId);
-        if(shopOptional.isPresent()){
-            Shop shop = shopOptional.get();
-
-       //     shop.addShopItem(shopItemArmor);
-
-            Shop updatedShop = shopRepository.save(shop);
-            return new ResponseEntity<Shop>(updatedShop, HttpStatus.CREATED);
+    private void addNewItemsToCharacter(List<ShopItem> selectedShopItems, Character character){
+        for (ShopItem shopItem : selectedShopItems){
+            Item item = shopItem.accept(new ShopItemToItemAdapter());
+            character.addItem(item);
         }
+    }
 
-        return new ResponseEntity<Shop> (HttpStatus.BAD_REQUEST);
-    }*/
+    private Long calculateItemPriceSum(BuyShopItemDTO buyShopItemDTO, List<ShopItem> selectedShopItems){
+        Long priceSum = 0L;
+        for (ShopItem item : selectedShopItems){
+            Long itemPrice = item.getPrice();
+
+            Long itemQuantity = buyShopItemDTO.getQuantityOfShopItemByID(item.getId());
+
+            priceSum += itemPrice * itemQuantity;
+        }
+        return priceSum;
+    }
 
     @Override
     public ShopDTO getShopDTO(Shop shop) {
@@ -90,20 +100,20 @@ public class ShopServiceImpl implements IShopService {
         if(shopItem instanceof ShopItemWeapon){
             System.out.println("##########   is WEAPON");
 
-            return new ShopItemWeaponDTO(shopItem.getId(), shopItem.getName(), shopItem.getItemType(), shopItem.getMinLvl(),
+            return new ShopItemWeaponDTO(shopItem.getId(), shopItem.getName(), shopItem.getItemType().name(), shopItem.getMinLvl(),
                     shopItem.getPrice(), ((ShopItemWeapon) shopItem).getDamage(), ((ShopItemWeapon) shopItem).getAccuracy(),
                     ((ShopItemWeapon) shopItem).getCriticalDamage(), ((ShopItemWeapon) shopItem).isTwoHanded());
 
         } else if (shopItem instanceof ShopItemArmor){
             System.out.println("##########   is ARMOR");
 
-            return new ShopItemArmorDTO(shopItem.getId(), shopItem.getName(), shopItem.getItemType(), shopItem.getMinLvl(), shopItem.getPrice(),
+            return new ShopItemArmorDTO(shopItem.getId(), shopItem.getName(), shopItem.getItemType().name(), shopItem.getMinLvl(), shopItem.getPrice(),
                     ((ShopItemArmor) shopItem).getReducedDamage(), ((ShopItemArmor) shopItem).getAgility());
 
         } else if (shopItem instanceof ShopItemSpecial){
             System.out.println("##########   is SPECIAL");
 
-            return new ShopItemSpecialDTO(shopItem.getId(), shopItem.getName(), shopItem.getItemType(), shopItem.getMinLvl(),
+            return new ShopItemSpecialDTO(shopItem.getId(), shopItem.getName(), shopItem.getItemType().name(), shopItem.getMinLvl(),
                     shopItem.getPrice(), ((ShopItemSpecial) shopItem).getDamage(),((ShopItemSpecial) shopItem).getAccuracy(),
                     ((ShopItemSpecial) shopItem).getCriticalDamage(), ((ShopItemSpecial) shopItem).getReducedDamage(), ((ShopItemSpecial) shopItem).getAgility());
         }

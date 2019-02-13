@@ -86,8 +86,6 @@ public class Character {
 	@NonNull
 	private float discs;
 
-
-
 /*	@JsonIdentityInfo(
 			generator = ObjectIdGenerators.PropertyGenerator.class,
 			property = "id"
@@ -141,10 +139,21 @@ public class Character {
 				this.agility = 250;
 				break;
 		}
-
 	}
 
 	public boolean isOwnedItem(Item item){
 		return ownedItems.stream().anyMatch(item1 -> item1.getId() == item.getId());
+	}
+
+	public boolean hasTheMoney(float money){
+		return this.discs >= money;
+	}
+
+	public void pay(Long money){
+		discs -= money;
+	}
+
+	public void addItem(Item item){
+		ownedItems.add(item);
 	}
 }

@@ -10,13 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
-@Data
+//@Data
 @NoArgsConstructor
 //@RequiredArgsConstructor
-//@AllArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@ToString
 
 //==== JPA ====
 @Entity
@@ -46,6 +45,11 @@ public class ShopItemArmor extends ShopItem implements Serializable {
     public int hashCode() {
 
         return Objects.hash(super.hashCode(), reducedDamage, agility);
+    }
+
+    @Override
+    public <T> T accept(IShopItemVisitor<T> visitor) {
+        return visitor.visitShopItemArmor(this);
     }
 
     public ShopItemArmor(Long id, String name, Long minLvl, Long price, Float reducedDamage, Float agility) {

@@ -25,4 +25,10 @@ public class ItemArmor extends Item {
 
     @NonNull
     private Float agility;
+
+    public ItemArmor(@NonNull String name, ItemType itemType, @NonNull Long minLvl, @NonNull Long price, @NonNull Float reducedDamage, @NonNull Float agility) {
+        super(name, itemType, minLvl, price);
+        this.reducedDamage = reducedDamage;
+        this.agility = agility;
+    }
 }

@@ -1,8 +1,9 @@
 package at.nightfight.controller;
 
 import at.nightfight.model.*;
-import at.nightfight.model.dto.ShopDTO;
-import at.nightfight.model.dto.ShopItemAddDTO;
+import at.nightfight.model.Character;
+import at.nightfight.model.dto.*;
+import at.nightfight.repository.CharacterRepository;
 import at.nightfight.repository.ShopItemRepository;
 import at.nightfight.repository.ShopRepository;
 import at.nightfight.service.ShopServiceImpl;
@@ -12,7 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+
 import java.util.Optional;
 
 @RestController
@@ -20,16 +21,19 @@ import java.util.Optional;
 public class ShopController {
 
     @Autowired
-    ShopRepository shopRepository;
+    private ShopRepository shopRepository;
 
     @Autowired
-    ShopServiceImpl shopService;
+    private ShopServiceImpl shopService;
 
     @Autowired
-    ShopItemRepository shopItemRepository;
+    private ShopItemRepository shopItemRepository;
 
     @Autowired
-    NullPropertyMapper nullPropertyMapper;
+    private CharacterRepository characterRepository;
+
+    @Autowired
+    private NullPropertyMapper nullPropertyMapper;
 
 
 
@@ -60,7 +64,7 @@ public class ShopController {
     public ResponseEntity<Shop> updateShopDetails(@RequestBody Shop shopToUpdate){
         Optional<Shop> existingOptional = shopRepository.findById(shopToUpdate.getId());
 
-        if(existingOptional.isPresent() == false){
+        if(!existingOptional.isPresent()){
             return new ResponseEntity<Shop>(HttpStatus.NOT_FOUND);
         }
 
@@ -83,7 +87,7 @@ public class ShopController {
         Optional<Shop> shopOptional = shopRepository.findById(id);
         Optional<ShopItem> shopItemOptional = shopItemRepository.findById(shopItemAddDTO.getShopItemId());
 
-        if(shopOptional.isPresent() == false || shopItemOptional.isPresent() == false){
+        if(!shopOptional.isPresent() || !shopItemOptional.isPresent()){
             return new ResponseEntity<ShopDTO>(HttpStatus.NOT_FOUND);
         }
 
@@ -105,7 +109,7 @@ public class ShopController {
         Optional<Shop> shopOptional = shopRepository.findById(shopId);
         Optional<ShopItem> shopItemOptional = shopItemRepository.findById(shopitemId);
 
-        if(shopOptional.isPresent() == false || shopItemOptional.isPresent() == false){
+        if(!shopOptional.isPresent() || !shopItemOptional.isPresent()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
@@ -117,4 +121,39 @@ public class ShopController {
         Shop updatedShop = shopRepository.save(shop);
         return new ResponseEntity<Shop>(HttpStatus.NO_CONTENT);
     }
+
+    @PostMapping("/shops/{shopId}/buy")
+    public ResponseEntity buyItems(@PathVariable("shopId") Long shopId, @RequestBody BuyShopItemDTO buyShopItemDTO){
+
+        // 1. FETCH SHOP
+        Optional<Shop> shopOptional = shopRepository.findById(shopId);
+        if(!shopOptional.isPresent()){
+            return new ResponseEntity<>("Shop with ID '"
+                    + shopId + "' not found!", HttpStatus.NOT_FOUND);
+        }
+
+        // 1.1 SHOP PRESENT -> GET from Optional
+        Shop shop = shopOptional.get();
+
+        // 2. FETCH CHARACTER
+        Optional<Character> characterOptional = characterRepository.findById(buyShopItemDTO.getCharacterId());
+        if(!characterOptional.isPresent()){
+            return new ResponseEntity("Character with ID '"
+                    + buyShopItemDTO.getCharacterId() + "' not found!", HttpStatus.NOT_FOUND);
+        }
+
+        // 2.1 CHARACTER PRESENT -> GET from Optional
+        Character character = characterOptional.get();
+
+        // 3. CHECK AVAILABLITY OF ITEMS IN SHOP
+        if(!shop.itemsAvailable(buyShopItemDTO.getShopItems())){
+            // AT LEAST ONE ITEM NOT AVAILABLE
+            return new ResponseEntity("At least one of selected items not available", HttpStatus.NOT_FOUND);
+        }
+
+        // 4
+        // BUY ITEMS
+        return shopService.buyItems(buyShopItemDTO, character);
+    }
+
 }

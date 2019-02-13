@@ -63,4 +63,15 @@ public abstract class Item {
     private Long price;
 
     private Long slot;
+
+    public void addCharacter(Character character){
+        characters.add(character);
+    }
+
+    public Item(@NonNull String name, ItemType itemType, @NonNull Long minLvl, @NonNull Long price) {
+        this.name = name;
+        this.itemType = itemType;
+        this.minLvl = minLvl;
+        this.price = price;
+    }
 }

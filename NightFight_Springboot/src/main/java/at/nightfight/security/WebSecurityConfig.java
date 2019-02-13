@@ -112,6 +112,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
+    public ShopItemToSubclassSerializer shopItemToSubclassSerializer(){
+        return new ShopItemToSubclassSerializer();
+    }
+
+    @Bean
     public NullPropertyMapper beanUtil(){
         return new NullPropertyMapper();
     }

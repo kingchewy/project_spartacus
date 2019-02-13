@@ -29,4 +29,12 @@ public class ItemSpecial extends Item{
 
     private Float agility;
 
+    public ItemSpecial(@NonNull String name, ItemType itemType, @NonNull Long minLvl, @NonNull Long price, Float damage, Float accuracy, Float criticalDamage, Float reducedDamage, Float agility) {
+        super(name, itemType, minLvl, price);
+        this.damage = damage;
+        this.accuracy = accuracy;
+        this.criticalDamage = criticalDamage;
+        this.reducedDamage = reducedDamage;
+        this.agility = agility;
+    }
 }
