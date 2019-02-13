@@ -32,37 +32,37 @@ public class EquippedGear {
     @OneToOne
     @NonNull
     @JoinColumn(name = "weapon_primary_id")
-    private ItemWeapon itemWeaponPrimary;
+    private ItemWeapon weaponPrimary;
 
     @OneToOne
     @NonNull
     @JoinColumn(name = "weapon_secondary_id")
-    private ItemWeapon itemWeaponSecondary;
+    private ItemWeapon weaponSecondary;
 
     @OneToOne
     @NonNull
     @JoinColumn(name = "armor_id")
-    private ItemArmor itemArmor;
+    private ItemArmor armor;
 
     @OneToOne
     @NonNull
     @JoinColumn(name = "special_item_id")
-    private ItemSpecial itemSpecial;
+    private ItemSpecial special;
 
 
     // METHODS
     @JsonIgnore
     public Long getWeaponPrimaryId(){
-        if(itemWeaponPrimary != null){
-            return itemWeaponPrimary.getId();
+        if(weaponPrimary != null){
+            return weaponPrimary.getId();
         }
         return null;
     }
 
     @JsonIgnore
     public Long getWeaponSecondaryId(){
-        if(itemWeaponSecondary != null){
-            return itemWeaponSecondary.getId();
+        if(weaponSecondary != null){
+            return weaponSecondary.getId();
         }
         return null;
     }

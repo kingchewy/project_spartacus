@@ -35,8 +35,8 @@ public class EquippedGearController {
 
     @PostMapping("characters/{id}/equippeditems")
     public ResponseEntity<Character> setEquippedItems(@PathVariable("id") Long id, @RequestBody EquippedGear equippedGear){
-        equippedGear.getItemWeaponPrimary().getId();
-        System.out.println("#################### weapon by id  -> " + equippedGear.getItemWeaponPrimary().getId());
+        /*equippedGear.getItemWeaponPrimary().getId();
+        System.out.println("#################### weapon by id  -> " + equippedGear.getItemWeaponPrimary().getId());*/
 
         Optional<Character> characterOptional = characterRepository.findById(id);
 
@@ -49,7 +49,7 @@ public class EquippedGearController {
 
         if(updatedCharacter == null){
             System.out.println("##### updated Character = NULL ");
-            return new ResponseEntity<Character>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("No Valid Gear To Equip", HttpStatus.BAD_REQUEST);
         }
 
         return  new ResponseEntity<Character>(updatedCharacter, HttpStatus.OK);
