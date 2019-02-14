@@ -3,6 +3,7 @@ package at.nightfight.service;
 import at.nightfight.model.*;
 import at.nightfight.model.Character;
 import at.nightfight.model.dto.*;
+import at.nightfight.model.dto.ShopTransactionSellDTO;
 import at.nightfight.repository.*;
 import at.nightfight.util.adapter.ShopItemToItemAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,26 @@ public class ShopServiceImpl implements IShopService {
         character.pay(itemPriceSum);
 
         addNewItemsToCharacter(selectedShopItems, character);
+
+        Character updatedCharacter = characterRepository.save(character);
+
+        return new ResponseEntity<Character>(updatedCharacter, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<Character> sellItems(List<ItemDTO> itemsForSale, Character character) {
+
+        // If not OWNED item of character -> return response
+        for (ItemDTO item : itemsForSale){
+            if(!character.isOwnedItem(item.getId())){
+                return new ResponseEntity("At least one item not in possesion of specified character", HttpStatus.OK);
+            }
+        }
+
+        // If equipped, remove from Equipped Items before selling
+        for (ItemDTO item : itemsForSale){
+            character.sellItem(item.getId());
+        }
 
         Character updatedCharacter = characterRepository.save(character);
 

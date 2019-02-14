@@ -181,7 +181,20 @@ public class Character {
 				return currentItem.getMinLvl() <= lvl;
 			}
 		}
-
 		return false;
+	}
+
+	public void sellItem(Long itemId){
+
+		for (Iterator<Item> iterator = ownedItems.iterator(); iterator.hasNext();){
+			Item item = iterator.next();
+
+			if(item.getId().equals(itemId)){
+				System.out.println("+++++++++ Match of itemIDs -> sell");
+				equippedGear.deleteEquippedItem(item.getId());
+				discs += item.getPrice();
+				iterator.remove();
+			}
+		}
 	}
 }
