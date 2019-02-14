@@ -74,4 +74,14 @@ public abstract class Item {
         this.minLvl = minLvl;
         this.price = price;
     }
+
+    public boolean isOwnedItem(Long characterId){
+        for (Character character : characters) {
+            if (character.getCharacterId().equals(characterId)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

@@ -83,4 +83,20 @@ public class EquippedGear {
         }
         return null;
     }
+
+    @JsonIgnore
+    public void deleteEquippedItem(Long itemId){
+        if(weaponPrimary != null && weaponPrimary.getId().equals(itemId)) {
+            weaponPrimary = null;
+        }
+        if(weaponSecondary != null && weaponSecondary.getId().equals(itemId)){
+            weaponSecondary = null;
+        }
+        if(armor != null && armor.getId().equals(itemId)){
+            armor = null;
+        }
+        if(special != null && special.getId().equals(itemId)){
+            special = null;
+        }
+    }
 }

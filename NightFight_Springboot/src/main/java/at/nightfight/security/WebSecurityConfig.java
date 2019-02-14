@@ -67,6 +67,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }*/
 
     @Bean
+    public CharacterServiceImpl characterService(){
+        return new CharacterServiceImpl();
+    }
+
+    @Bean
     public ShopServiceImpl shopService(){
         return new ShopServiceImpl();
     }
