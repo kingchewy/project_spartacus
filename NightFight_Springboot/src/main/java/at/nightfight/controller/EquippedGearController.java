@@ -22,7 +22,7 @@ public class EquippedGearController {
     CharacterRepository characterRepository;
 
 
-    @GetMapping("/characters/{id}/equippedgears")
+    @GetMapping("/characters/{id}/equippeditems")
     public ResponseEntity<EquippedGear> getCharactersEquippedGear(@PathVariable("id") Long id){
         Optional<EquippedGear> equippedGear = equippedGearService.getEquippedGear(id);
 
@@ -35,20 +35,15 @@ public class EquippedGearController {
 
     @PostMapping("characters/{id}/equippeditems")
     public ResponseEntity<Character> setEquippedItems(@PathVariable("id") Long id, @RequestBody EquippedGear equippedGear){
-        /*equippedGear.getItemWeaponPrimary().getId();
-        System.out.println("#################### weapon by id  -> " + equippedGear.getItemWeaponPrimary().getId());*/
-
         Optional<Character> characterOptional = characterRepository.findById(id);
 
         if(!characterOptional.isPresent()){
-            System.out.println("##### Character not present ");
-            return new ResponseEntity<Character>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity("Character", HttpStatus.NOT_FOUND);
         }
 
         Character updatedCharacter = equippedGearService.setEquippedGear(characterOptional.get(), equippedGear);
 
         if(updatedCharacter == null){
-            System.out.println("##### updated Character = NULL ");
             return new ResponseEntity("No Valid Gear To Equip", HttpStatus.BAD_REQUEST);
         }
 

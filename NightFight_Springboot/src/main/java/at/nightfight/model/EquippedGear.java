@@ -1,6 +1,7 @@
 package at.nightfight.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 import javax.persistence.*;
@@ -63,6 +64,22 @@ public class EquippedGear {
     public Long getWeaponSecondaryId(){
         if(weaponSecondary != null){
             return weaponSecondary.getId();
+        }
+        return null;
+    }
+
+    @JsonIgnore
+    public Long getArmorId(){
+        if(armor != null){
+            return armor.getId();
+        }
+        return null;
+    }
+
+    @JsonIgnore
+    public Long getSpecialId(){
+        if(special != null){
+            return special.getId();
         }
         return null;
     }
