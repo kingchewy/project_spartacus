@@ -7,12 +7,24 @@ import java.util.List;
 @ToString
 @Getter
 @Setter
-public class BuyShopItemDTO {
+public class ShopTransactionBuyDTO {
 
     private Long characterId;
 
     private List<ShopItemDTO> shopItems;
 
+
+    // CONSTRUCTOR
+    public ShopTransactionBuyDTO() {
+    }
+
+    public ShopTransactionBuyDTO(Long characterId, List<ShopItemDTO> shopItems) {
+        this.characterId = characterId;
+        this.shopItems = shopItems;
+    }
+
+
+    // METHODS
     public Iterable<Long> getIterableListOfShopItemIds(){
         Iterable<Long> ids = new ArrayList<>();
 
@@ -20,14 +32,6 @@ public class BuyShopItemDTO {
             ((ArrayList<Long>) ids).add(shopItemDTO.getId());
         }
         return ids;
-    }
-
-    public BuyShopItemDTO() {
-    }
-
-    public BuyShopItemDTO(Long characterId, List<ShopItemDTO> shopItems) {
-        this.characterId = characterId;
-        this.shopItems = shopItems;
     }
 
     public Long getQuantityOfShopItemByID(Long id){
