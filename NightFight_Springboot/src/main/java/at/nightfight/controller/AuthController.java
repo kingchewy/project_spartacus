@@ -60,7 +60,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<String> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
+    public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
         if(userRepository.existsByUsername(signUpRequest.getUsername())) {
             return new ResponseEntity<String>("Fail -> Username is already taken!",
                     HttpStatus.BAD_REQUEST);
@@ -120,9 +120,22 @@ public class AuthController {
 
 
         // SAVE/CREATE USER
-        userRepository.save(user);
+        User createdUser = userRepository.save(user);
 
-        return ResponseEntity.ok().body("User registered successfully!");
+
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        signUpRequest.getUsername(),
+                        signUpRequest.getPassword()
+                )
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String jwt = jwtProvider.generateJwtToken(authentication);
+
+        return ResponseEntity.ok(new JwtResponse(jwt));
+        //return ResponseEntity.ok().body("User registered successfully!");
     }
 
 }

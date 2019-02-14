@@ -77,11 +77,20 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/UserController.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="374">
-                  <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+                  <caret line="30" selection-start-line="30" selection-end-line="30" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AuthController.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="527">
+                  <caret line="128" column="37" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -126,8 +135,8 @@
           <file leaf-file-name="ItemWeaponController.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/ItemWeaponController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="578">
-                  <caret line="42" column="94" selection-start-line="42" selection-start-column="94" selection-end-line="42" selection-end-column="94" />
+                <state relative-caret-position="260">
+                  <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
                 </state>
               </provider>
             </entry>
@@ -283,7 +292,6 @@
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/ShopController.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/model/dto/ShopTransactionBuyDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/model/ShopTransactionSellDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/ItemController.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/model/Item.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/service/ICharacterService.java" />
@@ -297,6 +305,7 @@
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/model/ShopItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/util/adapter/ShopItemToItemAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java" />
       </list>
     </option>
   </component>
@@ -856,13 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1734">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/repository/EquippedGearRespository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1033,17 +1035,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/ItemWeaponController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="42" column="94" selection-start-line="42" selection-start-column="94" selection-end-line="42" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/ItemWeaponController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="128" column="37" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
         </state>
       </provider>
     </entry>

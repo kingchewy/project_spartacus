@@ -28,7 +28,7 @@ public class UserController {
         Optional<User> user = this.userRepository.findById(id);
         return new ResponseEntity<Optional<User>>(user, HttpStatus.OK);
     }
-    
+
 
     @GetMapping("/users/{username:[a-zA-Z]+}")
     public ResponseEntity<User> getUserByUsername(@PathVariable("username") String userName) {
