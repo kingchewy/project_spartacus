@@ -4,6 +4,7 @@ import at.nightfight.model.*;
 import at.nightfight.model.Character;
 import at.nightfight.model.dto.*;
 import at.nightfight.repository.*;
+import at.nightfight.util.adapter.ShopItemToItemAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,10 +29,10 @@ public class ShopServiceImpl implements IShopService {
     ShopItemSpecialRepository shopItemSpecialRepository;
 
 
-    public ResponseEntity<Character> buyItems(BuyShopItemDTO buyShopItemDTO, Character character){
-        List<ShopItem> selectedShopItems = (List) shopItemRepository.findAllById(buyShopItemDTO.getIterableListOfShopItemIds());
+    public ResponseEntity<Character> buyItems(ShopTransactionBuyDTO shopTransactionBuyDTO, Character character){
+        List<ShopItem> selectedShopItems = (List) shopItemRepository.findAllById(shopTransactionBuyDTO.getIterableListOfShopItemIds());
 
-        Long itemPriceSum = calculateItemPriceSum(buyShopItemDTO, selectedShopItems);
+        Long itemPriceSum = calculateItemPriceSum(shopTransactionBuyDTO, selectedShopItems);
 
         if(!character.hasTheMoney(itemPriceSum)){
              return new ResponseEntity("Character has not enough money", HttpStatus.BAD_REQUEST);
@@ -53,12 +54,12 @@ public class ShopServiceImpl implements IShopService {
         }
     }
 
-    private Long calculateItemPriceSum(BuyShopItemDTO buyShopItemDTO, List<ShopItem> selectedShopItems){
+    private Long calculateItemPriceSum(ShopTransactionBuyDTO shopTransactionBuyDTO, List<ShopItem> selectedShopItems){
         Long priceSum = 0L;
         for (ShopItem item : selectedShopItems){
             Long itemPrice = item.getPrice();
 
-            Long itemQuantity = buyShopItemDTO.getQuantityOfShopItemByID(item.getId());
+            Long itemQuantity = shopTransactionBuyDTO.getQuantityOfShopItemByID(item.getId());
 
             priceSum += itemPrice * itemQuantity;
         }
