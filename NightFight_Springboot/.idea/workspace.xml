@@ -96,11 +96,20 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="EquippedGearServiceImpl.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/service/EquippedGearServiceImpl.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-949">
+                  <caret line="89" selection-start-line="89" selection-end-line="89" />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="Character.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/model/Character.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="676">
-                  <caret line="172" column="13" lean-forward="true" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
+                <state relative-caret-position="687">
+                  <caret line="189" column="20" selection-start-line="189" selection-start-column="20" selection-end-line="189" selection-end-column="20" />
                   <folding>
                     <element signature="e#2999#3000#0" expanded="true" />
                     <element signature="e#3072#3073#0" expanded="true" />
@@ -118,11 +127,20 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="EquippedGear.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="EquippedGear.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/model/EquippedGear.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="663">
-                  <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
+                <state relative-caret-position="1207">
+                  <caret line="87" column="18" lean-forward="true" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="EquippedGearController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/EquippedGearController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="578">
+                  <caret line="43" column="61" lean-forward="true" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
                 </state>
               </provider>
             </entry>
@@ -242,16 +260,16 @@
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/model/ShopTransactionSellDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/AuthController.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/service/EquippedGearServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/EquippedGearController.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/ItemController.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/model/Item.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/service/ICharacterService.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/CharacterController.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/security/WebSecurityConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/model/Character.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/service/CharacterServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/nightfight/model/EquippedGear.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/controller/EquippedGearController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/model/Character.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/nightfight/service/EquippedGearServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -523,11 +541,11 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50076336" side_tool="true" weight="0.29861677" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49923664" visible="true" weight="0.28559178" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49923664" visible="true" weight="0.28559178" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32933104" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16493507" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16493507" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32933104" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -870,20 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/service/EquippedGearServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="47" column="48" lean-forward="true" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/EquippedGearController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/model/ShopTransactionSellDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -959,17 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/model/Character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="172" column="13" lean-forward="true" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
-          <folding>
-            <element signature="e#2999#3000#0" expanded="true" />
-            <element signature="e#3072#3073#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/CharacterController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -995,10 +988,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/controller/EquippedGearController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="43" column="61" lean-forward="true" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/model/EquippedGear.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
+        <state relative-caret-position="1207">
+          <caret line="87" column="18" lean-forward="true" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/model/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="687">
+          <caret line="189" column="20" selection-start-line="189" selection-start-column="20" selection-end-line="189" selection-end-column="20" />
+          <folding>
+            <element signature="e#2999#3000#0" expanded="true" />
+            <element signature="e#3072#3073#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/nightfight/service/EquippedGearServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-949">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
         </state>
       </provider>
     </entry>

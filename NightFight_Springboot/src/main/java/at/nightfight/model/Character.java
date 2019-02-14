@@ -173,4 +173,15 @@ public class Character {
 			}
 		}
 	}
+
+	public boolean hasRequiredLevelToEquip(Item item){
+
+		for (Item currentItem : ownedItems) {
+			if (currentItem.getId().equals(item.getId())) {
+				return currentItem.getMinLvl() <= lvl;
+			}
+		}
+
+		return false;
+	}
 }

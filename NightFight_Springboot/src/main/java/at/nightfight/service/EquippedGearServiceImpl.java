@@ -8,6 +8,7 @@ import at.nightfight.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,7 +84,7 @@ public class EquippedGearServiceImpl implements IEquippedGearService {
     private boolean isValidGearToEquip(Character character, EquippedGear gearToEquip){
 
         System.out.println("################ CHECK if allOwnedItems #####################");
-        if(!allOwnedItems(character, gearToEquip)){
+        if(!allItemsOwnedAndWithinCharacterLevel(character, gearToEquip)){
             return false;
         }
 
@@ -92,7 +93,7 @@ public class EquippedGearServiceImpl implements IEquippedGearService {
     }
 
 
-    private boolean allOwnedItems(Character character, EquippedGear gearToEquip){
+    private boolean allItemsOwnedAndWithinCharacterLevel(Character character, EquippedGear gearToEquip){
 
         List<Item> itemsToEquip = new ArrayList<>();
 
@@ -112,16 +113,33 @@ public class EquippedGearServiceImpl implements IEquippedGearService {
             itemsToEquip.add(gearToEquip.getSpecial());
         }
 
+        // Check if Items Owned by Character
         for(Item item: itemsToEquip){
             if( (item.getId() != null) && (!character.isOwnedItem(item)) ){
                 System.out.println("########## " + item.getName() + " not owned item");
                 return false;
             }
         }
+
+        // Check if Items fit Character Level
+        if(!characterHasRequiredLevel(character, itemsToEquip)) {
+            return false;
+        }
+
         System.out.println("############ passed all ownedItem Validations!!! ############# ");
         return true;
     }
 
+    private boolean characterHasRequiredLevel(Character character, List<Item> itemsToEquip){
+
+        for (Item item: itemsToEquip){
+            if(!character.hasRequiredLevelToEquip(item)){
+                System.out.println("######### Min LvL to Equip Item " + item.getName()  + " not reached yet");
+                return false;
+            }
+        }
+        return true;
+    }
 
     private boolean isValidNewWeaponCombo(EquippedGear itemsToEquip){
 
