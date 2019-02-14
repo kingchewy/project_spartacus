@@ -1,6 +1,12 @@
 import { Item } from '../model/item';
 
 export class Shop {
-    money: number
-    items: Item []
+    id?: number
+    name?: string
+    money?: number
+    openingTime?: string
+    closingTime?: string
+    address?: string
+    city?: string
+    shopitems?: Item []
 }

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Kanit:900');
+@import url('https://fonts.googleapis.com/css?family=Aldrich|Teko:700');
+
 *{
     margin: 0px;
     padding: 0px;
@@ -47,7 +48,7 @@ body{
     overflow-x: hidden;
     overflow-y: scroll;
     
-    font-family: sans-serif;
+    font-family: 'Aldrich',sans-serif;
 }
 .background-base {
     background-image: url(./images/city22.jpg);
@@ -69,7 +70,7 @@ body{
     background-position: bottom;
 }
 h1{
-    font-family: 'Kanit', impact;
+    font-family: 'Teko', impact;
     margin-bottom: 20px;
     letter-spacing: 1.5px;
     color: var(--race-color);
@@ -78,13 +79,14 @@ h1{
                 0px 0px 50px black;
 }
 h2{
-    font-family: 'Kanit', impact;
+    font-family: 'Teko', impact;
     font-size: 1.8em;
     color: var(--race-color);
 }
 button{
     transition: 0.2s;
     font-size: 1em;
+    font-family: 'Aldrich', sans-serif;
     border: 2.5px solid white;
     margin: 5px;
     padding: 5px 10px 5px 10px;

@@ -1,5 +1,5 @@
 <fieldset class="{{setting}}">
-    <legend><h2 *ngIf="setting == 'yours'">{{char.name}} - {{char.ownedItems.length}} items</h2><h2 *ngIf="setting == 'shop'">Shop - {{shop.items.length}} items</h2></legend>
+    <legend><h2 *ngIf="setting == 'yours'">{{char.name}} - {{char.ownedItems.length}} items</h2><h2 *ngIf="setting == 'shop'">Shop - {{shop.shopitems.length}} items</h2></legend>
     <div>
         <div  *ngIf="setting=='yours'" id="gear-container">
             <div *ngFor="let item of char.ownedItems">
@@ -7,7 +7,7 @@
             </div>
         </div>
         <div  *ngIf="setting=='shop'" id="gear-container">
-            <div *ngFor="let item of shop.items">
+            <div *ngFor="let item of shop.shopitems">
                 <equipment-item [setting]="setting" [item]="item" (click)="add.emit(item)"></equipment-item>
             </div>
         </div>

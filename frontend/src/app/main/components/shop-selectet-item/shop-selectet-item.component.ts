@@ -60,7 +60,7 @@ export class ShopSelectetItemComponent {
         this.itemList.forEach( item => this.characterService.removeFromInventory(item) )
         this.characterService._character.next(this.char)
         
-        this.itemList.forEach ( item => this.shop.items.push(item) )
+        this.itemList.forEach ( item => this.shop.shopitems.push(item) )
         this.shopService._shop.next(this.shop)
         
         this.itemList = []
@@ -74,7 +74,7 @@ export class ShopSelectetItemComponent {
         this.itemList.forEach ( item => this.char.ownedItems.push(item) )
         this.characterService._character.next(this.char)
         
-        this.shop.items = this.shop.items.filter ( item => {
+        this.shop.shopitems = this.shop.shopitems.filter ( item => {
             return this.itemList.every ( selected => selected != item )
         })
         this.shopService._shop.next(this.shop)

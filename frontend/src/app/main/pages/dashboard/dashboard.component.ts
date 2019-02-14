@@ -9,6 +9,8 @@ export class DashboardComponent {
     private userName: string
     
     constructor( private requestUserService: RequestUserService ) { 
+        document.body.setAttribute("class","background-base")
+
         this.requestUserService.getThisUser().
                 subscribe( user => this.userName = user.name )
     }
