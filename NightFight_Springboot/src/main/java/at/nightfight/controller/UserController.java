@@ -1,6 +1,5 @@
 package at.nightfight.controller;
 
-import at.nightfight.model.Character;
 import at.nightfight.model.User;
 import at.nightfight.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,19 +23,21 @@ public class UserController {
         return new ResponseEntity<List<User>>(users, HttpStatus.OK);
     }
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity<Optional<User>> getUser(@PathVariable(name = "id") Long id){
+    @GetMapping("/users/{id:[0-9]+}")
+    public ResponseEntity<Optional<User>> getUser(@PathVariable("id") Long id){
         Optional<User> user = this.userRepository.findById(id);
         return new ResponseEntity<Optional<User>>(user, HttpStatus.OK);
     }
+    
 
-/*    @PostMapping("/users")
-    public ResponseEntity<Character> createCharacter(){
+    @GetMapping("/users/{username:[a-zA-Z]+}")
+    public ResponseEntity<User> getUserByUsername(@PathVariable("username") String userName) {
+        System.out.println("''''''''' username = " + userName);
+        Optional<User> userOptional = userRepository.findByUsername(userName);
+        if (!userOptional.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
-        Character newCharacter = new Character();
-
-        return new ResponseEntity<Character>(newCharacter, HttpStatus.CREATED);
-    }*/
-
-
+        return new ResponseEntity<User>(userOptional.get(), HttpStatus.OK);
+    }
 }
