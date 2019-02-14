@@ -1,7 +1,6 @@
 package at.nightfight.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import at.nightfight.util.adapter.IShopItemVisitor;
 import lombok.*;
 
 import javax.persistence.Column;

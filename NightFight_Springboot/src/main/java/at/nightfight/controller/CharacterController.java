@@ -2,9 +2,13 @@ package at.nightfight.controller;
 
 import at.nightfight.model.Character;
 import at.nightfight.model.EquippedGear;
+import at.nightfight.model.Item;
+import at.nightfight.model.ItemWeapon;
 import at.nightfight.model.dto.CharacterNewDTO;
 import at.nightfight.repository.CharacterRepository;
+import at.nightfight.repository.ItemRepository;
 import at.nightfight.repository.UserRepository;
+import at.nightfight.service.CharacterServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,23 +31,17 @@ public class CharacterController {
     CharacterRepository characterRepository;
 
     @Autowired
-    UserRepository userRepository;
+    ItemRepository itemRepository;
 
-/*    @Autowired
-    ICharacterNewMapper mapper;*/
+    @Autowired
+    CharacterServiceImpl characterService;
+
 
     @GetMapping("/characters")
     public ResponseEntity<List<Character>> getAllCharacters(){
         List<Character> characters = characterRepository.findAll();
         return new ResponseEntity<List<Character>>(characters, HttpStatus.OK);
     }
-
-
-    @GetMapping("/characters/{id}")
-    public Optional<Character> getCharacter(@PathVariable(name = "id") Long id){
-        return this.characterRepository.findById(id);
-    }
-
 
     @PostMapping("/characters")
     public ResponseEntity<Character> createCharacter(@RequestBody CharacterNewDTO characterNewDTO){
@@ -66,6 +64,39 @@ public class CharacterController {
         return new ResponseEntity<Character>(characterCreated, HttpStatus.CREATED);
     }
 
+    @GetMapping("/characters/{id}")
+    public Optional<Character> getCharacter(@PathVariable(name = "id") Long id){
+        return this.characterRepository.findById(id);
+    }
+
+    @GetMapping("/characters/{id}/items")
+    public ResponseEntity<List<Item>> getCharactersItems(@PathVariable("id") Long id){
+        List<Item> items = this.itemRepository.findAllByCharacters_CharacterId(id);
+
+        return new ResponseEntity<List<Item>>(items, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/characters/{characterId}/items/{itemId}")
+    public ResponseEntity deleteCharacterItem(@PathVariable("characterId") Long characterId, @PathVariable("itemId") Long itemId){
+
+        return characterService.deleteItem(characterId, itemId);
+    }
+
+
+    @PostMapping("/characters/{id}/weapons")
+    public ResponseEntity<Character> addWeaponToCharacter(@PathVariable("id") Long id, @RequestBody ItemWeapon itemWeapon){
+        Optional<Character> currentCharacterOptional = characterRepository.findById(id);
+        if(currentCharacterOptional.isPresent()){
+            Character currentCharacter = currentCharacterOptional.get();
+            List<Item> ownedItems = currentCharacter.getOwnedItems();
+            ownedItems.add(itemWeapon);
+
+            Character savedCharacter = characterRepository.save(currentCharacter);
+            return new ResponseEntity<Character>(savedCharacter, HttpStatus.OK);
+        }
+
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
 
     // HELPER METHODS
     private Character convertToEntity(CharacterNewDTO characterNewDTO){

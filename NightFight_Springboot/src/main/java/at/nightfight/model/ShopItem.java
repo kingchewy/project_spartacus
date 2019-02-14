@@ -1,5 +1,6 @@
 package at.nightfight.model;
 
+import at.nightfight.util.adapter.IShopItemVisitor;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.CacheConcurrencyStrategy;

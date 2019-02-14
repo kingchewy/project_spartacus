@@ -1,4 +1,6 @@
-package at.nightfight.model;
+package at.nightfight.util.adapter;
+
+import at.nightfight.model.*;
 
 public class ShopItemToItemAdapter implements IShopItemVisitor<Item> {
 

@@ -122,8 +122,8 @@ public class ShopController {
         return new ResponseEntity<Shop>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/shops/{shopId}/buy")
-    public ResponseEntity buyItems(@PathVariable("shopId") Long shopId, @RequestBody BuyShopItemDTO buyShopItemDTO){
+    @PostMapping("/shops/{shopId}/purchase")
+    public ResponseEntity buyItems(@PathVariable("shopId") Long shopId, @RequestBody ShopTransactionBuyDTO shopTransactionBuyDTO){
 
         // 1. FETCH SHOP
         Optional<Shop> shopOptional = shopRepository.findById(shopId);
@@ -136,24 +136,32 @@ public class ShopController {
         Shop shop = shopOptional.get();
 
         // 2. FETCH CHARACTER
-        Optional<Character> characterOptional = characterRepository.findById(buyShopItemDTO.getCharacterId());
+        Optional<Character> characterOptional = characterRepository.findById(shopTransactionBuyDTO.getCharacterId());
         if(!characterOptional.isPresent()){
             return new ResponseEntity("Character with ID '"
-                    + buyShopItemDTO.getCharacterId() + "' not found!", HttpStatus.NOT_FOUND);
+                    + shopTransactionBuyDTO.getCharacterId() + "' not found!", HttpStatus.NOT_FOUND);
         }
 
         // 2.1 CHARACTER PRESENT -> GET from Optional
         Character character = characterOptional.get();
 
         // 3. CHECK AVAILABLITY OF ITEMS IN SHOP
-        if(!shop.itemsAvailable(buyShopItemDTO.getShopItems())){
+        if(!shop.itemsAvailable(shopTransactionBuyDTO.getShopItems())){
             // AT LEAST ONE ITEM NOT AVAILABLE
             return new ResponseEntity("At least one of selected items not available", HttpStatus.NOT_FOUND);
         }
 
         // 4
         // BUY ITEMS
-        return shopService.buyItems(buyShopItemDTO, character);
+        return shopService.buyItems(shopTransactionBuyDTO, character);
+    }
+
+    @PostMapping("/shops/{shopId}/sale")
+    public ResponseEntity sellItems(@PathVariable("shopId") Long shopId, @RequestBody ShopTransactionBuyDTO shopTransactionBuyDTO){
+
+
+
+        return new ResponseEntity(HttpStatus.OK);
     }
 
 }

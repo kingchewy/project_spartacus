@@ -13,6 +13,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 //==== Lombok ====
@@ -142,7 +143,7 @@ public class Character {
 	}
 
 	public boolean isOwnedItem(Item item){
-		return ownedItems.stream().anyMatch(item1 -> item1.getId() == item.getId());
+		return ownedItems.stream().anyMatch(item1 -> item1.getId().equals(item.getId()));
 	}
 
 	public boolean hasTheMoney(float money){
@@ -155,5 +156,21 @@ public class Character {
 
 	public void addItem(Item item){
 		ownedItems.add(item);
+	}
+
+	public boolean isOwnedItem(Long itemId){
+		return ownedItems.stream().anyMatch( item -> item.getId().equals(itemId));
+	}
+
+	public void deleteItem(Long itemId){
+		for (Iterator<Item> iterator = ownedItems.iterator(); iterator.hasNext();){
+			Item item = iterator.next();
+
+			if(item.getId().equals(itemId)){
+				System.out.println("+++++++++ Match of itemIDs -> remove");
+				equippedGear.deleteEquippedItem(itemId);
+				iterator.remove();
+			}
+		}
 	}
 }

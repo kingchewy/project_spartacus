@@ -32,89 +32,88 @@ public class EquippedGearServiceImpl implements IEquippedGearService {
     @Override
     public Character setEquippedGear(Character character, EquippedGear gearToEquip) {
 
-        // Requests with missing IDs for Items are handled as Null Values for that items
-        if(isValidGearToEquip(character, gearToEquip) == false){
+        // Requests with missing IDs for an Item are handled as NOT EQUIPPED
+
+        //VALIDATE INPUT
+        if(!isValidGearToEquip(character, gearToEquip)){
             return null;
         }
 
-        // All requested Inputs are valid -> Equip
-        EquippedGear newEquippedGear = new EquippedGear();
+        System.out.println("****** Passed Validation *******");
+        // All requested Inputs are valid -> EQUIP
+        // Fetch Items to equip from Repo ( by ID ) && Set as Equipped Items
+        EquippedGear newEquippedGear = fetchAndEquipItems(gearToEquip);
 
         newEquippedGear.setCharacterId(character.getCharacterId());
         newEquippedGear.setCharacter(character);
 
-        // Fetch Items to equip from Repo ( by ID ) && Set Items
-        if(gearToEquip.getItemWeaponPrimary() != null){
-            if(gearToEquip.getItemWeaponPrimary().getId() != null){
-                ItemWeapon newItemWeaponPrimary = (ItemWeapon) itemRepository.findById(gearToEquip.getItemWeaponPrimary().getId()).get();
-                newEquippedGear.setItemWeaponPrimary(newItemWeaponPrimary);
-            }
-        }
-
-        if(gearToEquip.getItemWeaponSecondary() != null){
-            if(gearToEquip.getItemWeaponSecondary().getId() != null){
-                ItemWeapon newItemWeaponSecondary = (ItemWeapon) itemRepository.findById(gearToEquip.getItemWeaponSecondary().getId()).get();
-                newEquippedGear.setItemWeaponSecondary(newItemWeaponSecondary);
-            }
-        }
-
-        if(gearToEquip.getItemArmor() != null){
-            if(gearToEquip.getItemArmor().getId() != null){
-                ItemArmor newItemArmor = (ItemArmor) itemRepository.findById(gearToEquip.getItemArmor().getId()).get();
-                newEquippedGear.setItemArmor(newItemArmor);
-            }
-        }
-
-        if(gearToEquip.getItemSpecial() != null){
-            if(gearToEquip.getItemSpecial().getId() != null){
-                ItemSpecial newItemSpecial = (ItemSpecial) itemRepository.findById(gearToEquip.getItemSpecial().getId()).get();
-                newEquippedGear.setItemSpecial(newItemSpecial);
-            }
-        }
-
         equippedGearRespository.save(newEquippedGear);
 
-        return  characterRepository.findById(character.getCharacterId()).get();
+        return characterRepository.findById(character.getCharacterId()).get();
+    }
+
+    private EquippedGear fetchAndEquipItems(EquippedGear gearToEquip){
+
+        EquippedGear newEquippedGear = new EquippedGear();
+
+        if(gearToEquip.getWeaponPrimaryId() != null){
+            ItemWeapon newItemWeaponPrimary = (ItemWeapon) itemRepository.findById(gearToEquip.getWeaponPrimary().getId()).get();
+            newEquippedGear.setWeaponPrimary(newItemWeaponPrimary);
+        }
+
+        if(gearToEquip.getWeaponSecondaryId() != null){
+            ItemWeapon newItemWeaponSecondary = (ItemWeapon) itemRepository.findById(gearToEquip.getWeaponSecondary().getId()).get();
+            newEquippedGear.setWeaponSecondary(newItemWeaponSecondary);
+        }
+
+        if(gearToEquip.getArmorId() != null){
+            ItemArmor newItemArmor = (ItemArmor) itemRepository.findById(gearToEquip.getArmor().getId()).get();
+            newEquippedGear.setArmor(newItemArmor);
+        }
+
+        if(gearToEquip.getSpecialId() != null){
+            ItemSpecial newItemSpecial = (ItemSpecial) itemRepository.findById(gearToEquip.getSpecial().getId()).get();
+            newEquippedGear.setSpecial(newItemSpecial);
+        }
+
+        return newEquippedGear;
     }
 
 
     private boolean isValidGearToEquip(Character character, EquippedGear gearToEquip){
 
         System.out.println("################ CHECK if allOwnedItems #####################");
-        if( allOwnedItems(character, gearToEquip) != true){
+        if(!allOwnedItems(character, gearToEquip)){
             return false;
         }
 
         System.out.println("################ CHECK if isValidNewWeaponCombo #####################");
-        if(isValidNewWeaponCombo(gearToEquip) == false){
-            return false;
-        }
-        System.out.println("##### in method after -> isValidNewWeaponCombo method ");
-        return true;
+        return isValidNewWeaponCombo(gearToEquip);
     }
 
 
     private boolean allOwnedItems(Character character, EquippedGear gearToEquip){
+
         List<Item> itemsToEquip = new ArrayList<>();
 
-        if(gearToEquip.getItemWeaponPrimary() != null){
-            itemsToEquip.add(gearToEquip.getItemWeaponPrimary());
+        if(gearToEquip.getWeaponPrimary() != null){
+            itemsToEquip.add(gearToEquip.getWeaponPrimary());
         }
 
-        if(gearToEquip.getItemWeaponSecondary() != null){
-            itemsToEquip.add(gearToEquip.getItemWeaponSecondary());
+        if(gearToEquip.getWeaponSecondary() != null){
+            itemsToEquip.add(gearToEquip.getWeaponSecondary());
         }
 
-        if(gearToEquip.getItemArmor() != null){
-            itemsToEquip.add(gearToEquip.getItemArmor());
+        if(gearToEquip.getArmor() != null){
+            itemsToEquip.add(gearToEquip.getArmor());
         }
 
-        if(gearToEquip.getItemSpecial() != null){
-            itemsToEquip.add(gearToEquip.getItemSpecial());
+        if(gearToEquip.getSpecial() != null){
+            itemsToEquip.add(gearToEquip.getSpecial());
         }
 
         for(Item item: itemsToEquip){
-            if( (item.getId() != null) && (character.isOwnedItem(item) == false) ){
+            if( (item.getId() != null) && (!character.isOwnedItem(item)) ){
                 System.out.println("########## " + item.getName() + " not owned item");
                 return false;
             }
@@ -130,17 +129,15 @@ public class EquippedGearServiceImpl implements IEquippedGearService {
         ItemWeapon itemWeaponSecondaryToEquip = null;
 
         if(itemsToEquip.getWeaponPrimaryId() != null){
-            itemWeaponPrimaryToEquip = (ItemWeapon) itemRepository.findById(itemsToEquip.getItemWeaponPrimary().getId()).get();
+            itemWeaponPrimaryToEquip = (ItemWeapon) itemRepository.findById(itemsToEquip.getWeaponPrimary().getId()).get();
         }
 
         if(itemsToEquip.getWeaponSecondaryId() != null){
-            itemWeaponSecondaryToEquip = (ItemWeapon) itemRepository.findById(itemsToEquip.getItemWeaponSecondary().getId()).get();
+            itemWeaponSecondaryToEquip = (ItemWeapon) itemRepository.findById(itemsToEquip.getWeaponSecondary().getId()).get();
         }
 
-        System.out.println("#######################  null?  WeaponPrimary = " + itemWeaponSecondaryToEquip + " WeaponSecondary = " + itemWeaponSecondaryToEquip);
-
         // Case: One or both weaponslots empty
-        // if at least one slot is empty the comibnation is valid (two-handed + null possible)
+        // if at least one slot is empty the combination is valid (two-handed + null possible)
         if( itemWeaponPrimaryToEquip == null || itemWeaponSecondaryToEquip == null){
             return true;
         }
@@ -153,19 +150,17 @@ public class EquippedGearServiceImpl implements IEquippedGearService {
 
         // Case: Two-Handed + second weapon
         // if primary to equip is two-handed and there is a secondary to equip || vice versa
-        if( ( itemWeaponPrimaryToEquip.isTwoHanded() == true &&  itemWeaponSecondaryToEquip != null ) ||
-                ( itemWeaponSecondaryToEquip.isTwoHanded() == true && itemWeaponPrimaryToEquip != null )){
+        if( (itemWeaponPrimaryToEquip.isTwoHanded()) || (itemWeaponSecondaryToEquip.isTwoHanded()) ){
             System.out.println("##### Two-handed + second weapon -> INVALID ");
             return false;
         }
 
-        // primary and secondary is same -> (id)
-        if( itemWeaponPrimaryToEquip.getId() == itemWeaponSecondaryToEquip.getId()){
-            System.out.println("##### tried to set same weapon for both hands ");
+        // primary and secondary is same Object -> (id)
+        if(itemWeaponPrimaryToEquip.getId().equals(itemWeaponSecondaryToEquip.getId())){
+            System.out.println("##### Tried to set same weapon for both hands ");
             return false;
         }
 
-        System.out.println("############ passed WeaponCombo Validation!!! ############# ");
         return true;
     }
 }

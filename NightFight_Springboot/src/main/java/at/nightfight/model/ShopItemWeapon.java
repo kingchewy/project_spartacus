@@ -1,5 +1,6 @@
 package at.nightfight.model;
 
+import at.nightfight.util.adapter.IShopItemVisitor;
 import lombok.*;
 
 import javax.persistence.*;
