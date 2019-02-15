@@ -128,4 +128,8 @@ export class RequestCharService {
         }
         return of (char)
     }
+    
+    equip(equipped): Promise<any> {
+        return this.httpClient.post(`${RESCOURCES}/characters/1/equippeditems`, equipped).toPromise()
+    }
 }

@@ -56,21 +56,23 @@ export class ShopSelectetItemComponent {
     }
     
     sellSelected () {
-        this.char.discs += this.price
-        this.shop.money -= this.price
-        
-        this.itemList.forEach( item => this.characterService.removeFromInventory(item) )
-        this.characterService._character.next(this.char)
-        
-        this.itemList.forEach ( item => this.shop.shopitems.push(item) )
-        this.shopService._shop.next(this.shop)
-        
-        this.itemList = []
-        this.price = 0
+        this.requestShopService.tradeItems(this.itemList, this.shop.id, "sell").then( message => {
+            this.char.discs += this.price
+            this.shop.money -= this.price
+            
+            this.itemList.forEach( item => this.characterService.removeFromInventory(item) )
+            this.characterService._character.next(this.char)
+            
+            this.itemList.forEach ( item => this.shop.shopitems.push(item) )
+            this.shopService._shop.next(this.shop)
+            
+            this.itemList = []
+            this.price = 0
+        }).catch( message => console.error("'BUY' DID NOT WORK!", message) )
     }
     
     buySelected () {
-        this.requestShopService.buyItems(this.itemList, this.shop.id).then( message => {
+        this.requestShopService.tradeItems(this.itemList, this.shop.id, "purchase").then( message => {
             this.char.discs -= this.price
             this.shop.money += this.price
             
@@ -84,8 +86,7 @@ export class ShopSelectetItemComponent {
             
             this.itemList = []
             this.price = 0
-        }
-        ).catch( message => console.log("'BUY' DID NOT WORK!", message) )
+        }).catch( message => console.error("'BUY' DID NOT WORK!", message) )
     }
 
 }

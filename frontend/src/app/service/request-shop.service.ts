@@ -17,15 +17,15 @@ export class RequestShopService {
         return this.httpClient.get<Shop>(RESCOURCES + '/shops/1')
     }
     
-    buyItems (items: Item[], shopId): Promise<any> {
+    tradeItems (items: Item[], shopId, buyOrSell): Promise<any> {
         
         items.forEach( item => item.quantity = 1 )
         
         let buyPackage = {
             characterId: 1,
-            shopItems: items
+            items: items
         }
 
-        return this.httpClient.post(`${RESCOURCES}/shops/${shopId}/purchase`, buyPackage).toPromise()
+        return this.httpClient.post(`${RESCOURCES}/shops/${shopId}/${buyOrSell}`, buyPackage).toPromise()
     }
 }
