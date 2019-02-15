@@ -1,5 +1,6 @@
 package at.nightfight.controller;
 
+import at.nightfight.model.ItemType;
 import at.nightfight.model.ItemWeapon;
 import at.nightfight.repository.ItemWeaponRepository;
 import at.nightfight.util.mapping.NullPropertyMapper;
@@ -53,6 +54,9 @@ public class ItemWeaponController {
 
     @PostMapping("/weapons")
     public ResponseEntity<ItemWeapon> createNewWeapon(@RequestBody ItemWeapon itemWeapon){
+        if(!itemWeapon.getItemType().equals("WEAPON")){
+            return new ResponseEntity("Specified ItemType not a WEAPON!", HttpStatus.BAD_REQUEST);
+        }
         ItemWeapon createdItemWeapon = itemWeaponRepository.save(itemWeapon);
 
         return  new ResponseEntity<ItemWeapon>(createdItemWeapon, HttpStatus.CREATED);

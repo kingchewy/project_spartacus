@@ -1,6 +1,7 @@
 package at.nightfight.controller;
 
 import at.nightfight.model.ItemSpecial;
+import at.nightfight.model.ItemType;
 import at.nightfight.repository.ItemSpecialRepository;
 import at.nightfight.repository.ItemWeaponRepository;
 import at.nightfight.util.mapping.NullPropertyMapper;
@@ -54,6 +55,9 @@ public class ItemSpecialController {
 
     @PostMapping
     public ResponseEntity<ItemSpecial> createNewSpecial(@RequestBody ItemSpecial itemSpecial){
+        if(!itemSpecial.getItemType().equals("SPECIAL")){
+            return new ResponseEntity("Specified ItemType not a SPECIAL!", HttpStatus.BAD_REQUEST);
+        }
         ItemSpecial createItemSpecial = itemSpecialRepository.save(itemSpecial);
 
         return new ResponseEntity<ItemSpecial>(createItemSpecial, HttpStatus.CREATED);
