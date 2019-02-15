@@ -38,7 +38,7 @@ public class EquippedGearController {
         Optional<Character> characterOptional = characterRepository.findById(id);
 
         if(!characterOptional.isPresent()){
-            return new ResponseEntity("Character", HttpStatus.NOT_FOUND);
+            return new ResponseEntity("Character with ID '" + id + "' not found!", HttpStatus.NOT_FOUND);
         }
 
         Character updatedCharacter = equippedGearService.setEquippedGear(characterOptional.get(), equippedGear);

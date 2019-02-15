@@ -3,6 +3,7 @@ package at.nightfight.controller;
 import at.nightfight.model.*;
 import at.nightfight.model.Character;
 import at.nightfight.model.dto.*;
+import at.nightfight.model.dto.ShopTransactionSellDTO;
 import at.nightfight.repository.CharacterRepository;
 import at.nightfight.repository.ShopItemRepository;
 import at.nightfight.repository.ShopRepository;
@@ -138,7 +139,7 @@ public class ShopController {
         // 2. FETCH CHARACTER
         Optional<Character> characterOptional = characterRepository.findById(shopTransactionBuyDTO.getCharacterId());
         if(!characterOptional.isPresent()){
-            return new ResponseEntity("Character with ID '"
+            return new ResponseEntity<>("Character with ID '"
                     + shopTransactionBuyDTO.getCharacterId() + "' not found!", HttpStatus.NOT_FOUND);
         }
 
@@ -148,7 +149,7 @@ public class ShopController {
         // 3. CHECK AVAILABLITY OF ITEMS IN SHOP
         if(!shop.itemsAvailable(shopTransactionBuyDTO.getShopItems())){
             // AT LEAST ONE ITEM NOT AVAILABLE
-            return new ResponseEntity("At least one of selected items not available", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("At least one of selected items not available", HttpStatus.NOT_FOUND);
         }
 
         // 4
@@ -156,12 +157,30 @@ public class ShopController {
         return shopService.buyItems(shopTransactionBuyDTO, character);
     }
 
-    @PostMapping("/shops/{shopId}/sale")
-    public ResponseEntity sellItems(@PathVariable("shopId") Long shopId, @RequestBody ShopTransactionBuyDTO shopTransactionBuyDTO){
+    @PostMapping("/shops/{shopId}/sell")
+    public ResponseEntity sellItems(@PathVariable("shopId") Long shopId, @RequestBody ShopTransactionSellDTO shopTransactionSellDTO){
 
+        // 1. FETCH SHOP
+        Optional<Shop> shopOptional = shopRepository.findById(shopId);
+        if(!shopOptional.isPresent()){
+            return new ResponseEntity<>("Shop with ID '"
+                    + shopId + "' not found!", HttpStatus.NOT_FOUND);
+        }
 
+        // 1.1 SHOP PRESENT -> GET from Optional
+        Shop shop = shopOptional.get();
 
-        return new ResponseEntity(HttpStatus.OK);
+        // 2. FETCH CHARACTER
+        Optional<Character> characterOptional = characterRepository.findById(shopTransactionSellDTO.getCharacterId());
+        if(!characterOptional.isPresent()){
+            return new ResponseEntity<>("Character with ID '"
+                    + shopTransactionSellDTO.getCharacterId() + "' not found!", HttpStatus.NOT_FOUND);
+        }
+
+        // 2.1 CHARACTER PRESENT -> GET from Optional
+        Character character = characterOptional.get();
+
+        return shopService.sellItems(shopTransactionSellDTO.getItems(), character);
     }
 
 }

@@ -1,5 +1,6 @@
-package at.nightfight.model;
+package at.nightfight.model.dto;
 
+import at.nightfight.model.Item;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,17 +14,13 @@ public class ShopTransactionSellDTO {
 
     private Long characterId;
 
-    private List<Item> items;
+    private List<ItemDTO> items;
 
-
-    // CONSTRUCTOR
     public ShopTransactionSellDTO() {
     }
 
-    public ShopTransactionSellDTO(Long characterId, List<Item> items) {
+    public ShopTransactionSellDTO(Long characterId, List<ItemDTO> items) {
         this.characterId = characterId;
         this.items = items;
     }
-
-    // METHODS
 }

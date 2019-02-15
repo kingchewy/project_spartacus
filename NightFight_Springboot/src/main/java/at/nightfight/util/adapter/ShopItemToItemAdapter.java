@@ -10,7 +10,7 @@ public class ShopItemToItemAdapter implements IShopItemVisitor<Item> {
         item.setName(shopItemWeapon.getName());
         item.setItemType(shopItemWeapon.getItemType());
         item.setMinLvl(shopItemWeapon.getMinLvl());
-        item.setPrice(shopItemWeapon.getPrice());
+        item.setPrice( shopItemWeapon.getItemValue() );
         item.setAccuracy(shopItemWeapon.getAccuracy());
         item.setCriticalDamage(shopItemWeapon.getCriticalDamage());
         item.setDamage(shopItemWeapon.getDamage());
@@ -25,7 +25,7 @@ public class ShopItemToItemAdapter implements IShopItemVisitor<Item> {
         item.setName(shopItemArmor.getName());
         item.setItemType(shopItemArmor.getItemType());
         item.setMinLvl(shopItemArmor.getMinLvl());
-        item.setPrice(shopItemArmor.getPrice());
+        item.setPrice(shopItemArmor.getItemValue());
         item.setAgility(shopItemArmor.getAgility());
         item.setReducedDamage(shopItemArmor.getReducedDamage());
 
@@ -38,7 +38,7 @@ public class ShopItemToItemAdapter implements IShopItemVisitor<Item> {
         item.setName(shopItemSpecial.getName());
         item.setItemType(shopItemSpecial.getItemType());
         item.setMinLvl(shopItemSpecial.getMinLvl());
-        item.setPrice(shopItemSpecial.getPrice());
+        item.setPrice(shopItemSpecial.getItemValue());
         item.setAccuracy(shopItemSpecial.getAccuracy());
         item.setAgility(shopItemSpecial.getAgility());
         item.setCriticalDamage(shopItemSpecial.getCriticalDamage());

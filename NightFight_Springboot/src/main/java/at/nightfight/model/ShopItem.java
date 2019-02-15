@@ -143,6 +143,16 @@ public abstract class ShopItem implements Serializable {
     // METHODS
     public abstract <T> T accept(IShopItemVisitor<T> visitor);
 
+    public Long getItemValue(){
+        float reduceValue = 0.8f;
+        Long shopValue = price;
+
+        float shopValueAsFloat = price.floatValue();
+        float newValue = shopValueAsFloat * reduceValue;
+
+
+        return (long)newValue;
+    }
 
     @Override
     public String toString() {

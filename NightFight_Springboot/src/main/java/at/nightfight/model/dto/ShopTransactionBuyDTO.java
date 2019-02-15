@@ -36,7 +36,7 @@ public class ShopTransactionBuyDTO {
 
     public Long getQuantityOfShopItemByID(Long id){
         for (ShopItemDTO item : shopItems){
-            if(item.getId() == id){
+            if(item.getId().equals(id)){
                 return item.getQuantity();
             }
         }
