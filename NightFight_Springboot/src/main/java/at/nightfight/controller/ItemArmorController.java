@@ -1,6 +1,7 @@
 package at.nightfight.controller;
 
 import at.nightfight.model.ItemArmor;
+import at.nightfight.model.ItemType;
 import at.nightfight.repository.ItemArmorRepository;
 import at.nightfight.util.mapping.NullPropertyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,9 @@ public class ItemArmorController {
 
     @PostMapping("/armors")
     public ResponseEntity<ItemArmor> createNewArmor(@RequestBody ItemArmor itemArmor){
+        if(!itemArmor.getItemType().equals("ARMOR")){
+            return new ResponseEntity("Specified ItemType not an ARMOR!", HttpStatus.BAD_REQUEST);
+        }
         ItemArmor createdItemArmor = itemArmorRepository.save(itemArmor);
 
         return  new ResponseEntity<ItemArmor>(createdItemArmor, HttpStatus.CREATED);

@@ -147,7 +147,7 @@ public class ShopController {
         Character character = characterOptional.get();
 
         // 3. CHECK AVAILABLITY OF ITEMS IN SHOP
-        if(!shop.itemsAvailable(shopTransactionBuyDTO.getShopItems())){
+        if(!shop.itemsAvailable(shopTransactionBuyDTO.getItems())){
             // AT LEAST ONE ITEM NOT AVAILABLE
             return new ResponseEntity<>("At least one of selected items not available", HttpStatus.NOT_FOUND);
         }

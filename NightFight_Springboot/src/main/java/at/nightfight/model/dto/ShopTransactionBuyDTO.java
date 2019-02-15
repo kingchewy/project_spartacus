@@ -11,16 +11,16 @@ public class ShopTransactionBuyDTO {
 
     private Long characterId;
 
-    private List<ShopItemDTO> shopItems;
+    private List<ShopItemDTO> items;
 
 
     // CONSTRUCTOR
     public ShopTransactionBuyDTO() {
     }
 
-    public ShopTransactionBuyDTO(Long characterId, List<ShopItemDTO> shopItems) {
+    public ShopTransactionBuyDTO(Long characterId, List<ShopItemDTO> items) {
         this.characterId = characterId;
-        this.shopItems = shopItems;
+        this.items = items;
     }
 
 
@@ -28,14 +28,14 @@ public class ShopTransactionBuyDTO {
     public Iterable<Long> getIterableListOfShopItemIds(){
         Iterable<Long> ids = new ArrayList<>();
 
-        for(ShopItemDTO shopItemDTO: shopItems){
+        for(ShopItemDTO shopItemDTO: items){
             ((ArrayList<Long>) ids).add(shopItemDTO.getId());
         }
         return ids;
     }
 
     public Long getQuantityOfShopItemByID(Long id){
-        for (ShopItemDTO item : shopItems){
+        for (ShopItemDTO item : items){
             if(item.getId().equals(id)){
                 return item.getQuantity();
             }
