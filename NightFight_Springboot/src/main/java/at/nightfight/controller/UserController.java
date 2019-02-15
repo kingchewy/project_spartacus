@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/users")
+    @GetMapping("/users/all")
     public ResponseEntity<List<User>> getAllUsers(){
         List<User> users = this.userRepository.findAll();
         return new ResponseEntity<List<User>>(users, HttpStatus.OK);
@@ -30,10 +30,21 @@ public class UserController {
     }
 
 
-    @GetMapping("/users/{username:[a-zA-Z]+}")
+/*    @GetMapping("/users/{username:[a-zA-Z]+}")
     public ResponseEntity<User> getUserByUsername(@PathVariable("username") String userName) {
         System.out.println("''''''''' username = " + userName);
         Optional<User> userOptional = userRepository.findByUsername(userName);
+        if (!userOptional.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<User>(userOptional.get(), HttpStatus.OK);
+    }*/
+
+    @GetMapping("/users")
+    public ResponseEntity<User> getUserByUsername(@RequestParam(value = "username", required = true) String username) {
+        System.out.println("''''''''' username = " + username);
+        Optional<User> userOptional = userRepository.findByUsername(username);
         if (!userOptional.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
