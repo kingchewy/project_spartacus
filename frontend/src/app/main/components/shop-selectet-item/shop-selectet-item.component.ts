@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CharacterService } from '../../../service/character.service';
 import { ShopService } from '../../../service/shop.service';
+import { RequestShopService } from '../../../service/request-shop.service';
 import { Character } from '../../../model/character';
 import { Item } from '../../../model/item';
 import { Shop } from '../../../model/shop';
@@ -23,7 +24,8 @@ export class ShopSelectetItemComponent {
     private shop: Shop
     
   constructor( private characterService: CharacterService,
-               private shopService: ShopService ) { }
+               private shopService: ShopService,
+               private requestShopService: RequestShopService ) { }
  
     take ( item: Item ) {
         let notYetSelected = this.itemList.every( selected => item != selected )
@@ -68,18 +70,22 @@ export class ShopSelectetItemComponent {
     }
     
     buySelected () {
-        this.char.discs -= this.price
-        this.shop.money += this.price
-        
-        this.itemList.forEach ( item => this.char.ownedItems.push(item) )
-        this.characterService._character.next(this.char)
-        
-        this.shop.shopitems = this.shop.shopitems.filter ( item => {
-            return this.itemList.every ( selected => selected != item )
-        })
-        this.shopService._shop.next(this.shop)
-        
-        this.itemList = []
-        this.price = 0
+        this.requestShopService.buyItems(this.itemList, this.shop.id).then( message => {
+            this.char.discs -= this.price
+            this.shop.money += this.price
+            
+            this.itemList.forEach ( item => this.char.ownedItems.push(item) )
+            this.characterService._character.next(this.char)
+            
+            this.shop.shopitems = this.shop.shopitems.filter ( item => {
+                return this.itemList.every ( selected => selected != item )
+            })
+            this.shopService._shop.next(this.shop)
+            
+            this.itemList = []
+            this.price = 0
+        }
+        ).catch( message => console.log("'BUY' DID NOT WORK!", message) )
     }
+
 }

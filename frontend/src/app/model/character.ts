@@ -17,10 +17,10 @@ export class Character {
     ownedItems: Array<Item>
     equippedGear: {
         characterId?: number,
-        itemWeaponPrimary?: Item,
-        itemWeaponSecondary?: Item,
-        itemArmor?: Item,
-        itemSpecial?: Item
+        weaponPrimary?: Item,
+        weaponSecondary?: Item,
+        armor?: Item,
+        special?: Item
     }
     discs: number
 }

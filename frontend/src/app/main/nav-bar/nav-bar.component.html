@@ -1,14 +1,14 @@
 <nav>
     <ul>
         <li id="account">{{userName.charAt(0)}}<span>{{userName.substr(1)}}<br>as:<br>{{charName}}</span></li>
-        <li routerLink="/base/dashboard" [class.mark]="location == 'dashboard'">D<span>ashboard</span></li>
-        <li routerLink="/base/char-details" [class.mark]="location == 'char-details'">C<span>haracter</span></li>
-        <li routerLink="/base/shop" [class.mark]="location == 'shop'">S<span>hop</span></li>
+        <li (click)="checkChangesAndNavigate('dashboard')" [class.mark]="location == 'dashboard'">D<span>ashboard</span></li>
+        <li (click)="checkChangesAndNavigate('char-details')" [class.mark]="location == 'char-details'">C<span>haracter</span></li>
+        <li (click)="checkChangesAndNavigate('shop')" [class.mark]="location == 'shop'">S<span>hop</span></li>
         <li id="fights" [class.mark]="location.indexOf('fights') !== -1">F<span>ights</span>
             <ul>
-                <li routerLink="/base/fights-history" [class.mark]="location == 'fights-history'">History</li>
-                <li routerLink="/base/fights-search" [class.mark]="location == 'fights-search'">Search</li>
-                <li routerLink="/base/fights-upcoming" [class.mark]="location == 'fights-upcoming'">Upcoming</li>
+                <li (click)="checkChangesAndNavigate('fights-history')" [class.mark]="location == 'fights-history'">History</li>
+                <li (click)="checkChangesAndNavigate('fights-search')" [class.mark]="location == 'fights-search'">Search</li>
+                <li (click)="checkChangesAndNavigate('fights-upcoming')" [class.mark]="location == 'fights-upcoming'">Upcoming</li>
             </ul>
         </li>
     </ul>

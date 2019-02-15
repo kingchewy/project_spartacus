@@ -30,4 +30,14 @@ export class NavBarComponent {
         
         this.userService.user$.subscribe( user => this.userName = user.name )
     }
+    
+    checkChangesAndNavigate( link ) {
+//
+//        if (this.characterService.changesToSave) {
+//            console.log(this.characterService._character.getValue())
+//        }
+//        
+//        this.characterService.changesToSave = false
+        this.router.navigateByUrl("base/" + link )
+    }
 }

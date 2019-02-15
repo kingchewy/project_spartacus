@@ -24,10 +24,10 @@ export class EquippedComponent {
                 this.equipWeapon(item)
             break
             case 'armor':
-                this.char.equippedGear.itemArmor = item
+                this.char.equippedGear.armor = item
             break
             case 'special':
-                this.char.equippedGear.itemSpecial = item
+                this.char.equippedGear.special = item
             break
         }
         this.characterService._character.next(this.char)
@@ -36,24 +36,24 @@ export class EquippedComponent {
     equipWeapon ( item: Item ) {
         let equipped = this.char.equippedGear
         
-        if ( this.char.lvl >= item.minimumLvl ) {
+        if ( this.char.lvl >= item.minLvl ) {
             
-            if ( item.twohanded ) {
-                equipped.itemWeaponPrimary = item
-                equipped.itemWeaponSecondary = null
+            if ( item.twoHanded ) {
+                equipped.weaponPrimary = item
+                equipped.weaponSecondary = null
                 
-            } else if ( !equipped.itemWeaponPrimary ) {
-                equipped.itemWeaponPrimary = item
+            } else if ( !equipped.weaponPrimary ) {
+                equipped.weaponPrimary = item
                 
-            } else if ( !equipped.itemWeaponSecondary
-                       && !equipped.itemWeaponPrimary.twohanded
-                       && equipped.itemWeaponPrimary != item ) {
-                equipped.itemWeaponSecondary = item
+            } else if ( !equipped.weaponSecondary
+                       && !equipped.weaponPrimary.twoHanded
+                       && equipped.weaponPrimary != item ) {
+                equipped.weaponSecondary = item
                 
-            } else if ( equipped.itemWeaponPrimary.twohanded ) {
-                equipped.itemWeaponPrimary = item
+            } else if ( equipped.weaponPrimary.twoHanded ) {
+                equipped.weaponPrimary = item
                 
-            } else if (equipped.itemWeaponPrimary && equipped.itemWeaponSecondary) {
+            } else if (equipped.weaponPrimary && equipped.weaponSecondary) {
                 this.warn ( "Full" )
             }
         } else {

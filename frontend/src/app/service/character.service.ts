@@ -27,18 +27,29 @@ export class CharacterService {
         criticalhitchance : 0,
         ownedItems : [],
         equippedGear: {
-            itemWeaponPrimary: null,
-            itemWeaponSecondary: null,
-            itemArmor: null,
-            itemSpecial: null,
+            weaponPrimary: null,
+            weaponSecondary: null,
+            armor: null,
+            special: null,
         },
     }
+    
+    changesToSave: boolean = false
+    ignoreFirstChangesCount = 2
 
     _character: BehaviorSubject<Character> = new BehaviorSubject<Character>(this.char)
     readonly character$: Observable<Character> = this._character.asObservable()
 
     constructor() {
-        this.character$.subscribe( char => this.char = char )
+        this.character$.subscribe( char => {
+            this.char = char
+
+            if (this.ignoreFirstChangesCount <= 0) {
+                this.changesToSave = true
+            } else {
+                --this.ignoreFirstChangesCount
+            }
+        })
     }
     
     removeFromInventory ( item: Item ) {
@@ -52,20 +63,20 @@ export class CharacterService {
     unequip ( which:String ) {
         switch ( which.toLowerCase() ){
             case "weaponprimary":
-                this.char.equippedGear.itemWeaponPrimary = null
+                this.char.equippedGear.weaponPrimary = null
                 break
             case "weaponsecondary":
-                this.char.equippedGear.itemWeaponSecondary = null
+                this.char.equippedGear.weaponSecondary = null
                 break
             case "armor":
-                this.char.equippedGear.itemArmor = null
+                this.char.equippedGear.armor = null
                 break
             case "special":
-                this.char.equippedGear.itemSpecial = null
+                this.char.equippedGear.special = null
                 break
             case "weapon":
-                this.char.equippedGear.itemWeaponPrimary = null
-                this.char.equippedGear.itemWeaponSecondary = null
+                this.char.equippedGear.weaponPrimary = null
+                this.char.equippedGear.weaponSecondary = null
         }
         this._character.next(this.char)
     }

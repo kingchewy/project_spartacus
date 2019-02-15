@@ -120,10 +120,10 @@ export class RequestCharService {
             ownedItems : [],
             equippedGear: {
                 characterId: 1,
-                itemWeaponPrimary: null,
-                itemWeaponSecondary: null,
-                itemArmor: null,
-                itemSpecial: null,
+                weaponPrimary: null,
+                weaponSecondary: null,
+                armor: null,
+                special: null,
             },
         }
         return of (char)

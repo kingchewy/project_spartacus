@@ -37,10 +37,10 @@ export class PickCharDetailsComponent {
             ownedItems: [],
             equippedGear: {
                 characterId: 1,
-                itemWeaponPrimary: null,
-                itemWeaponSecondary: null,
-                itemArmor: null,
-                itemSpecial: null,
+                weaponPrimary: null,
+                weaponSecondary: null,
+                armor: null,
+                special: null,
             },
             discs: 0
         }

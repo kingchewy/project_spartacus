@@ -16,13 +16,13 @@
             <h2>{{item.name}}</h2>
             <br>
             <ul>
-                <li *ngIf="item.minimumLvl != 0">min. Lvl: {{item.minimumLvl}}</li>
-                <li *ngIf="item.twohanded">twohanded!</li>
-                <li *ngIf="item.damage != 0">Damage: {{item.damage}}</li>
-                <li *ngIf="item.accuracy != 0">Accuracy: {{item.accuracy}}</li>
-                <li *ngIf="item.critDamage != 0">Crit. Damage: {{item.critDamage}}</li>
-                <li *ngIf="item.armor != 0">Armor: {{item.armor}}</li>
-                <li *ngIf="item.agility != 0">Agility: {{item.agility}}</li>
+                <li *ngIf="item.minLvl">min. Lvl: {{item.minLvl}}</li>
+                <li *ngIf="item.twoHanded">twohanded!</li>
+                <li *ngIf="item.damage">Damage: {{item.damage}}</li>
+                <li *ngIf="item.accuracy">Accuracy: {{item.accuracy}}</li>
+                <li *ngIf="item.critDamage">Crit. Damage: {{item.critDamage}}</li>
+                <li *ngIf="item.armor">Armor: {{item.armor}}</li>
+                <li *ngIf="item.agility">Agility: {{item.agility}}</li>
                 <br>
                 <li><b>Value: {{item.price}}</b></li>
             </ul>

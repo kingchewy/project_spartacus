@@ -1,7 +1,7 @@
 <h1 class="page-title">CHARACTER DETAILS</h1>
 <div id="container" class="page">
     <div id="title">
-        <h1>{{name}}</h1>
+        <h1>{{char.name}}</h1>
     </div>
     <div id="inventory">
         <gear-list-basic [setting]="'yours'" (add)="equipped.equip($event)"></gear-list-basic>

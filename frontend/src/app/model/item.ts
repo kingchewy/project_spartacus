@@ -6,11 +6,13 @@ export class Item {
     slot?: number
     
     characterId?: number;
-    minimumLvl?: number;
+    minLvl?: number;
     damage?: number;
     accuracy?: number;
     critDamage?: number;
     armor?: number
     agility?: number
-    twohanded?: boolean
+    twoHanded?: boolean
+    
+    quantity?: number
 }
