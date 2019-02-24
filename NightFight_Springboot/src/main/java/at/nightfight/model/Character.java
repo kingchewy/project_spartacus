@@ -111,7 +111,7 @@ public class Character {
 	public void setNewCharacterAttributes(){
 		this.lvl = 1;
 		this.xp = 0;
-		this.discs = 0;
+		this.discs = 1000;
 
 		setDefaultValuesByRace();
 	}
@@ -133,7 +133,7 @@ public class Character {
 				this.agility = 23;
 				break;
 			case "monster":
-				this.hp = 3100;
+				this.hp = 2500;
 				this.armor = 345;
 				this.strength = 600;
 				this.accuracy = 150;
