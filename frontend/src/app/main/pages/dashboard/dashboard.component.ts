@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
+import { RequestUserService } from '../../../service/request-user.service'
 @Component({
   selector: 'dash-board',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
-    private userName = "Green Queen"
+export class DashboardComponent {
+    private userName: string
     
-  constructor() { }
+    constructor( private requestUserService: RequestUserService ) { 
+        document.body.setAttribute("class","background-base")
 
-  ngOnInit() {
-//      document.body.style.backgroundPosition = "bottom"
-//      document.body.style.backgroundImage="url(Akira-bg-1.jpg)"
-  }
+        this.requestUserService.getThisUser().
+                subscribe( user => this.userName = user.name )
+    }
 
 }

@@ -14,13 +14,13 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     ){}
     
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      console.log("CanActivate Guard Method");
+//      console.log("CanActivate Guard Method");
 
       if(!this.authService.isTokenExpired()){
-        console.log("token valid")
+//        console.log("token valid")
         return true;
       } 
-      console.log("token expired: ", this.authService.getToken())
+//      console.log("token expired: ", this.authService.getToken())
       // not logged in so redirect to login page with the return url
       this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
       return false;
@@ -28,14 +28,14 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
 
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
-      console.log("CanActivateChild Guard Method");
+//      console.log("CanActivateChild Guard Method");
       if(!this.authService.isTokenExpired()){
-        console.log("token valid")
+//        console.log("token valid")
         return true;
       } 
-      console.log("token expired: ", this.authService.getToken())
+//      console.log("token expired: ", this.authService.getToken())
       // not logged in so redirect to login page with the return url
-      console.log("state url: ", state.url)
+//      console.log("state url: ", state.url)
       this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
       return false;
     }

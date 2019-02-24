@@ -1,0 +1,84 @@
+fieldset {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    
+    position: relative;
+    padding: 20px 0px 20px 0px;
+    
+    border: 3px solid var(--narr-color);
+    box-shadow: 0px 0px 30px var(--narr-color) inset;
+    background-color: rgba(var(--narr-color-d),0.5);
+}
+legend {
+    border-color: var(--narr-color);
+    background-color: rgba(var(--narr-color-d),0.8);
+}
+h2 {
+    color: var(--narr-color);
+    margin-bottom: 0px;
+}
+#container {
+    height: 100%;
+    width: 100%;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 100px;
+    grid-gap: 20px;
+}
+#search-box {
+    position: relative;
+    border: 3px solid var(--narr-color);
+    border-width: 3px 0px 3px 0px;
+    box-shadow: 0px 0px 30px var(--narr-color) inset;
+    background-color: rgba(var(--narr-color-d),0.7);
+    
+    padding: 50px 20px 20px 0px;
+    overflow-y: auto;
+}
+#search-box legend h3 {
+    color: var(--narr-color);
+    text-shadow: 0px 0px 15px rgba(var(--narr-color-d),1),
+        0px 0px 30px rgba(var(--narr-color-d),1);
+}
+#search-box > legend {
+    border: 0px;
+    background-color: transparent;
+}
+#search-box ul {
+    position: absolute;
+    width: 100%;
+    opacity: 0.5;
+    transition: 0.5s;
+    cursor: default;
+}
+ul.unlocked {
+    opacity: 1 !important;
+    cursor: pointer !important;
+}
+#search-box ul li {
+    font-size: 1.2em;
+    padding: 10px 5px 10px 20px;
+    
+    transition: 0.3s;
+}
+#search-box ul li:hover {
+    background-color: rgba(var(--narr-color-t),0.5);
+    padding-left: 35px;
+}
+
+
+
+
+#btn {
+    padding: 10px 15px 10px 15px;
+    margin: 0px 20px 0px 20px;
+    background-color: rgba(var(--race-color-d),0.5);
+}
+#btn span {
+    color: var(--race-color);
+}
+button {
+    margin: 0px 0px 20px 0px;
+}

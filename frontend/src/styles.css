@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Kanit:900');
+@import url('https://fonts.googleapis.com/css?family=Aldrich|Teko:700');
+
 *{
     margin: 0px;
     padding: 0px;
@@ -15,40 +16,61 @@
 }
 :root{
     --human-color: rgb(110,255,90);
-    --robot-color: rgb(120,200,255);
-    --monster-color: rgb(255,100,90);
+    --robot-color: rgb(110,190,255);
+    --monster-color: rgb(255,100,100);
     --narr-color: rgb(200, 255, 200);
     
-    --human-color-d: 0,80,50;
-    --robot-color-d: 80,0,80;
+    --human-color-d: 0,80,70;
+    --robot-color-d: 60,40,80;
     --monster-color-d: 80,50,50;
     --narr-color-d: 100, 0, 20;
     
     --human-color-t: 110,255,90;
     --robot-color-t: 120,200,255;
-    --monster-color-t: 255,100,90;
+    --monster-color-t: 255,120,100;
     --narr-color-t: 200, 255, 200;
     
     --race-color: white;
-    --race-color-t: white;
-    --race-color-d: white;
+    --race-color-t: 0,0,0;
+    --race-color-d: 127.5,127.5,127.5;
 }
 body{
-    background-image: url(./images/akira_city.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
-    
+    background-image: url(./images/city22.jpg);
+
+    background-color: rgba(var(--race-color-d),0.75);
+    background-blend-mode: overlay;
     transition: background-position 20s;
     
     overflow-x: hidden;
     overflow-y: scroll;
     
-    font-family: sans-serif;
+    font-family: 'Aldrich',sans-serif;
+}
+.background-base {
+    background-image: url(./images/city22.jpg);
+}
+.background-char-details {
+    background-image: url(./images/engineer2.jpg);
+}
+.background-city {
+    background-image: url(./images/city.jpg);
+}
+.background-shop {
+    background-image: url(./images/streets.jpg);
+}
+.background-base,
+.background-char-details,
+.background-city,
+.background-shop {
+    transition: background-position 0s;
+    background-position: bottom;
 }
 h1{
-    font-family: 'Kanit', impact;
+    font-family: 'Teko', impact;
     margin-bottom: 20px;
     letter-spacing: 1.5px;
     color: var(--race-color);
@@ -57,12 +79,14 @@ h1{
                 0px 0px 50px black;
 }
 h2{
-    font-family: 'Kanit', impact;
-    font-size: 2em;
+    font-family: 'Teko', impact;
+    font-size: 1.8em;
+    color: var(--race-color);
 }
 button{
     transition: 0.2s;
     font-size: 1em;
+    font-family: 'Aldrich', sans-serif;
     border: 2.5px solid white;
     margin: 5px;
     padding: 5px 10px 5px 10px;
@@ -137,4 +161,14 @@ input{
 }
 input:focus{
     background-color: rgb(60,60,60);
+}
+legend {
+    margin: 0px auto -10px auto;
+    padding: 0px 10px 0px 10px;
+    border: solid 3px var(--race-color);
+    background-color: rgba(var(--race-color-d),0.8);
+}
+legend h1 {
+    text-shadow: none;
+    margin-bottom: 0px;
 }

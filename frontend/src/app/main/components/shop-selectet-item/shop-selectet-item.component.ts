@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CharacterService } from '../../../service/character.service';
 import { ShopService } from '../../../service/shop.service';
+import { RequestShopService } from '../../../service/request-shop.service';
 import { Character } from '../../../model/character';
 import { Item } from '../../../model/item';
 import { Shop } from '../../../model/shop';
@@ -16,14 +17,15 @@ export class ShopSelectetItemComponent {
     private price: number = 0
     private warnPrice: boolean = false
     
-    private observeChar = this.characterService.character$.subscribe( x => this.char = x )
+    private observeChar = this.characterService.character$.subscribe( char => this.char = char )
     private char: Character
     
-    private observeShop = this.shopService.shop$.subscribe( x => this.shop = x )
+    private observeShop = this.shopService.shop$.subscribe( shop => this.shop = shop )
     private shop: Shop
     
   constructor( private characterService: CharacterService,
-               private shopService: ShopService ) { }
+               private shopService: ShopService,
+               private requestShopService: RequestShopService ) { }
  
     take ( item: Item ) {
         let notYetSelected = this.itemList.every( selected => item != selected )
@@ -31,7 +33,7 @@ export class ShopSelectetItemComponent {
             if ( this.setting == "yours" ) {
                 passes = ( this.price + item.price <= this.shop.money ) && notYetSelected
             } else if ( this.setting == "shop" ){
-                passes = (this.price + item.price <= this.char.money) && notYetSelected 
+                passes = (this.price + item.price <= this.char.discs) && notYetSelected 
             }
         
         if ( passes ) {
@@ -39,9 +41,7 @@ export class ShopSelectetItemComponent {
             this.calcPrice()   
         } else if (notYetSelected) {
             this.warnPrice = true
-            setTimeout ( () => {
-                this.warnPrice = false
-            }, 2000)
+            setTimeout ( () => this.warnPrice = false, 2000)
         }
     }
     
@@ -56,32 +56,37 @@ export class ShopSelectetItemComponent {
     }
     
     sellSelected () {
-        this.char.money += this.price
-        this.shop.money -= this.price
-        
-        this.itemList.forEach( item => this.characterService.removeFromInventory(item) )
-        this.characterService._character.next(this.char)
-        
-        this.itemList.forEach ( item => this.shop.items.push(item) )
-        this.shopService._shop.next(this.shop)
-        
-        this.itemList = []
-        this.price = 0
+        this.requestShopService.tradeItems(this.itemList, this.shop.id, "sell").then( message => {
+            this.char.discs += this.price
+            this.shop.money -= this.price
+            
+            this.itemList.forEach( item => this.characterService.removeFromInventory(item) )
+            this.characterService._character.next(this.char)
+            
+            this.itemList.forEach ( item => this.shop.shopitems.push(item) )
+            this.shopService._shop.next(this.shop)
+            
+            this.itemList = []
+            this.price = 0
+        }).catch( message => console.error("'BUY' DID NOT WORK!", message) )
     }
     
     buySelected () {
-        this.char.money -= this.price
-        this.shop.money += this.price
-        
-        this.itemList.forEach ( item => this.char.ownedGear.push(item) )
-        this.characterService._character.next(this.char)
-        
-        this.shop.items = this.shop.items.filter ( item => {
-            return this.itemList.every ( selected => selected != item )
-        })
-        this.shopService._shop.next(this.shop)
-        
-        this.itemList = []
-        this.price = 0
+        this.requestShopService.tradeItems(this.itemList, this.shop.id, "purchase").then( message => {
+            this.char.discs -= this.price
+            this.shop.money += this.price
+            
+            this.itemList.forEach ( item => this.char.ownedItems.push(item) )
+            this.characterService._character.next(this.char)
+            
+            this.shop.shopitems = this.shop.shopitems.filter ( item => {
+                return this.itemList.every ( selected => selected != item )
+            })
+            this.shopService._shop.next(this.shop)
+            
+            this.itemList = []
+            this.price = 0
+        }).catch( message => console.error("'BUY' DID NOT WORK!", message) )
     }
+
 }

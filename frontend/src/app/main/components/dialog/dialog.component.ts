@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { Character } from '../../../character'
+import { Character } from '../../../model/character'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Dialog } from '../../../mock-dialog'
 

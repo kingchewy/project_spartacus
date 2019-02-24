@@ -41,6 +41,8 @@ export class AuthService {
   isTokenExpired(token?: string):boolean{
     if(!token) token = this.getToken();
     if(!token) return true;
+    
+//      console.log(jwtHelper.decodeToken("eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJGaWVzZSBMaWVzZSIsImlhdCI6MTU1MDA4NzI1OSwiZXhwIjoxNTUwMTczNjU5fQ.-GEdz3nvt1XiJpSKmJ4MdP81JdMED9-p_O6ScbWiCtiNaomEXbB026XIPpyd7y3cYSbgXxVNYePTgrtx_0bauA").sub)
 
     return jwtHelper.isTokenExpired(token);
   }

@@ -1,3 +1,5 @@
+import { Character } from '../model/character';
+
 export class User {
     id?: number;
     name: string;
@@ -5,5 +7,6 @@ export class User {
     email: string;
     password: string;
     blocked?: boolean;
-    created?: string; 
+    created?: string;
+    characters?: Character[];
 }

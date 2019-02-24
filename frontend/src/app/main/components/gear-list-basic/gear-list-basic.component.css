@@ -1,8 +1,7 @@
 fieldset {
     height: 100%;
     width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     
     position: relative;
     padding: 20px 0px 20px 0px;
@@ -11,23 +10,22 @@ fieldset {
     width: 0px;
     background: transparent;
 }
-legend {
-    margin: 0px auto -20px auto;
-    padding: 0px 10px 0px 10px;
-}
 #gear-container {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     grid-gap: 20px;
     justify-content: space-evenly;
     position: absolute;
     width: 100%;
-    
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
+    max-height: 96%;
+    overflow: auto;
+    padding-bottom: 20%; /*So it doesn't get cut of in chrome at the bottom*/
 }
-
-.shop h1{
+.shop legend {
+    border-color: var(--narr-color);
+    background-color: rgba(var(--narr-color-d),0.8);
+}
+.shop h2{
     color: var(--narr-color);
 }
 .shop {

@@ -1,0 +1,30 @@
+<fieldset>
+    <legend><h2>Overview</h2></legend>
+    <div id="container">
+        <fieldset id="search-box">
+            <legend><h3>Online Fighters</h3></legend>
+            
+            <ul [class.unlocked]="visible=='Yes'">
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+                <li>Opponent X</li>
+            </ul>
+        </fieldset>
+        <div id="btn">
+            <button class="you-btn" (click)="setVisibility()">I'm looking for a Fight!</button><br>
+            <span> Visible: {{visible}}</span>
+        </div>
+    </div>
+</fieldset>

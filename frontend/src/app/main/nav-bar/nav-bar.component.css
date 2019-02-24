@@ -8,7 +8,7 @@ nav {
     background-color: rgba(var(--narr-color-d),0.5);
     
     font-size: 2em;
-    font-family: 'Kanit', impact;
+    font-family: 'Teko', impact;
     font-weight: bold;
     letter-spacing: 1.3px;
     
@@ -34,7 +34,7 @@ nav:hover > ul li span {
     opacity: 1;
 }
 ul li{
-    padding: 5px 0px 5px 20px;
+    padding: 5px 0px 5px 22px;
     transition: 0.5s;
     cursor: pointer;
     width: 100vw;
@@ -70,7 +70,6 @@ nav:hover > ul li:hover > ul li{
     opacity: 1;
     height: 65px;
     pointer-events: all;
-    background-color: none;
     padding: 5px 0px 5px 45px;
 }
 nav:hover > ul li:hover > ul li:hover{

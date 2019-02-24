@@ -1,45 +1,80 @@
-fieldset {
+#container {
     height: 100%;
-    width: 100%;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
     position: relative;
-    padding: 20px 0px 20px 0px;
     
-    border: 3px solid var(--race-color);
-    box-shadow: 0px 0px 30px var(--race-color) inset;
     background-color: rgba(var(--race-color-d),0.7);
 }
-legend {
-    margin: 0px auto -20px auto;
-    padding: 0px 10px 0px 10px;
-}
-fieldset > div {
-    display: grid;
-    grid-template-columns: auto;
-    grid-gap: 20px;
-    justify-content: space-evenly;
+#container > div {
     position: absolute;
+    overflow: auto;
     width: 100%;
+    height: 100%;
+    padding-bottom: 20%;
 }
-fieldset > div > div {
-    height: 10vw;
-    width: 10vw;
-    margin-bottom: 20px;
+fieldset {
+    width: 100%;
+    border: 3px solid var(--race-color);
+    box-shadow: 0px 0px 30px var(--race-color) inset;
+}
+h3 {
+    color: var(--race-color);
+    text-shadow: 0px 0px 15px rgba(var(--race-color-d),1),
+        0px 0px 30px rgba(var(--race-color-d),1);
+}
+legend {
+    margin-bottom: 10px;
+}
+.itemGroup {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    
+    padding: 14px 0px 30px 0px;
+    border-width: 2px 0px 2px 0px;
+    background-color: rgba(var(--race-color-t),0.2);
+    
+    margin-bottom: 10px;
+}
+.itemGroup legend {
+    border: 0px;
+    background-color: transparent;
+}
+.grid-gap {
+    grid-gap: 10%;
 }
 .slot {
     border: solid 3px var(--race-color);
-    height: 10vw;
-    width: 10vw;
-    margin-bottom: 20px;
+    height: 7vw;
+    width: 7vw;
     background-color: rgba(var(--race-color-t),0.2);
     box-shadow: 0px 0px 20px rgba(var(--race-color-t),1) inset;
     text-align: center;
-    padding-top: 3.5vw;
+    padding-top: 2.3vw;
     font-weight: bold;
     color: var(--race-color);
 }
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
+}
+#warning {
+    position: absolute;
+    opacity: 0;
+    animation: warn 2s linear;
+    z-index: 1;
+    background-color: rgba(200,50,50,0.8);
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding-top: 50%;
+    
+    font-size: 1.5em;
+    font-weight: bold;
+}
+@keyframes warn {
+    1% { opacity: 1; }
+    8% { opacity: 0.5; }
+    15% { opacity: 1; }
 }

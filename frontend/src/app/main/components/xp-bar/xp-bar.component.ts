@@ -9,13 +9,24 @@ import { Lvl } from '../../shared/lvl-xp-borders'
 })
 export class XpBarComponent {
 
-    currentXp = this.characterService._character.value.xp
-    charName = this.characterService._character.value.name
+    private currentXp : number
+    private charName : string
 
-    currLvl = this.characterService._character.value.lvl
-    nextLvl = this.currLvl + 1
-    thisLvlXp = Lvl[this.characterService._character.value.lvl].fromXp
-    nextLvlXp = Lvl[this.characterService._character.value.lvl].toXp
+    private currLvl : number
+    private nextLvl : number
+    private thisLvlXp : number
+    private nextLvlXp : number
     
-  constructor( private characterService: CharacterService ) {}
+    
+  constructor( private characterService: CharacterService ) {
+      this.characterService.character$.subscribe( char => {
+        this.currentXp = this.characterService._character.value.xp
+        this.charName = this.characterService._character.value.name
+    
+        this.currLvl = this.characterService._character.value.lvl
+        this.nextLvl = this.currLvl + 1
+        this.thisLvlXp = Lvl[this.characterService._character.value.lvl].fromXp
+        this.nextLvlXp = Lvl[this.characterService._character.value.lvl].toXp
+      })
+  }
 }

@@ -10,97 +10,74 @@ import { Shop } from '../model/shop';
 
 export class CharacterService {
 
-    private item1: Item = {
-        id : 1,
-        name : "Lanze",
-        type : "weapon",
-        characterId : 3,
-        price : 123,
-        minimumLvl : 4,
-        damage : 120,
-        accuracy : 0.6,
-        critDamage : 3,
-        armor : 0,
-        agility : 0
-    }
-    private item3: Item = {
-        id : 3,
-        name : "Harpune",
-        type : "weapon",
-        characterId : 3,
-        price : 321,
-        minimumLvl : 4,
-        damage : 1000,
-        accuracy : 0.6,
-        critDamage : 3,
-        armor : 0,
-        agility : 0
-    }
-    private item2: Item = {
-        id : 2,
-        name : "flipflops",
-        type : "armor",
-        characterId : 3,
-        price : 666,
-        minimumLvl : 0,
-        damage : 0,
-        accuracy : 0,
-        critDamage : 0,
-        armor : 1,
-        agility : 4
-    }
     private char: Character = {
-        id : 1,
-        name : "Green Queen",
-        race : "monster",
-        playerID : 1,
-        money : 1500,
-        lvl : 4,
-        hp : 1200,
-        xp : 1900,
-        attack: 100,
-        strength : 3,
-        armor : 1,
-        accuracy : 7,
-        agility : 6,
-        criticalhitchance : 0.5,
-        ownedGear : [ this.item1, this.item2, this.item3 ],
-        equipped : [ this.item2 ]
+        id : 0,
+        name : "loading…",
+        race : "",
+        playerID : 0,
+        discs : 0,
+        lvl : 0,
+        hp : 0,
+        xp : 0,
+        attack: 0,
+        strength : 0,
+        armor : 0,
+        accuracy : 0,
+        agility : 0,
+        criticalhitchance : 0,
+        ownedItems : [],
+        equippedGear: {
+            weaponPrimary: null,
+            weaponSecondary: null,
+            armor: null,
+            special: null,
+        },
     }
     
-    public _character: BehaviorSubject<Character> = new BehaviorSubject<Character>(this.char)
-    public readonly character$: Observable<Character> = this._character.asObservable()
+    changesToSave: boolean = false
+    ignoreFirstChangesCount = 2
+
+    _character: BehaviorSubject<Character> = new BehaviorSubject<Character>(this.char)
+    readonly character$: Observable<Character> = this._character.asObservable()
 
     constructor() {
-        this.char.equipped.forEach( item => this.setCharStats(item) )
+        this.character$.subscribe( char => {
+            this.char = char
+
+            if (this.ignoreFirstChangesCount <= 0) {
+                this.changesToSave = true
+            } else {
+                --this.ignoreFirstChangesCount
+            }
+        })
     }
     
     removeFromInventory ( item: Item ) {
-        this.char.ownedGear = this.char.ownedGear.filter( arrItem => (arrItem !== item) )
-        this.unequipp( item )
+        this.char.ownedItems = this.char.ownedItems.filter( arrItem => (arrItem !== item) )
+        
         this._character.next(this.char)
+        
+        this.unequip(item.itemType)
     }
     
-    unequipp ( item: Item ) {
-        this.char.equipped = this.char.equipped.filter( arrItem => (arrItem !== item) )
+    unequip ( which:String ) {
+        switch ( which.toLowerCase() ){
+            case "weaponprimary":
+                this.char.equippedGear.weaponPrimary = null
+                break
+            case "weaponsecondary":
+                this.char.equippedGear.weaponSecondary = null
+                break
+            case "armor":
+                this.char.equippedGear.armor = null
+                break
+            case "special":
+                this.char.equippedGear.special = null
+                break
+            case "weapon":
+                this.char.equippedGear.weaponPrimary = null
+                this.char.equippedGear.weaponSecondary = null
+        }
         this._character.next(this.char)
-
-        this.resetCharStats(item)
-    }
-    
-    setCharStats ( item: Item ) {
-        this.char.attack += item.damage
-        this.char.accuracy += item.accuracy
-        this.char.criticalhitchance += item.critDamage
-        this.char.armor += item.armor
-        this.char.agility += item.agility
-    }
-    
-    resetCharStats ( item: Item ) {
-            this.char.attack -= item.damage
-            this.char.accuracy -= item.accuracy
-            this.char.criticalhitchance -= item.critDamage
-            this.char.armor -= item.armor
-            this.char.agility -= item.agility
     }
 }
